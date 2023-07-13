@@ -296,7 +296,7 @@ If you have any questions or need further assistance, please don't hesitate to r
 6.  ```python3 get_genomes_by_id_bv-brcdb.py ```
 
 
-## Script 8: HMMER Table Converter: convert_hmm_output_to_table.py.py
+## Script 8: HMMER Table Converter: convert_hmm_output_to_table.py
 
 **This is a Python script for converting HMMER output tables into a more user-friendly format. It reads HMMER output files in either tblout or domtblout format and converts them into a tab-separated values (TSV) file.
 
