@@ -415,7 +415,7 @@ Make sure you have the following software installed in your environment before r
 
 - This project is licensed under the MIT License. See the LICENSE file for more information.
 
-**If Bioinformatics utilities was useful provide proper credits for the Authors: Leandro de Mattos Pereira and Pedro Leão / CNP-CIIMAR git-hub**
+**If the Bioinformatics utilities was useful please provide proper credits for the Authors: Leandro de Mattos Pereira and Pedro Nuno Leão / CNP-CIIMAR git-hub**
 
 ## More about:
 
