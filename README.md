@@ -381,6 +381,37 @@ The assert_acceptable_arguments function is used to validate the input arguments
 
 **The script utilizes the pandas library for data manipulation and provides a convenient way to extract species information from the query_description column using regular expressions.**
 
+
+# Script 9: get_taxonomic_rank_specie.py:
+
+**Este script em Python é usado para baixar os níveis taxonômicos de uma lista de espécies e salvar os resultados em um arquivo TSV.**
+
+ ```bash
+# get_taxonomic_rank_specie.py
+ ```bash
+This Python script is used to download the taxonomic ranks of a list of species and save the results in a TSV file.
+
+## Requirements
+
+Make sure you have the following software installed in your environment before running the script:
+
+- Python 3 (version 3.6 or higher)
+- `ete3` package (you can install it using `pip install ete3`)
+
+## How to Use
+
+1. Download the `get_taxonomic_rank_specie.py` file to your local directory.
+
+2. Open a terminal or command prompt and navigate to the directory where you downloaded the `get_taxonomic_rank_specie.py` file.
+
+3. Ensure you have a prepared species list file. The file should have one species per line.
+
+4. Run the following command to start the script and download the taxonomic ranks:
+
+   ```bash
+   python get_taxonomic_rank_specie.py species_list_file.txt output_file.tsv
+ ```bash
+
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for more information.
