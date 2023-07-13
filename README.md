@@ -415,7 +415,7 @@ Make sure you have the following software installed in your environment before r
 
 - This project is licensed under the MIT License. See the LICENSE file for more information.
 
-**If the Bioinformatics utilities was useful please provide proper credits for the Authors: Leandro de Mattos Pereira and Pedro Nuno Leão / CNP-CIIMAR git-hub**
+**If the Bioinformatics utilities were useful, please give proper credit to the authors or include the following citation: "CNP-CIIMAR GitHub [https://github.com/CNP-CIIMAR]."**
 
 ## More about:
 
