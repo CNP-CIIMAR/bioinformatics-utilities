@@ -410,6 +410,40 @@ Make sure you have the following software installed in your environment before r
 ```bash
    python get_taxonomic_rank_specie.py species_list_file.txt output_file.tsv
  ```
+# Script 9: filter_dup_gca_gcf_keep_gcf.py
+# Tabela de Filtro
+
+Este é um script em Python para filtrar uma tabela com base nos números de acesso de organismos.
+
+## Requisitos
+
+- Python 3.x
+
+## Como usar
+
+1. Certifique-se de ter o Python 3.x instalado em seu sistema.
+2. Faça o download deste repositório ou copie o conteúdo do arquivo `script.py`.
+3. Abra um terminal ou prompt de comando.
+4. Navegue até o diretório onde o arquivo `script.py` está localizado.
+5. Execute o seguinte comando:
+
+   ```shell
+   python script.py <caminho_para_tabela> <caminho_para_output>
+```
+- Substitua <caminho_para_tabela> pelo caminho para o arquivo contendo a tabela que deseja filtrar e <caminho_para_output> pelo caminho para o arquivo de saída onde a tabela filtrada será gravada.
+
+- O script filtrará a tabela com base nos números de acesso de organismos e gravará a nova tabela filtrada no arquivo de saída especificado.
+## Exemplo
+- Suponha que você tenha um arquivo chamado tabela.txt contendo a tabela a ser filtrada. Para filtrar a tabela e gravar o resultado em tabela_filtrada.txt, execute o seguinte comando:
+  ```shell
+python script.py tabela.txt tabela_filtrada.txt
+```
+## Observações
+- Certifique-se de que a tabela esteja no formato adequado, com as colunas corretamente separadas por tabulação (\t).
+- Certifique-se de ter as permissões necessárias para gravar o arquivo de saída no caminho especificado.
+
+
+## Certifique-se de substituir as seções `<caminho_para_tabela>` e `<caminho_para_output>` pelas informações adequadas. 
 
 ## License
 
