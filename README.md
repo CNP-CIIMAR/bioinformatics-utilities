@@ -443,7 +443,7 @@ python script.py tabela.txt tabela_filtrada.txt ```
 - Certifique-se de ter as permissões necessárias para gravar o arquivo de saída no caminho especificado.
 
 
-## Certifique-se de substituir as seções `<caminho_para_tabela>` e `<caminho_para_output>` pelas informações adequadas. 
+- Certifique-se de substituir as seções `<caminho_para_tabela>` e `<caminho_para_output>` pelas informações adequadas. 
 
 ## License
 
