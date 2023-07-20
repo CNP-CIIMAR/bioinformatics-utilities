@@ -411,37 +411,29 @@ Make sure you have the following software installed in your environment before r
    python get_taxonomic_rank_specie.py species_list_file.txt output_file.tsv
  ```
 # Script 9: filter_dup_gca_gcf_keep_gcf.py
-# Tabela de Filtro
 
-Este é um script em Python para filtrar uma tabela com base nos números de acesso de organismos.
+# Filter Tab-separated values (TSV) obtained from NCBI datasets/genome (https://www.ncbi.nlm.nih.gov/datasets/genome/) to keep only genomes GCF(REFSEQ) when have GCF and GCA (GenBank Assembly) or keep only GCA when only have GCA.
 
-## Requisitos
+
+## Requirements
 
 - Python 3.x
 
-## Como usar
+## How to Use
 
-1. Certifique-se de ter o Python 3.x instalado em seu sistema.
-2. Faça o download deste repositório ou copie o conteúdo do arquivo `script.py`.
-3. Abra um terminal ou prompt de comando.
-4. Navegue até o diretório onde o arquivo `script.py` está localizado.
-5. Execute o seguinte comando:
+1. Make sure you have Python 3.x installed on your system.
+2. Download this repository or copy the contents of the `script.py` file.
+3. Open a terminal or command prompt.
+4. Navigate to the directory where the `script.py` file is located.
+5. Run the following command:
 
-```shell
-   python script.py <caminho_para_tabela> <caminho_para_output>
-```
-- Substitua <caminho_para_tabela> pelo caminho para o arquivo contendo a tabela que deseja filtrar e <caminho_para_output> pelo caminho para o arquivo de saída onde a tabela filtrada será gravada.
-
-- O script filtrará a tabela com base nos números de acesso de organismos e gravará a nova tabela filtrada no arquivo de saída especificado.
-## Exemplo
-- Suponha que você tenha um arquivo chamado tabela.txt contendo a tabela a ser filtrada. Para filtrar a tabela e gravar o resultado em tabela_filtrada.txt, execute o seguinte comando:
-```shell
-  python script.py tabela.txt tabela_filtrada.txt 
-```
-## Observações
-- Certifique-se de que a tabela esteja no formato adequado, com as colunas corretamente separadas por tabulação (\t).
-- Certifique-se de ter as permissões necessárias para gravar o arquivo de saída no caminho especificado.
-- Certifique-se de substituir as seções `<caminho_para_tabela>` e `<caminho_para_output>` pelas informações adequadas. 
+   ```shell
+   python script.py <table_path> <output_path>
+     ```
+## Comments
+- Make sure the table is in the proper format, with columns acoustic correctly by tab (\t).
+- Make sure you have the necessary permissions to write the output file to the specified path.
+- Be sure to replace the `<path_to_table>` and `<path_to_output>` sections with the following information
 
 ## License
 
