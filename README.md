@@ -436,7 +436,8 @@ Este é um script em Python para filtrar uma tabela com base nos números de ace
 ## Exemplo
 - Suponha que você tenha um arquivo chamado tabela.txt contendo a tabela a ser filtrada. Para filtrar a tabela e gravar o resultado em tabela_filtrada.txt, execute o seguinte comando:
   ```shell
-python script.py tabela.txt tabela_filtrada.txt ```
+python script.py tabela.txt tabela_filtrada.txt 
+```
 
 ## Observações
 - Certifique-se de que a tabela esteja no formato adequado, com as colunas corretamente separadas por tabulação (\t).
