@@ -435,15 +435,12 @@ Este é um script em Python para filtrar uma tabela com base nos números de ace
 - O script filtrará a tabela com base nos números de acesso de organismos e gravará a nova tabela filtrada no arquivo de saída especificado.
 ## Exemplo
 - Suponha que você tenha um arquivo chamado tabela.txt contendo a tabela a ser filtrada. Para filtrar a tabela e gravar o resultado em tabela_filtrada.txt, execute o seguinte comando:
-  ```shell
-python script.py tabela.txt tabela_filtrada.txt 
+```shell
+  python script.py tabela.txt tabela_filtrada.txt 
 ```
-
 ## Observações
 - Certifique-se de que a tabela esteja no formato adequado, com as colunas corretamente separadas por tabulação (\t).
 - Certifique-se de ter as permissões necessárias para gravar o arquivo de saída no caminho especificado.
-
-
 - Certifique-se de substituir as seções `<caminho_para_tabela>` e `<caminho_para_output>` pelas informações adequadas. 
 
 ## License
