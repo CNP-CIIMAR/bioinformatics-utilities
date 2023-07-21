@@ -412,8 +412,7 @@ Make sure you have the following software installed in your environment before r
  ```
 # Script 9: filter_dup_gca_gcf_keep_gcf.py
 
-# Filter Tab-separated values (TSV) obtained from NCBI datasets/genome (https://www.ncbi.nlm.nih.gov/datasets/genome/) to keep only genomes GCF(REFSEQ) when have GCF and GCA (GenBank Assembly) or keep only GCA when only have GCA.
-
+**"This is a Python script for filtering Tab-separated values (TSV) obtained from NCBI datasets/genomes (https://www.ncbi.nlm.nih.gov/datasets/genome/). The script creates a new table and retains only genomes with GCF (REFSEQ) when they have both GCF and GCA (GenBank Assembly), or keeps only GCA when there is no GCF available.**
 
 ## Requirements
 
