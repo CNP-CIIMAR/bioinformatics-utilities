@@ -386,7 +386,8 @@ The assert_acceptable_arguments function is used to validate the input arguments
 
 **Este script em Python é usado para baixar os níveis taxonômicos de uma lista de espécies e salvar os resultados em um arquivo TSV.**
 
- ```bash # get_taxonomic_rank_specie.py
+```bash
+python get_taxonomic_rank_specie.py lista_species
 ```
 This Python script is used to download the taxonomic ranks of a list of species and save the results in a TSV file.
 
