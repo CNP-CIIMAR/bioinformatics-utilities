@@ -443,7 +443,7 @@ python filter_dup_gca_gcf_keep_gcf.py <table_path> <output_path>
 
 - This project is licensed under the MIT License. See the LICENSE file for more information.
 
-**If the Bioinformatics utilities were useful, please give proper credit to the authors or include the following citation: "CNP-CIIMAR GitHub [https://github.com/CNP-CIIMAR]."**
+**If the Bioinformatics scripts utilities were useful, please give proper credit to the authors or include the following citation: "CNP-CIIMAR GitHub [https://github.com/CNP-CIIMAR]."**
 
 ## More about:
 
