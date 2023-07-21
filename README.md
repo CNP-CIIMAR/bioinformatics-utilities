@@ -411,7 +411,7 @@ Make sure you have the following software installed in your environment before r
 ```bash
    python get_taxonomic_rank_specie.py species_list_file.txt output_file.tsv
  ```
-# Script 9: filter_dup_gca_gcf_keep_gcf.py
+# Script 10: filter_dup_gca_gcf_keep_gcf.py
 
 **"This is a Python script for filtering Tab-separated values (TSV) obtained from NCBI datasets/genomes (https://www.ncbi.nlm.nih.gov/datasets/genome/). The script creates a new table and retains only genomes with GCF (REFSEQ) when this specie genome have both GCF (format for RefSeq, NCBI-derived assembly accessions) and GCA (format for GenBank primary assembly accessions), or keeps only GCA in the output table when there is no GCF available.**
 
