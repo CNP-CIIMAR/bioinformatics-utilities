@@ -426,9 +426,9 @@ Make sure you have the following software installed in your environment before r
 4. Navigate to the directory where the `script.py` file is located.
 5. Run the following command:
 
-   ```shell
-   python script.py <table_path> <output_path>
-     ```
+```bash
+python filter_dup_gca_gcf_keep_gcf.py <table_path> <output_path>
+ ```
 ## Comments
 - Make sure the table is in the proper format, with columns acoustic correctly by tab (\t).
 - Make sure you have the necessary permissions to write the output file to the specified path.
