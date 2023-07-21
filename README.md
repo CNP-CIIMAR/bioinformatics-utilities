@@ -288,13 +288,13 @@ If you have any questions or need further assistance, please don't hesitate to r
 3.  Create one list of Genome ID of BV-BRC database
 4.  Save the ID into the file named Genomes_id
 
-Example of content of the file Genome_id:
+Example of content of the file Genome_id: <br>
+1033813.3 <br>
+1038927.31 <br>
+1038927.40 <br>
+1038927.41 <br>
+1038927.45 <br>
 
-1033813.3
-1038927.31
-1038927.40
-1038927.41
-1038927.45
 
 6.  ```python3 get_genomes_by_id_bv-brcdb.py ```
 
