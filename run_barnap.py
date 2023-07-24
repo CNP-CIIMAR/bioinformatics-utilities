@@ -36,3 +36,5 @@ if __name__ == "__main__":
     directory = sys.argv[1]
     process_contigs(directory)
 
+
+
