@@ -439,6 +439,26 @@ python filter_dup_gca_gcf_keep_gcf.py <table_path> <output_path>
 - Make sure you have the necessary permissions to write the output file to the specified path.
 - Be sure to replace the `<path_to_table>` and `<path_to_output>` sections with the following information
 
+# Script 10:
+
+## Subdirectory Verifier
+## Description
+This Python script verifies the presence of subdirectories based on a provided list of genomes. It compares the names of subdirectories in a specified directory with the names listed in a file. The script then generates a .txt file containing information on which subdirectories are present and which are not.
+
+## Requirements
+Python 3.x
+Usage
+
+Installation
+Clone the repository to your local computer:
+```bash
+git clone https://github.com/CNP-CIIMAR/bioinformatics-utilities
+ ```
+## Execution
+- Navigate to the directory where the check_subdirectories.py script is located and run the following command:
+```bash
+python check_subdirectories.py /path/to/directory /path/to/coluna1_genomas_download_19_set2023
+ ```
 ## License
 
 - This project is licensed under the MIT License. See the LICENSE file for more information.
