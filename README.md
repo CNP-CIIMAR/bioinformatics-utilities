@@ -439,7 +439,7 @@ python filter_dup_gca_gcf_keep_gcf.py <table_path> <output_path>
 - Make sure you have the necessary permissions to write the output file to the specified path.
 - Be sure to replace the `<path_to_table>` and `<path_to_output>` sections with the following information
 
-# Script 11:
+# Script 11: check_genome_folder_subdirectories.py
 
 ## Subdirectory Verifier
 ## Description
