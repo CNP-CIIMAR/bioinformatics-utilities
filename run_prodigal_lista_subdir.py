@@ -27,9 +27,10 @@ for subdir in subdirectories:
             for input_genome_file in input_genome_files:
                 input_genome_path = os.path.join(subdir_path, input_genome_file)
                 output_gbk_path = os.path.join(subdir_path, "genomic.gbk")
+                output_faa_path = os.path.join(subdir_path, "protein.faa")
 
-                # Executa o Prodigal para gerar o arquivo GBK
-                subprocess.run(["prodigal", "-i", input_genome_path, "-o", output_gbk_path, "-f", "gbk"])
+                # Executa o Prodigal para gerar os arquivos GBK e FAA
+                subprocess.run(["prodigal", "-i", input_genome_path, "-o", output_gbk_path, "-a", output_faa_path, "-f", "gbk"])
 
 # Imprime mensagem de conclusão
 print("Prodigal concluído para os subdiretórios listados.")
