@@ -5,11 +5,11 @@ import sys
 import pandas as pd
 
 
-def main(models_dir):
+def main(models_dir, fastas_dir):
     EVALUE = "0.00000000000000000001"
 
     # Coletar todos os arquivos .faa
-    fastas = [f for f in os.listdir() if f.endswith(".faa")]
+    fastas = [f for f in os.listdir(fastas_dir) if f.endswith(".faa")]
 
     # Coletar todos os modelos HMM
     models = [os.path.join(models_dir, f) for f in os.listdir(models_dir) if f.endswith(".hmm")]
@@ -159,7 +159,8 @@ def convert_hmmer_table(input_path, output_path):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Execute hmmsearch em arquivos .faa usando modelos do diretório fornecido.")
     parser.add_argument("models_dir", help="Diretório contendo os modelos HMM (.hmm).")
+    parser.add_argument("fastas_dir", help="Diretório contendo os arquivos FASTA (.faa).")
     args = parser.parse_args()
 
-    main(args.models_dir)
+    main(args.models_dir, args.fastas_dir)
 
