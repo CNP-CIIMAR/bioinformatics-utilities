@@ -464,6 +464,37 @@ git clone https://github.com/CNP-CIIMAR/bioinformatics-utilities
 ```bash
 python check_subdirectories.py /path/to/directory /path/to/coluna1_genomas_download_19_set2023
  ```
+# Script 12: Homologous Sequences Extractor: HomologousSequencesExtractor.py
+This script serves as a tool to run a series of bioinformatics commands, which include performing alignments with MAFFT, constructing HMM models with HMMER, and searching sequences using HMMER. Additionally, the script also performs analyses on the extracted sequences using InterProScan via its API.
+Prerequisites
+Python 3.x
+requests library (for the InterProScan API)
+MAFFT
+HMMER
+InterProScan (optional, if local execution is desired)
+
+## How to Use
+To use this script, you need to provide several arguments:
+--input_fasta: Path to the input fasta file (Fasta sequences which you want to build a Markov model)
+--output_mafft: Path to the MAFFT output file.
+--output_hmm: Path to the HMM output file.
+--fasta_directory: Directory containing fasta files.
+--ref_db: Path to the reference database fasta file.
+--output_directory: Directory to save output files.
+
+## Usage example:
+```bash
+python3 HomologousSequencesExtractor.py --input_fasta your_input_file.fasta --output_mafft output_mafft_synthetic.fasta --output_hmm output_hmm_synthetic.hmm --fasta_directory ./test_fastas/ --ref_db reference_database.fasta --output_directory output_test
+ ```
+Functions in the code:
+run_mafft: Performs sequence alignment using MAFFT.
+run_hmmbuild: Constructs an HMM model using HMMER.
+run_hmmpress: Presses the HMM file to prepare it for searches.
+run_hmmsearch: Searches sequences in a directory using the HMM model.
+run_interproscan_api: Executes analyses on extracted sequences using InterProScan via its API.
+Notes
+When using the run_interproscan_api function, be aware that the InterProScan API might have limitations regarding file size or the number of requests. Additional adaptations might be necessary based on the user's requirements.
+
 ## License
 
 - This project is licensed under the MIT License. See the LICENSE file for more information.
