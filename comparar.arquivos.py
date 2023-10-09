@@ -36,3 +36,4 @@ if __name__ == '__main__':
             print("Linhas diferentes encontradas:")
             for linha, arquivo in diferentes:
                 print(f"Linha '{linha}' encontrada no arquivo '{arquivo}'.")
+
