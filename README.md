@@ -506,8 +506,8 @@ argparse
 pandas
 # You can install these with:
 ```bash
-pip install requests pandas ```
-
+pip install requests pandas 
+```
 ## How to Use
 **To run the script, you need an input file containing a list of RefSeq Protein IDs and an output file path where the results will be saved in TSV format.**
 ## Example
@@ -539,23 +539,23 @@ python protein_mapping_refseq_uniprotkb.py protein_list.txt output.tsv
 ## Data Columns
 ## The script fetches and outputs the following columns for each RefSeq Protein ID:
 
-From_ID: The original RefSeq Protein ID.
-To_ID: The corresponding UniProtKB ID.
-Entry_Type: The type of UniProtKB entry, e.g., Swiss-Prot or TrEMBL.
-Description: Full name of the protein.
-Primary_Accession: The primary accession number of the protein in UniProtKB.
-Proteomes: Information related to the proteomes the protein is a part of.
-ID: Identifier values associated with the protein.
-Lineage: Taxonomic lineage of the protein.
-COFACTOR: Cofactor associated with the protein.
-InterPro: InterPro identifiers associated with the protein.
-SUPFAM: SUPFAM identifiers associated with the protein.
-Sequence: Amino acid sequence of the protein.
-GoTerm: Gene Ontology terms associated with the protein.
-RHEA_Reaction_ID: RHEA reaction identifiers associated with the protein.
-GO_Term_RHEA: GO terms that are linked with RHEA reactions for the protein.
-EC_Classes: Enzyme Commission numbers for the protein.
-Kegg: KEGG database identifiers for the protein.
+1. **From_ID**: The original RefSeq Protein ID.
+2. **To_ID**: The corresponding UniProtKB ID.
+3. **Entry_Type**: The type of UniProtKB entry, e.g., Swiss-Prot or TrEMBL.
+4. **Description**: Full name of the protein.
+5. **Primary_Accession**: The primary accession number of the protein in UniProtKB.
+6. **Proteomes**: Information related to the proteomes the protein is a part of.
+7. **ID**: Identifier values associated with the protein.
+8. **Lineage**: Taxonomic lineage of the protein.
+9. **COFACTOR**: Cofactor associated with the protein.
+10. **InterPro**: InterPro identifiers associated with the protein.
+11. **SUPFAM**: SUPFAM identifiers associated with the protein.
+12. **Sequence**: Amino acid sequence of the protein.
+13. **GoTerm**: Gene Ontology terms associated with the protein.
+14. **RHEA_Reaction_ID**: RHEA reaction identifiers associated with the protein.
+15. **GO_Term_RHEA**: GO terms that are linked with RHEA reactions for the protein.
+16. **EC_Classes**: Enzyme Commission numbers for the protein.
+17. **Kegg**: KEGG database identifiers for the protein.
 
 ## License
 
