@@ -2,7 +2,9 @@ import pandas as pd
 import json
 import sys
 import argparse
-
+#Author: Leandro de Mattos Pereira
+# CNP -Team
+#Team Leader. Pedro Leão
 def process_text_to_dataframe(text):
     # Divide o texto em linhas
     lines = text.strip().split("\n")
