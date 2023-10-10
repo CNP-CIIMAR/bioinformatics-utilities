@@ -557,7 +557,9 @@ python protein_mapping_refseq_uniprotkb.py protein_list.txt output.tsv
 16. **EC_Classes**: Enzyme Commission numbers for the protein.
 17. **Kegg**: KEGG database identifiers for the protein.
 
-# Script 14: parser_protein_mapping_output_api_refseq_to_uniprokb.py, Processing text output  generate from script: protein_mapping_refseq_uniprotkb.py to Excel and TSV friendly format
+# Script 14: parser_protein_mapping_output_api_refseq_to_uniprokb.py
+
+**Processing text output  generate from script: protein_mapping_refseq_uniprotkb.py to Excel and TSV friendly format**
 
 This script processes a given text file, structures the data into a pandas DataFrame, and then exports the data to both Excel and TSV formats.
 
