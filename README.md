@@ -495,6 +495,68 @@ run_interproscan_api: Executes analyses on extracted sequences using InterProSca
 Notes
 When using the run_interproscan_api function, be aware that the InterProScan API might have limitations regarding file size or the number of requests. Additional adaptations might be necessary based on the user's requirements.
 
+# Script 13: Homologous Sequences Extractor: protein_mapping_refseq_uniprotkb.p
+## UniProtKB ID Mapper
+## This script maps RefSeq Protein IDs to UniProtKB IDs using the UniProt REST API. It fetches various attributes for each protein, such as entry type, description, lineage, and other relevant data.
+
+Dependencies
+requests
+time
+argparse
+pandas
+# You can install these with:
+```bash
+pip install requests pandas
+ ```
+## How to Use
+**To run the script, you need an input file containing a list of RefSeq Protein IDs and an output file path where the results will be saved in TSV format.**
+## Example
+# Given an input file named protein_list.txt with the following content:
+Protein.accession
+PYQ20818.1
+PYQ09033.1
+MCP4380582.1
+MBX7220068.1
+MBT5902101.1
+WP_247365613.1
+WP_052809540.1
+KIH99630.1
+HBH72471.1
+MCE9613943.1
+OGL16068.1
+WP_015206076.1
+WP_002624887.1
+BDT34836.1
+NEZ58459.1
+WP_249268147.1
+WP_002799844.1
+WP_264323877.1
+
+# You can map the IDs to UniProtKB IDs and fetch the associated data with:
+```bash
+python protein_mapping_refseq_uniprotkb.py protein_list.txt output.tsv
+```bash
+## Data Columns
+## The script fetches and outputs the following columns for each RefSeq Protein ID:
+
+From_ID: The original RefSeq Protein ID.
+To_ID: The corresponding UniProtKB ID.
+Entry_Type: The type of UniProtKB entry, e.g., Swiss-Prot or TrEMBL.
+Description: Full name of the protein.
+Primary_Accession: The primary accession number of the protein in UniProtKB.
+Proteomes: Information related to the proteomes the protein is a part of.
+ID: Identifier values associated with the protein.
+Lineage: Taxonomic lineage of the protein.
+COFACTOR: Cofactor associated with the protein.
+InterPro: InterPro identifiers associated with the protein.
+SUPFAM: SUPFAM identifiers associated with the protein.
+Sequence: Amino acid sequence of the protein.
+GoTerm: Gene Ontology terms associated with the protein.
+RHEA_Reaction_ID: RHEA reaction identifiers associated with the protein.
+GO_Term_RHEA: GO terms that are linked with RHEA reactions for the protein.
+EC_Classes: Enzyme Commission numbers for the protein.
+Kegg: KEGG database identifiers for the protein.
+
 ## License
 
 - This project is licensed under the MIT License. See the LICENSE file for more information.
