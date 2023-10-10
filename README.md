@@ -512,32 +512,33 @@ pip install requests pandas
 **To run the script, you need an input file containing a list of RefSeq Protein IDs and an output file path where the results will be saved in TSV format.**
 ## Example
 # Given an input file named protein_list.txt with the following content:
-Protein.accession
-PYQ20818.1
-PYQ09033.1
-MCP4380582.1
-MBX7220068.1
-MBT5902101.1
-WP_247365613.1
-WP_052809540.1
-KIH99630.1
-HBH72471.1
-MCE9613943.1
-OGL16068.1
-WP_015206076.1
-WP_002624887.1
-BDT34836.1
-NEZ58459.1
-WP_249268147.1
-WP_002799844.1
-WP_264323877.1
+- Protein.accession
+- PYQ20818.1
+- PYQ09033.1
+- MCP4380582.1
+- MBX7220068.1
+- MBT5902101.1
+- WP_247365613.1
+- WP_052809540.1
+- KIH99630.1
+- HBH72471.1
+- MCE9613943.1
+- OGL16068.1
+- WP_015206076.1
+- WP_002624887.1
+- BDT34836.1
+- NEZ58459.1
+- WP_249268147.1
+- WP_002799844.1
+- WP_264323877.1
+
 
 # You can map the IDs to UniProtKB IDs and fetch the associated data with:
 ```bash
 python protein_mapping_refseq_uniprotkb.py protein_list.txt output.tsv
  ```
 ## Data Columns
-## The script fetches and outputs the following columns for each RefSeq Protein ID:
+## The script fetches and outputs the following columns for each RefSeq Protein ID from UniprotkB:
 
 1. **From_ID**: The original RefSeq Protein ID.
 2. **To_ID**: The corresponding UniProtKB ID.
