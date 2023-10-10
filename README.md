@@ -506,8 +506,8 @@ argparse
 pandas
 # You can install these with:
 ```bash
-pip install requests pandas
- ```
+pip install requests pandas ```
+
 ## How to Use
 **To run the script, you need an input file containing a list of RefSeq Protein IDs and an output file path where the results will be saved in TSV format.**
 ## Example
@@ -535,7 +535,7 @@ WP_264323877.1
 # You can map the IDs to UniProtKB IDs and fetch the associated data with:
 ```bash
 python protein_mapping_refseq_uniprotkb.py protein_list.txt output.tsv
-```bash
+ ```
 ## Data Columns
 ## The script fetches and outputs the following columns for each RefSeq Protein ID:
 
