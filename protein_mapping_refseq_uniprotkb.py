@@ -2,7 +2,9 @@ import requests
 import time
 import argparse
 import pandas as pd
-
+#Author: Leandro de Mattos Pereira
+# CNP -Team
+#Team Leader. Pedro Leão
 def submit_mapping_request(ids_list):
     """Submit the mapping request to UniProt."""
     url = "https://rest.uniprot.org/idmapping/run"
