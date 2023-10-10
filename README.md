@@ -495,7 +495,7 @@ run_interproscan_api: Executes analyses on extracted sequences using InterProSca
 Notes
 When using the run_interproscan_api function, be aware that the InterProScan API might have limitations regarding file size or the number of requests. Additional adaptations might be necessary based on the user's requirements.
 
-# Script 13: ## UniProtKB ID Mapper: protein_mapping_refseq_uniprotkb.py
+# Script 13: UniProtKB ID Mapper: protein_mapping_refseq_uniprotkb.py
 ## This script maps RefSeq Protein IDs to UniProtKB IDs using the UniProt REST API. It fetches various attributes for each protein, such as entry type, description, lineage, and other relevant data.
 
 Dependencies
@@ -557,6 +557,24 @@ python protein_mapping_refseq_uniprotkb.py protein_list.txt output.tsv
 16. **EC_Classes**: Enzyme Commission numbers for the protein.
 17. **Kegg**: KEGG database identifiers for the protein.
 
+# Script 14: parser_protein_mapping_output_api_refseq_to_uniprokb.py, Processing text output  generate from script: protein_mapping_refseq_uniprotkb.py to Excel and TSV friendly format
+
+This script processes a given text file, structures the data into a pandas DataFrame, and then exports the data to both Excel and TSV formats.
+
+# Features
+
+- Parses text data with tab-separated values.
+- Extracts JSON formatted data from the "Sequence" column, and appends it as separate columns.
+- Handles errors gracefully, emitting warnings for problematic rows.
+- Outputs the structured data to both Excel and TSV formats.
+
+# Requirements:
+. pandas
+- You can install the required library using:
+
+```bash
+pip install pandas
+ ```
 ## License
 
 - This project is licensed under the MIT License. See the LICENSE file for more information.
