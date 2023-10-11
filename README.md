@@ -593,8 +593,8 @@ This is a Python script that generates heatmaps based on data collected from ove
 
 2. Execute the script by providing the directory containing the overview files as an argument. For example:
 
-   ```shell
-   python dbscan_analysis_graph_heatmapv2.py /path/to/your/directories/withoverviewfiles
+```bash
+python dbscan_analysis_graph_heatmapv2.py /path/to/your/directories/withoverviewfiles
  ```
 This will generate heatmaps and count tables for different types of data found in the overview files.
 
