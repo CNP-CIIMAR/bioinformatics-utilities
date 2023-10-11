@@ -298,7 +298,11 @@ Example of content of the file Genome_id:
 
 6.  ```python3 get_genomes_by_id_bv-brcdb.py ```
 
-## Script 9: HMMER Table Converter: proteinsearchhmm.py
+## Script 9: ProteinHMM
+
+A tool to perform hmmsearch searches on .faa files using HMM models from one provided directory and then convert the results to .tsv format.
+
+proteinsearchhmm.py MMER Table Converter:
 
 ** This Python script performs hmmsearch searches on .faa files using provided HMM models and then converting HMMER output tables into a more user-friendly format .tsv for easy viewing and analysis.
 
