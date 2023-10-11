@@ -5,7 +5,9 @@ import argparse
 from collections import defaultdict, Counter
 import seaborn as sns
 import matplotlib.pyplot as plt
-
+# Author: Leandro de Mattos Pereira
+# CNP team - Leao Laboratory
+# 11/10/2023
 def collect_data_from_overviews(directory):
     data_diamond = defaultdict(Counter)
     data_dbCAN_sub = defaultdict(Counter)
