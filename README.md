@@ -729,13 +729,15 @@ python3 concatenate_results_dbcan_diamond_hmmer.py [directory_path_with_run_dbsc
 ## Output
 - The script outputs a single TSV file named final_output_hmmer.tsv, which contains concatenated data from all diamond.out files and includes an additional column specifying the species name, extracted from the directory name.
 
-##Script 20: Move Matching Partial Genome Files names
+## Script 20: move_genome_files_from_list.py
+
+## Move Matching Partial Genome Files names
 
 This repository contains a Python script for moving Genome files with end sufix .fna based on partial names found in a text file. The script is useful for organizing files in directories, especially when dealing with large datasets or project files.
 
 ## Description
 
-The `move_files.py` script reads a text file containing partial file names. It then searches for files that match these partial names in a provided directory and moves these files to a new destination directory.
+The `move_genome_files_from_list.py` script reads a text file containing partial file names. It then searches for files that match these partial names in a provided directory and moves these files to a new destination directory.
 
 ## Requirements
 
@@ -756,7 +758,7 @@ To use the script, you need to provide three arguments:
 Example usage:
 
 ```bash
-python move_files.py /path/to/source_directory /path/to/exclude_genome.txt destination_directory
+python move_genome_files_from_list.py /path/to/source_directory /path/to/exclude_genome.txt genomes_missing_run
 
 ## More about:
 [Junior Researcher, Leandro de Mattos Pereira](https://mattoslmp.github.io)
