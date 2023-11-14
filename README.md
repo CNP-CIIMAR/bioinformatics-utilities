@@ -759,7 +759,7 @@ Example usage:
 
 ```bash
 python move_genome_files_from_list.py /path/to/source_directory /path/to/exclude_genome.txt genomes_missing_run
-
+ ```
 ## More about:
 [Junior Researcher, Leandro de Mattos Pereira](https://mattoslmp.github.io)
 
