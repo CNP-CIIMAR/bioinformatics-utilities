@@ -421,7 +421,7 @@ python extract_fasta.py identifiers.tsv sequences.fasta output.fasta
 2. **Searching in the FASTA File**: Searches for corresponding sequences in the FASTA file using the extracted IDs.
 3. **Writing Sequences**: Writes all found sequences into a single output FASTA file.
 
-**# Script 10: get_taxonomic_rank_specie.py:
+## Script 10: get_taxonomic_rank_specie.py:
 
 **Este script em Python é usado para baixar os níveis taxonômicos de uma lista de espécies e salvar os resultados em um arquivo TSV.**
 
