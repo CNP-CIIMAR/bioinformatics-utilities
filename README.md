@@ -418,6 +418,37 @@ Make sure you have the following software installed in your environment before r
 ```bash
    python get_taxonomic_rank_specie.py species_list_file.txt output_file.tsv
  ```
+
+## Script 9.1: Extractor de Sequências FASTA
+
+## Descrição
+Este script Python é projetado para extrair sequências FASTA específicas de um arquivo FASTA (.fasta ou .faa) com base em identificadores (IDs) fornecidos em um arquivo TSV. O script lê os IDs do arquivo TSV, busca esses IDs no arquivo FASTA e escreve as sequências correspondentes em um novo arquivo FASTA.
+
+## Requisitos
+- Python 3.x
+
+## Uso
+Para usar este script, você precisa de um arquivo TSV contendo os IDs desejados na primeira coluna e um arquivo FASTA de onde as sequências serão extraídas.
+
+### Comando
+### Exemplo
+
+```bash
+python extract_fasta.py <TSV_FILE> <FASTA_FILE> <OUTPUT_FILE>
+ ```
+- `TSV_FILE`: Caminho para o arquivo TSV contendo os IDs na primeira coluna.
+- `FASTA_FILE`: Caminho para o arquivo FASTA de onde as sequências serão extraídas.
+- `OUTPUT_FILE`: Caminho para o arquivo FASTA de saída que conterá as sequências extraídas.
+
+```bash
+python extract_fasta.py identifiers.tsv sequences.fasta output.fasta
+```
+
+## Funções Principais
+1. **Leitura do arquivo TSV**: Extrai os IDs da primeira coluna do arquivo TSV.
+2. **Busca no arquivo FASTA**: Procura por sequências correspondentes no arquivo FASTA usando os IDs extraídos.
+3. **Gravação das Sequências**: Escreve todas as sequências encontradas em um único arquivo FASTA de saída.
+
 # Script 10: filter_dup_gca_gcf_keep_gcf.py
 
 **"This is a Python script for filtering Tab-separated values (TSV) obtained from NCBI datasets/genomes (https://www.ncbi.nlm.nih.gov/datasets/genome/). The script creates a new table and retains only genomes with GCF (REFSEQ) when this specie genome have both GCF (format for RefSeq, NCBI-derived assembly accessions) and GCA (format for GenBank primary assembly accessions), or keeps only GCA in the output table when there is no GCF available.**
