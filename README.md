@@ -388,8 +388,40 @@ The assert_acceptable_arguments function is used to validate the input arguments
 
 **The script utilizes the pandas library for data manipulation and provides a convenient way to extract species information from the query_description column using regular expressions.**
 
+## Script 9.1: Extractor de Sequências FASTA
 
-# Script 9: get_taxonomic_rank_specie.py:
+# FASTA Sequence Extractor
+
+## Description
+This Python script is designed to extract specific FASTA sequences from a FASTA file (.fasta or .faa) based on identifiers (IDs) provided in a TSV file. The script reads the IDs from the TSV file, searches for these IDs in the FASTA file, and writes the corresponding sequences to a new FASTA file.
+
+## Requirements
+- Python 3.x
+
+## Usage
+To use this script, you need a TSV file containing the desired IDs in the first column and a FASTA file from which the sequences will be extracted.
+
+### Command
+```bash
+python extract_fasta.py <TSV_FILE> <FASTA_FILE> <OUTPUT_FILE>
+ ```
+- `TSV_FILE`: Path to the TSV file containing IDs in the first column.
+- `FASTA_FILE`: Path to the FASTA file from which sequences will be extracted.
+- `OUTPUT_FILE`: Path to the output FASTA file that will contain the extracted sequences.
+
+### Example
+
+```bash
+python extract_fasta.py identifiers.tsv sequences.fasta output.fasta
+```
+
+
+## Key Functions
+1. **Reading the TSV File**: Extracts IDs from the first column of the TSV file.
+2. **Searching in the FASTA File**: Searches for corresponding sequences in the FASTA file using the extracted IDs.
+3. **Writing Sequences**: Writes all found sequences into a single output FASTA file.
+
+**# Script 10: get_taxonomic_rank_specie.py:
 
 **Este script em Python é usado para baixar os níveis taxonômicos de uma lista de espécies e salvar os resultados em um arquivo TSV.**
 
@@ -419,37 +451,8 @@ Make sure you have the following software installed in your environment before r
    python get_taxonomic_rank_specie.py species_list_file.txt output_file.tsv
  ```
 
-## Script 9.1: Extractor de Sequências FASTA
-
-## Descrição
-Este script Python é projetado para extrair sequências FASTA específicas de um arquivo FASTA (.fasta ou .faa) com base em identificadores (IDs) fornecidos em um arquivo TSV. O script lê os IDs do arquivo TSV, busca esses IDs no arquivo FASTA e escreve as sequências correspondentes em um novo arquivo FASTA.
-
-## Requisitos
-- Python 3.x
-
-## Uso
-Para usar este script, você precisa de um arquivo TSV contendo os IDs desejados na primeira coluna e um arquivo FASTA de onde as sequências serão extraídas.
-
-### Comando
-### Exemplo
-
-```bash
-python extract_fasta.py <TSV_FILE> <FASTA_FILE> <OUTPUT_FILE>
- ```
-- `TSV_FILE`: Caminho para o arquivo TSV contendo os IDs na primeira coluna.
-- `FASTA_FILE`: Caminho para o arquivo FASTA de onde as sequências serão extraídas.
-- `OUTPUT_FILE`: Caminho para o arquivo FASTA de saída que conterá as sequências extraídas.
-
-```bash
-python extract_fasta.py identifiers.tsv sequences.fasta output.fasta
-```
-
-## Funções Principais
-1. **Leitura do arquivo TSV**: Extrai os IDs da primeira coluna do arquivo TSV.
-2. **Busca no arquivo FASTA**: Procura por sequências correspondentes no arquivo FASTA usando os IDs extraídos.
-3. **Gravação das Sequências**: Escreve todas as sequências encontradas em um único arquivo FASTA de saída.
-
-# Script 10: filter_dup_gca_gcf_keep_gcf.py
+**
+# Script 11: filter_dup_gca_gcf_keep_gcf.py
 
 **"This is a Python script for filtering Tab-separated values (TSV) obtained from NCBI datasets/genomes (https://www.ncbi.nlm.nih.gov/datasets/genome/). The script creates a new table and retains only genomes with GCF (REFSEQ) when this specie genome have both GCF (format for RefSeq, NCBI-derived assembly accessions) and GCA (format for GenBank primary assembly accessions), or keeps only GCA in the output table when there is no GCF available.**
 
