@@ -793,51 +793,63 @@ Example usage:
 python move_genome_files_from_list.py /path/to/source_directory /path/to/exclude_genome.txt genomes_missing_run
  ```
 
-## Script 20: get_specie_from_genome_id
+## Script 20: Get Species from Genome ID
 
 # Genome Information Fetcher
 
-Este script Python automatiza a tarefa de coletar informações de genomas a partir de uma lista de IDs de acesso e gerar um arquivo TSV (Valores Separados por Tabulação) com esses dados. Ele usa a ferramenta de linha de comando `datasets` e `dataformat` do NCBI para buscar as informações.
+This Python script automates the task of collecting genome information from a list of access IDs and generating a TSV (Tab-Separated Values) file with that data. It utilizes the NCBI's command-line tools `datasets` and `dataformat` to fetch the information.
 
-## Requisitos
+## Requirements
 
 - Python 3.x
-- Acesso ao shell/terminal
-- Ferramentas de linha de comando `datasets` e `dataformat` do NCBI instaladas e configuradas no seu ambiente
+- Access to shell/terminal
+- NCBI's command-line tools `datasets` and `dataformat` installed and configured in your environment
 
-## Como Usar
+## How to Use
 
-Para usar este script, você precisará de um arquivo contendo uma lista de IDs de acesso de genomas, um por linha. Depois, execute o script da seguinte maneira:
+To use this script, you will need a file containing a list of genome access IDs, one per line. Then, run the script in the following manner:
 
     ```
-    python script.py <caminho_para_lista_de_genomas> <nome_do_arquivo_de_saida>
+    python script.py <path_to_genome_list> <output_file_name>
     ```
-## Funções
 
-read_genome_ids(file_path)
-Descrição: Lê os IDs dos genomas de um arquivo e os retorna como uma lista.
+## Example of Input File (genome_list)
 
-**Parâmetros:**
 
-file_path: Caminho para o arquivo contendo os IDs de acesso.
-generate_tsv(genome_list, temp_file_name)
-Descrição: Gera um arquivo temporário TSV com as informações dos genomas especificados.
+GCF_000001405.39
+GCF_000002985.6
+GCF_000001635
 
-##Parâmetros:##
+    
 
-genome_list: Lista de IDs de acesso dos genomas.
-temp_file_name: Nome do arquivo temporário TSV que será criado.
-finalize_output(temp_file_name, output_file_name)
-Descrição: Filtra e finaliza o arquivo de saída, removendo o arquivo temporário no processo.
-Parâmetros:
-temp_file_name: Nome do arquivo temporário TSV.
-output_file_name: Nome do arquivo final TSV.
-Notas
-Este script é um exemplo de como automatizar a coleta de dados de genomas utilizando as ferramentas do NCBI.
-Certifique-se de que as ferramentas de linha de comando datasets e dataformat do NCBI estejam corretamente instaladas e acessíveis no seu ambiente de execução.
+## Functions
 
-## Licença
-Inclua aqui a licença sob a qual o código é disponibilizado, por exemplo, MIT, GPL, etc.
+### `read_genome_ids(file_path)`
+**Description**: Reads genome IDs from a file and returns them as a list.
+
+**Parameters**:
+- `file_path`: Path to the file containing the access IDs.
+
+### `generate_tsv(genome_list, temp_file_name)`
+**Description**: Generates a temporary TSV file with the specified genomes' information.
+
+**Parameters**:
+- `genome_list`: List of access IDs of the genomes.
+- `temp_file_name`: Name of the temporary TSV file to be created.
+
+### `finalize_output(temp_file_name, output_file_name)`
+**Description**: Filters and finalizes the output file, removing the temporary file in the process.
+
+**Parameters**:
+- `temp_file_name`: Name of the temporary TSV file.
+- `output_file_name`: Name of the final TSV file.
+
+## Notes
+This script is an example of how to automate the collection of genome data using NCBI tools. Ensure that the NCBI command-line tools `datasets` and `dataformat` are correctly installed and accessible in your execution environment.
+
+## License
+Include here the license under which the code is made available, for example, MIT, GPL, etc.
+
 
 
 ## More about:
