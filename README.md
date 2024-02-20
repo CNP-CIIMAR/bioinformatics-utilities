@@ -813,15 +813,12 @@ To use this script, you will need a file containing a list of genome access IDs,
     python script.py <path_to_genome_list> <output_file_name>
     ```
 
-## Example of Input File (genome_list)
+## Example of Input File (genome_list) :
 
-
-GCF_000001405.39
-GCF_000002985.6
-GCF_000001635
-
+- GCF_000001405.39
+- GCF_000002985.6
+- GCF_000001635
     
-
 ## Functions
 
 ### `read_genome_ids(file_path)`
