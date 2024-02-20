@@ -809,11 +809,9 @@ Este script Python automatiza a tarefa de coletar informações de genomas a par
 
 Para usar este script, você precisará de um arquivo contendo uma lista de IDs de acesso de genomas, um por linha. Depois, execute o script da seguinte maneira:
 
-```bash
-python script.py <caminho_para_lista_de_genomas> <nome_do_arquivo_de_saida>
-<caminho_para_lista_de_genomas>: Caminho para o arquivo contendo os IDs de acesso dos genomas.
-<nome_do_arquivo_de_saida>: Nome do arquivo TSV final que será gerado pelo script.
-
+    ```
+    python script.py <caminho_para_lista_de_genomas> <nome_do_arquivo_de_saida>
+    ```
 ## Funções
 
 read_genome_ids(file_path)
