@@ -792,6 +792,56 @@ Example usage:
 ```bash
 python move_genome_files_from_list.py /path/to/source_directory /path/to/exclude_genome.txt genomes_missing_run
  ```
+
+## Script 20: get_specie_from_genome_id
+
+# Genome Information Fetcher
+
+Este script Python automatiza a tarefa de coletar informações de genomas a partir de uma lista de IDs de acesso e gerar um arquivo TSV (Valores Separados por Tabulação) com esses dados. Ele usa a ferramenta de linha de comando `datasets` e `dataformat` do NCBI para buscar as informações.
+
+## Requisitos
+
+- Python 3.x
+- Acesso ao shell/terminal
+- Ferramentas de linha de comando `datasets` e `dataformat` do NCBI instaladas e configuradas no seu ambiente
+
+## Como Usar
+
+Para usar este script, você precisará de um arquivo contendo uma lista de IDs de acesso de genomas, um por linha. Depois, execute o script da seguinte maneira:
+
+```bash
+python script.py <caminho_para_lista_de_genomas> <nome_do_arquivo_de_saida>
+<caminho_para_lista_de_genomas>: Caminho para o arquivo contendo os IDs de acesso dos genomas.
+<nome_do_arquivo_de_saida>: Nome do arquivo TSV final que será gerado pelo script.
+
+## Funções
+
+read_genome_ids(file_path)
+Descrição: Lê os IDs dos genomas de um arquivo e os retorna como uma lista.
+
+**Parâmetros:**
+
+file_path: Caminho para o arquivo contendo os IDs de acesso.
+generate_tsv(genome_list, temp_file_name)
+Descrição: Gera um arquivo temporário TSV com as informações dos genomas especificados.
+
+##Parâmetros:##
+
+genome_list: Lista de IDs de acesso dos genomas.
+temp_file_name: Nome do arquivo temporário TSV que será criado.
+finalize_output(temp_file_name, output_file_name)
+Descrição: Filtra e finaliza o arquivo de saída, removendo o arquivo temporário no processo.
+Parâmetros:
+temp_file_name: Nome do arquivo temporário TSV.
+output_file_name: Nome do arquivo final TSV.
+Notas
+Este script é um exemplo de como automatizar a coleta de dados de genomas utilizando as ferramentas do NCBI.
+Certifique-se de que as ferramentas de linha de comando datasets e dataformat do NCBI estejam corretamente instaladas e acessíveis no seu ambiente de execução.
+
+## Licença
+Inclua aqui a licença sob a qual o código é disponibilizado, por exemplo, MIT, GPL, etc.
+
+
 ## More about:
 [Junior Researcher, Leandro de Mattos Pereira](https://mattoslmp.github.io)
 
