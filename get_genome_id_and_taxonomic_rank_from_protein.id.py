@@ -6,7 +6,7 @@ import sys
 ## Date: 22 February 2024
 ## CNP -team - Dr. Pedro Leao, Team Leader.
 
-# Verifique se os argumentos necessários foram fornecidos
+# Verifique se os argumentos necessÃ¡rios foram fornecidos
 if len(sys.argv) < 4:
     print("Usage: python script.py <input_filename> <genome_output_filename> <taxonomic_output_filename>")
     sys.exit(1)
@@ -43,7 +43,7 @@ with open(input_filename, 'r') as input_file, open(genome_output_filename, 'w') 
                 insdc_info = None
                 for line in ipg_result.split('\n'):
                     if 'RefSeq' in line:
-                        refseq_info = line.split()[-1]  # Presume-se que o ID desejado esteja na última coluna
+                        refseq_info = line.split()[-1]  # Presume-se que o ID desejado esteja na Ãºltima coluna
                     elif 'INSDC' in line:
                         insdc_info = line.split()[-1]
                 genome_accession = refseq_info if refseq_info else insdc_info
@@ -52,7 +52,7 @@ with open(input_filename, 'r') as input_file, open(genome_output_filename, 'w') 
             except subprocess.CalledProcessError as e:
                 print(f"Failed to fetch data for {protein_accession}: {e}")
 
-# Prepara a tabela taxonômica usando a saída do passo anterior
+# Prepara a tabela taxonÃ´mica usando a saÃ­da do passo anterior
 data = []
 with open(genome_output_filename, 'r') as genome_file:
     for line in genome_file:
