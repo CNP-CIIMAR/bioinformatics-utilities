@@ -1,4 +1,6 @@
-#############Autor Leandro de Mattos Pereira, Junior Researcher - CNP Lab.
+## Authors: Leandro de Mattos Pereira
+## Date: 22 February 2024
+## CNP -team - Dr. Pedro Leao, Team Leader.
 
 from Bio import Entrez
 import pandas as pd
