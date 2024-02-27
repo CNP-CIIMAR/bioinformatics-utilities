@@ -904,7 +904,7 @@ This script is provided "as is", without warranty of any kind. You are free to u
 For any questions or suggestions, please open an issue on the GitHub repository page.
 
 
-## Script 21.1:
+## Script 21.1: taxo_table_processor.py
 
 ### Taxonomic Table Processor
 
