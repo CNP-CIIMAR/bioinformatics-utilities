@@ -847,6 +847,61 @@ This script is an example of how to automate the collection of genome data using
 ## License
 Include here the license under which the code is made available, for example, MIT, GPL, etc.
 
+## Script 21: get_genome_id_and_taxonomic_rank_from_protein.id.py
+
+# Protein Accession to Genome ID and Taxonomic Ranking
+
+This script is designed to retrieve genome IDs and taxonomic rankings for a list of protein accessions. It utilizes NCBI's E-utilities for fetching the relevant data and processes it to generate two output files: one containing the genome IDs and the other containing taxonomic information.
+
+## Prerequisites
+
+Before running this script, ensure you have the following installed and set up:
+
+- Python 3.x
+- Biopython
+- Pandas library
+- NCBI's EDirect utilities (for the `efetch` command)
+
+Additionally, you will need an internet connection to access NCBI's databases.
+
+## Installation
+
+No installation is needed. Just ensure all prerequisites are met.
+
+## Usage
+
+python script.py <input_filename> <genome_output_filename> <taxonomic_output_filename>
+
+To use this script, you need to provide it with an input file containing a list of protein accession numbers, one per line. Then, specify the names for the two output files: one for the genome IDs and the other for the taxonomic information.
+
+
+- `<input_filename>`: The file containing a list of protein accession numbers.
+- `<genome_output_filename>`: The file where the retrieved genome IDs will be saved.
+- `<taxonomic_output_filename>`: The file where the taxonomic information will be saved.
+
+
+## Output Format
+
+- The genome IDs output file will contain two columns: Protein Accession and Genome Accession.
+- The taxonomic information output file will contain four columns: Protein Accession, Genome Accession, Species, and Lineage.
+
+## Important Notes
+
+- Ensure you replace `'your_email@example.com'` in the script with your actual email address as required by NCBI's E-utilities policy.
+- The script assumes you have the `efetch` utility accessible from your command line and that it's properly configured to work with NCBI's services.
+- The script does not handle all possible errors and exceptions. Please use it as a starting point and customize it as needed for robust error handling and specific use cases.
+
+## Contributing
+
+Contributions to enhance the functionality, improve error handling, or extend the script's capabilities are welcome. Please feel free to fork the repository, make your changes, and submit a pull request.
+
+## License
+
+This script is provided "as is", without warranty of any kind. You are free to use, modify, and distribute it as you see fit.
+
+## Contact
+
+For any questions or suggestions, please open an issue on the GitHub repository page.
 
 
 ## More about:
