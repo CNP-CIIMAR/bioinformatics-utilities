@@ -27,39 +27,6 @@ To use this script, follow these steps:
 If you need any help or have questions, feel free to open an issue in the GitHub repository.
 
 
-# Script 2: Get Genomes ID from List of Proteins
-
-This script get_genomes_id_by_proteina_id.py retrieves genomes IDs from a list of protein accessions. It uses the NCBI `efetch` command to fetch information about each protein accession from the NCBI protein database.
-
-## Usage:
-
-1. Make sure you have Python 3 installed on your system.
-2. Install the required dependencies:
-- Python 3
-- openpyxl
-
-## How to Run:
-- Make sure you have Python 3 installed.
-- Open a terminal or command prompt.
-- Navigate to the directory where the script is located.
-- Run the following command:
-
-```shell
-python get_taxonomic_rank_from_protein.id.py <input_filename> <output_filename>
-```
-
-**Replace <input_filename> with the path to the file containing protein accessions and <output_filename> with the desired path to save the results.**
-
-**Make sure you have the necessary permissions to read the input file and write to the output file.**
-
-## Output Format
-
-- The output file will be in a tabular format, with each line containing a protein accession and its corresponding genome ID, separated by a tab with informations about the Assembly and each protein
----
-Note: The script assumes the existence of the `efetch` command and that it is available in your environment. It also relies on the openpyxl module, which may need to be installed if not already available in your Python environment.
-
-If you need any help or have questions, feel free to open an issue in the GitHub repository.
-
 #  Script 3: File Comparison
 
 This Python script compares the contents of two text files and identifies the different lines between them.
