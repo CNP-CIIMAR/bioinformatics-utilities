@@ -26,6 +26,10 @@ To use this script, follow these steps:
 
 If you need any help or have questions, feel free to open an issue in the GitHub repository.
 
+# Script 2: Get genome ID and Taxonomic rank from Protein ID
+
+get_genome_id_and_taxonomic_rank_from_protein.id.py
+
 
 #  Script 3: File Comparison
 
