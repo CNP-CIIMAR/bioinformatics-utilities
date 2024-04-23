@@ -921,6 +921,59 @@ python taxo_table_processor.py <path_to_your_csv_file>
 
 The script will generate multiple TSV files, each corresponding to a different taxonomic level. For the species level, it will generate two files: one with and one without protein accession numbers. The files are named according to the taxonomic level and whether they include protein accession numbers.
 
+## Script 22: Run_interproscan.py
+# InterProScan Automation Script
+
+# InterProScan Automation Script
+
+This Python script automates the process of running InterProScan for sequence analysis, specific results filtering with `grep`, data extraction with `cut`, and sequence retrieval with `bedtools`.
+
+## Features
+
+- Creates a virtual environment for dependency isolation.
+- Installs necessary dependencies, including Java JDK, Perl, and bedtools.
+- Checks for the presence of the `interproscan.sh` script and downloads/unpacks it if not present.
+- Runs InterProScan with specific parameters for analyzing `.fasta` files.
+- Filters and processes results to extract specific sequences.
+
+## Prerequisites
+
+Before running this script, ensure you have `python3` installed on your system, as well as access to `sudo` for installing necessary packages.
+
+## Setup and Execution
+
+1. Clone this repository or download the script to your local system.
+2. Open a terminal and navigate to the directory where the script is located.
+3. Make the script executable (if necessary) with:
+   ```bash
+   chmod +x script_name.py
+# Run the script with the following command:
+
+```
+python3 script_name.py path_to_your_fasta_file.fasta
+```
+Replace script_name.py with the actual file name of the script and path_to_your_fasta_file.fasta with the full path of the .fasta file you want to analyze.
+
+Important Notes
+This script assumes you are using a Debian/Ubuntu-based system for package installation via apt.
+Ensure your user has appropriate permissions to execute commands with sudo without manual interaction for password entry.
+Troubleshooting
+If you encounter any issues related to the execution of InterProScan or related tools, check the following:
+
+The specified .fasta file exists and is accessible by the script.
+All required components (Java, Perl, Python, bedtools) have been correctly installed.
+The interproscan.sh script is in the expected directory and is executable.
+For more information on InterProScan setup and options, visit the InterProScan GitHub page.
+
+
+### Considerations
+
+- **Location and Permissions**: This README assumes that the user has basic system permissions and directory navigation knowledge.
+- **Customization**: You may need to adjust the path or specific parameters of InterProScan based on your setup and needs.
+- **External Link**: I included a link to the InterProScan GitHub page for users who want more detailed information about the tool.
+
+This README should be placed in the root of the repository where the script is located for easy access by other users who wish to use or contribute to the project.
+
 ## Contributing
 Contributions to this project are welcome. Please fork the repository and submit a pull request with your suggested changes.
 
