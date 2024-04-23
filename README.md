@@ -924,8 +924,6 @@ The script will generate multiple TSV files, each corresponding to a different t
 ## Script 22: Run_interproscan.py
 # InterProScan Automation Script
 
-# InterProScan Automation Script
-
 This Python script automates the process of running InterProScan for sequence analysis, specific results filtering with `grep`, data extraction with `cut`, and sequence retrieval with `bedtools`.
 
 ## Features
