@@ -921,7 +921,7 @@ python taxo_table_processor.py <path_to_your_csv_file>
 
 The script will generate multiple TSV files, each corresponding to a different taxonomic level. For the species level, it will generate two files: one with and one without protein accession numbers. The files are named according to the taxonomic level and whether they include protein accession numbers.
 
-## Script 22: Run_interproscan.py
+## Script 22: run_interproscan.py
 # InterProScan Automation Script
 
 This Python script automates the process of running InterProScan for sequence analysis, specific results filtering with `grep`, data extraction with `cut`, and sequence retrieval with `bedtools`.
