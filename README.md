@@ -1036,9 +1036,9 @@ No installation is necessary, but you need Python installed on your machine. The
 
 ```bash
 pip install pandas tabulate
-Usage
+```
+## Usage
 To use this script, you need to provide four command-line arguments: the path to the genome list file, the directory to check for these genomes, the output file for the report, and the directory where matched files will be moved.
-
 ## Output
 
 *The script will generate a tabular report in the specified output file and print the table to the console. The report includes:*
@@ -1053,10 +1053,12 @@ To use this script, you need to provide four command-line arguments: the path to
 
 - Contributions to this project are welcome. Please fork the repository and submit a pull request with your enhancements.
 
-License
+## License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## More about:
+
 [Junior Researcher, Leandro de Mattos Pereira](https://mattoslmp.github.io)
 
 [CNP team, Dr. Pedro Leão, Researcher Leader](https://leaolab.wixsite.com/leaolab)
