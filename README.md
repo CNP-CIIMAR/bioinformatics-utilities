@@ -978,7 +978,7 @@ Contributions to this project are welcome. Please fork the repository and submit
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Script 21: check_genomes.py
+## Script 23: check_genomes.py
 
 # Genome File Matcher
 
@@ -1009,15 +1009,7 @@ python check_genomes.py <path_to_genome_list_file> <directory_to_check> <output_
 ## Example: 
 ```
 python check_genomes.py /path/to/genomes.txt /data/genomes /results/match_report.txt /data/matched_genomes
-```
 
-
-
-Sure, I'll help you draft a README for your Python script that you can use on GitHub. This README will provide an overview of the script, its purpose, installation instructions, usage guidelines, and any other necessary details to help users understand and effectively use your tool.
-
-README.md Template for Your GitHub Repository
-markdown
-Copiar código
 # Genome File Matcher
 
 ## Overview
@@ -1048,6 +1040,54 @@ To use this script, you need to provide four command-line arguments: the path to
 - Genomes exclusive to the directory.
 
 ## It will also print summary statistics including the total number of matches and the number of files exclusively found in the specified directory.
+
+## Script 24:
+
+# proteinHMM.py Search Pipeline
+
+This Python script automates the process of running `hmmsearch` against a collection of FASTA files using multiple HMM models. It is designed to streamline the identification of protein domains within large genomic datasets.
+
+## Prerequisites
+
+Before running this script, ensure you have the following installed:
+- Python (version 3.6 or later)
+- `pandas` library
+- HMMER suite (specifically `hmmsearch`)
+
+## Installation
+
+Clone this repository to your local machine using:
+```bash
+git clone https://github.com/CNP-CIIMAR/bioinformatics-utilities.git
+```
+
+cd bioinformatics-utilities
+```
+python hmm_search_pipeline.py <models_dir> <fastas_dir> <output_dir>
+```
+## Arguments: 
+
+- models_dir: Directory containing the HMM models with .hmm extension.
+  **Examples of files inside of models_dir: AMP_L.fasta  AMP_L_mafft.fasta  AMP_L_mafft.hmm  AMP_L_mafft.hmm.h3f  AMP_L_mafft.hmm.h3i  AMP_L_mafft.hmm.h3m  AMP_L_mafft.hmm.h3p** 
+- fastas_dir: Directory containing the FASTA files with .faa extension.
+  **Example of files inside of models_dir**: GCF_002608075.1_protein.faa GCF_002608225.1_protein.faa GCF_002760395.1_protein.faa
+  The files of predicted proteomes were obtained using the API of NCBI-named datasets (https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/)  
+- output_dir: Directory where the output tables (*.tsv) will be saved.
+
+## Features
+- Automatic Directory Creation: If the output directory does not exist, it will be created automatically.
+- Batch Processing: The script processes all models and FASTA files in the specified directories.
+- Output Management: For each model and FASTA file combination, a table with search results is generated, including a concatenated final table for all FASTA files per model.
+- Robust Error Handling: Includes error checks and exception handling during the hmmsearch execution.
+- Output Description
+- The output files are tab-separated values (TSV) files, each named according to the model and FASTA file processed. Additionally, a concatenated TSV file for each model containing all results across processed FASTA files is created.
+
+- Each output file includes the following columns organized in a multi-level header format:
+- identifier: Contains target and query identifiers and descriptions.
+- full_sequence: Metrics for the full sequence match.
+- best_domain: Metrics for the best domain match.
+- domain_number_estimation: Estimates of domain numbers in various categories.
+- Specie: Extracted species information from the query description.
 
 ## Contributing
 
