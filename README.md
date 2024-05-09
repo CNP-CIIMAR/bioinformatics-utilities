@@ -978,6 +978,84 @@ Contributions to this project are welcome. Please fork the repository and submit
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
+## Script 21: check_genomes.py
+
+# Genome File Matcher
+
+## Overview
+This Python script checks for the presence of genome file IDs from a list in a specified directory and moves matched files to a new directory. It generates a detailed report including which files were matched, unmatched, and exclusive to the directory. This tool is useful for managing large genomic datasets, allowing researchers to organize their files more effectively.
+
+## Features
+- Reads genome IDs from a specified text file.
+- Checks for the presence of these IDs in a given directory.
+- Moves matched genome files to a new user-defined directory.
+- Outputs a tabular report listing matches and unmatched files.
+- Provides summary statistics of the matching operation.
+
+## Installation
+
+- No installation is necessary, but you need Python installed on your machine. The script runs with Python version 3.6 or higher. It requires `pandas` and `tabulate` libraries to be installed. You can install these dependencies via pip if you do not have them:
+
+```bash
+pip install pandas tabulate
+```
+
+## Usage
+To use this script, you need to provide four command-line arguments: the path to the genome list file, the directory to check for these genomes, the output file for the report, and the directory where matched files will be moved.
+- Command-Line Syntax:
+```
+python check_genomes.py <path_to_genome_list_file> <directory_to_check> <output_report_file> <new_directory_for_matched_files>
+```
+## Example: 
+```
+python check_genomes.py /path/to/genomes.txt /data/genomes /results/match_report.txt /data/matched_genomes
+```
+
+
+
+Sure, I'll help you draft a README for your Python script that you can use on GitHub. This README will provide an overview of the script, its purpose, installation instructions, usage guidelines, and any other necessary details to help users understand and effectively use your tool.
+
+README.md Template for Your GitHub Repository
+markdown
+Copiar código
+# Genome File Matcher
+
+## Overview
+This Python script checks for the presence of genome file IDs from a list in a specified directory and moves matched files to a new directory. It generates a detailed report including which files were matched, unmatched, and exclusive to the directory. This tool is useful for managing large genomic datasets, allowing researchers to organize their files more effectively.
+
+## Features
+- Reads genome IDs from a specified text file.
+- Checks for the presence of these IDs in a given directory.
+- Moves matched genome files to a new user-defined directory.
+- Outputs a tabular report listing matches and unmatched files.
+- Provides summary statistics of the matching operation.
+
+## Installation
+
+No installation is necessary, but you need Python installed on your machine. The script runs with Python version 3.6 or higher. It requires `pandas` and `tabulate` libraries to be installed. You can install these dependencies via pip if you do not have them:
+
+```bash
+pip install pandas tabulate
+Usage
+To use this script, you need to provide four command-line arguments: the path to the genome list file, the directory to check for these genomes, the output file for the report, and the directory where matched files will be moved.
+
+## Output
+
+*The script will generate a tabular report in the specified output file and print the table to the console. The report includes:*
+
+- Genomes from the input file.
+- Matched genomes in the directory.
+- Genomes exclusive to the directory.
+
+## It will also print summary statistics including the total number of matches and the number of files exclusively found in the specified directory.
+
+## Contributing
+
+- Contributions to this project are welcome. Please fork the repository and submit a pull request with your enhancements.
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
 ## More about:
 [Junior Researcher, Leandro de Mattos Pereira](https://mattoslmp.github.io)
 
