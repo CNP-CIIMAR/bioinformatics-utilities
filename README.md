@@ -1097,6 +1097,61 @@ python hmm_search_pipeline.py <models_dir> <fastas_dir> <output_dir>
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
+## Script 24:
+
+## Protein FASTA Splitter
+This script processes a protein table and a multi-FASTA file to group and save protein sequences with similar descriptions into separate FASTA files.
+
+## Features
+Reads a table of protein entries and a multi-FASTA file.
+Filters protein sequences based on entries in the table.
+Groups protein sequences by 90% similarity in protein names.
+Saves grouped sequences into separate FASTA files in a specified output directory.
+
+## Requirements
+Python 3.x
+pandas
+Biopython
+Installation
+To install the required packages, you can use pip:
+
+```bash
+pip install pandas biopython
+```
+##Usage
+Run the script with the following command:
+
+python split_names_fasta.py <table_file> <fasta_file> <output_dir>
+table_file: Path to the input table file in CSV format.
+fasta_file: Path to the input multi-FASTA file.
+output_dir: Path to the output directory where the grouped FASTA files will be saved.
+Example
+
+```bash
+python split_names_fasta.py proteins_table.csv proteins.fasta output_directory
+```
+This command processes the proteins_table.csv and proteins.fasta files, grouping sequences with similar protein names, and saves the results in the output_directory.
+
+##Script Details
+
+The script follows these steps:
+
+Read the Table: Loads the protein table using pandas.
+Read the Multi-FASTA File: Loads the sequences from the FASTA file using Biopython.
+Filter Sequences: Filters the sequences based on the entries in the table.
+Group by Similarity: Groups the sequences by 90% similarity in protein names.
+Save to Output Directory: Saves the grouped sequences into separate FASTA files in the specified output directory.
+
+## Example Table Format
+The input table should be in CSV format with columns such as:
+
+Entry,Reviewed,Entry Name,Protein names,Gene Names,Organism,Length,PubMed ID
+A0A1W6GW32,reviewed,STPS1_SALMI,(-)-5-epieremophilene synthase STPS1 (EC 4.2.3.199) (Sesquiterpene synthase 1) (SmSTPS1),STPS1,Salvia miltiorrhiza (Chinese sage),546,28487717
+...
+## Notes
+Ensure that the column Protein names in the table does not contain any missing values. The script currently ignores rows with missing values in this column.
+The output files will have sanitized names to remove any non-alphanumeric characters from the protein names.
+
 ## More about:
 
 [Junior Researcher, Leandro de Mattos Pereira](https://mattoslmp.github.io)
