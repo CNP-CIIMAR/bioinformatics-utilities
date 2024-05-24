@@ -1097,7 +1097,7 @@ python hmm_search_pipeline.py <models_dir> <fastas_dir> <output_dir>
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Script 24:
+## Script 25:
 
 ## Protein FASTA Splitter
 This script processes a protein table and a multi-FASTA file to group and save protein sequences with similar descriptions into separate FASTA files.
