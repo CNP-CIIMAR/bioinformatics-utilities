@@ -1160,7 +1160,7 @@ The output files will have sanitized names to remove any non-alphanumeric charac
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Script 26: # genome_filter_download_by_list.py 
+## Script 26: # genome_filter_download_scaffold_complete_gbff_by_metadata_table.py 
 ## Genome Filter and Downloader
 
 This repository contains a Python script to filter a genomic dataset and download specific genome assemblies based on the filtered results. The script reads a tab-delimited input file, filters the rows according to specified conditions, saves the filtered data to an output file, and then downloads genome assemblies for the filtered results.
