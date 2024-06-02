@@ -1152,6 +1152,14 @@ A0A1W6GW32,reviewed,STPS1_SALMI,(-)-5-epieremophilene synthase STPS1 (EC 4.2.3.1
 Ensure that the column Protein names in the table does not contain any missing values. The script currently ignores rows with missing values in this column.
 The output files will have sanitized names to remove any non-alphanumeric characters from the protein names.
 
+## Contributing
+
+- Contributions to this project are welcome. Please fork the repository and submit a pull request with your enhancements.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
 ## Script 26: # genome_filter_download_by_list.py 
 ## Genome Filter and Downloader
 
@@ -1165,7 +1173,7 @@ This repository contains a Python script to filter a genomic dataset and downloa
 
 ## Installation
 1. Clone this repository:
-    ```sh
+   ```bash 
     git clone <repository_url>
     cd <repository_directory>
     ```
@@ -1179,11 +1187,13 @@ This repository contains a Python script to filter a genomic dataset and downloa
     ```
 ## Usage
 To use the script, run the following command:
-```sh
+```bash 
 python script.py <input_file> <output_file> <output_directory>
-
+```
+```bash
 python script.py input.tsv output.tsv genomes/
-Script Description
+```
+## Script Description
 filter_table(input_file, output_file)
 Reads the input file, filters the rows where:
 
@@ -1198,6 +1208,13 @@ Downloads genome assemblies listed in the filtered dataframe:
 Downloads genome assemblies using the datasets command-line tool
 Saves the downloaded files in the specified output directory
 
+## Contributing
+
+- Contributions to this project are welcome. Please fork the repository and submit a pull request with your enhancements.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## More about:
 [Junior Researcher, Leandro de Mattos Pereira](https://mattoslmp.github.io)
