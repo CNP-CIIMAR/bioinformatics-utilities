@@ -1152,10 +1152,54 @@ A0A1W6GW32,reviewed,STPS1_SALMI,(-)-5-epieremophilene synthase STPS1 (EC 4.2.3.1
 Ensure that the column Protein names in the table does not contain any missing values. The script currently ignores rows with missing values in this column.
 The output files will have sanitized names to remove any non-alphanumeric characters from the protein names.
 
-## More about:
+## Script 26: # genome_filter_download_by_list.py 
+## Genome Filter and Downloader
 
+This repository contains a Python script to filter a genomic dataset and download specific genome assemblies based on the filtered results. The script reads a tab-delimited input file, filters the rows according to specified conditions, saves the filtered data to an output file, and then downloads genome assemblies for the filtered results.
+
+## Requirements
+
+- Python 3
+- pandas library
+- Anaconda (for the datasets command-line tool)
+
+## Installation
+1. Clone this repository:
+    ```sh
+    git clone <repository_url>
+    cd <repository_directory>
+    ```
+2. Install the required Python packages:
+    ```sh
+    pip install pandas
+    ```
+3. Ensure you have the `datasets` command-line tool installed via Anaconda:
+    ```sh
+    conda install -c bioconda ncbi-datasets-cli
+    ```
+## Usage
+To use the script, run the following command:
+```sh
+python script.py <input_file> <output_file> <output_directory>
+
+python script.py input.tsv output.tsv genomes/
+Script Description
+filter_table(input_file, output_file)
+Reads the input file, filters the rows where:
+
+## Assembly Level is either 'Scaffold' or 'Complete'
+Lineage contains 'Cyanobacteriota', 'Pseudomonadota', 'Myxococcota', 'Actinomycetota', or 'Eukaryota'
+## Saves the filtered results to the specified output file.
+
+download_genomes(df, output_dir)
+Downloads genome assemblies listed in the filtered dataframe:
+
+## Creates the output directory if it doesn't exist
+Downloads genome assemblies using the datasets command-line tool
+Saves the downloaded files in the specified output directory
+
+
+## More about:
 [Junior Researcher, Leandro de Mattos Pereira](https://mattoslmp.github.io)
 
 [CNP team, Dr. Pedro Leão, Researcher Leader](https://leaolab.wixsite.com/leaolab)
-
-
