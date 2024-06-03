@@ -1,60 +1,98 @@
 import sys
+import argparse
+import logging
 
 def filter_table(file_path):
-    with open(file_path, 'r') as file:
-        lines = file.readlines()
+    """
+    Filter the table based on organism accession numbers.
+    Args:
+    file_path (str): Path to the input file.
+
+    Returns:
+    str: Filtered table as a string.
+    """
+    try:
+        with open(file_path, 'r') as file:
+            lines = file.readlines()
+    except Exception as e:
+        logging.error(f"Error reading file {file_path}: {e}")
+        return ""
+
+    # Remove header and sort the remaining lines
+    header = lines[0].strip()
+    data_lines = sorted(line.strip() for line in lines[1:] if line.strip())
+    
+    # Dictionary to store organism accessions
+    organism_accessions = {}
+    
+    for line in data_lines:
+        columns = line.split('\t')
+        if len(columns) > 2:
+            accession = columns[0]
+            organism_name = columns[2]
+            
+            base_accession = accession.split('.')[0]
+            
+            if organism_name not in organism_accessions:
+                organism_accessions[organism_name] = {}
+                
+            if base_accession not in organism_accessions[organism_name]:
+                organism_accessions[organism_name][base_accession] = []
+                
+            organism_accessions[organism_name][base_accession].append(accession)
 
     filtered_lines = []
-    organism_names = {}
 
-    for line in lines:
-        line = line.strip()
-        if line:  # Ignorar linhas vazias
-            columns = line.split('\t')
-            if len(columns) > 2:  # Verificar se há colunas suficientes
-                accession = columns[0]
-                organism_name = columns[2]
-
-                if organism_name not in organism_names:
-                    organism_names[organism_name] = []
-
-                if accession.startswith('GCF_'):
-                    organism_names[organism_name].append(accession)
-                elif accession.startswith('GCA_') and len(organism_names[organism_name]) == 0:
-                    organism_names[organism_name].append(accession)
-
-    for line in lines:
-        line = line.strip()
-        if line:  # Ignorar linhas vazias
-            columns = line.split('\t')
-            if len(columns) > 2:  # Verificar se há colunas suficientes
-                accession = columns[0]
-                organism_name = columns[2]
-
-                if accession in organism_names.get(organism_name, []):
+    for line in data_lines:
+        columns = line.split('\t')
+        if len(columns) > 2:
+            accession = columns[0]
+            organism_name = columns[2]
+            base_accession = accession.split('.')[0]
+            
+            accessions_list = organism_accessions.get(organism_name, {}).get(base_accession, [])
+            
+            if accession.startswith('GCF_'):
+                if 'GCF_' + base_accession in accessions_list:
+                    filtered_lines.append(line)
+            elif accession.startswith('GCA_'):
+                if 'GCF_' + base_accession not in accessions_list:
                     filtered_lines.append(line)
 
-    filtered_table = '\n'.join(filtered_lines)
+    filtered_table = header + '\n' + '\n'.join(filtered_lines)
     return filtered_table
 
 def print_help():
-    print("Uso: python script.py <caminho_para_tabela> <caminho_para_output>")
-    print("Filtre a tabela com base nos números de acesso de organismos e gere uma nova tabela de saída.")
-    print("Certifique-se de fornecer o caminho para o arquivo contendo a tabela como o primeiro argumento e o caminho para o arquivo de saída como o segundo argumento.")
+    """Print help message."""
+    print("Usage: python script.py <path_to_table> <path_to_output>")
+    print("Filter the table based on organism accession numbers and generate a new output table.")
+    print("Ensure to provide the path to the file containing the table as the first argument and the path to the output file as the second argument.")
 
-# Verificar se foram fornecidos os caminhos da tabela e do arquivo de saída como argumentos
-if len(sys.argv) < 3:
-    print_help()
-    sys.exit(1)
+def main():
+    """Main function to parse arguments and filter table."""
+    parser = argparse.ArgumentParser(description="Filter a table based on organism accession numbers.")
+    parser.add_argument("table_path", help="Path to the input table file")
+    parser.add_argument("output_path", help="Path to the output file")
 
-table_path = sys.argv[1]  # Caminho para o arquivo contendo a tabela
-output_path = sys.argv[2]  # Caminho para o arquivo de saída
+    args = parser.parse_args()
 
-filtered_table = filter_table(table_path)
+    table_path = args.table_path
+    output_path = args.output_path
 
-# Escrever a tabela filtrada no arquivo de saída
-with open(output_path, 'w') as output_file:
-    output_file.write(filtered_table)
+    logging.basicConfig(level=logging.INFO)
+    logging.info("Starting the filtering process.")
 
-print("Tabela filtrada foi escrita em", output_path)
+    filtered_table = filter_table(table_path)
 
+    try:
+        with open(output_path, 'w') as output_file:
+            output_file.write(filtered_table)
+        logging.info(f"Filtered table has been written to {output_path}")
+    except Exception as e:
+        logging.error(f"Error writing to file {output_path}: {e}")
+
+if __name__ == "__main__":
+    if len(sys.argv) < 3:
+        print_help()
+        sys.exit(1)
+    main()
