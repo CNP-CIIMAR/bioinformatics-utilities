@@ -1273,6 +1273,55 @@ Genome ID,order,color
 GCF_030382115.1_ASM3038211v1_genomic,Nostocales,#cd5c5c
 GCA_015206945.1_ASM1520694v1_genomic,Nostocales,#cd5c5c
 
+## Script 27: Enzyme Search Tool: enzymesearchtool.py
+
+```sh
+enzymesearchtool.py
+```
+
+## This tool is designed to search for specific enzyme names within .gbk files located in a directory and its subdirectories. It extracts relevant information and annotations, and saves the results to an output file.
+
+## Requirements
+Python 3.6+
+No additional libraries are required beyond the Python standard library.
+
+## Usage
+Command Line Interface
+To run the script, use the following command:
+
+```sh
+python enzymesearchtool.py <diretorio> <arquivo_enzimas> <arquivo_saida>
+```
+
+- <diretorio>: The root directory containing all subdirectories with AntiSMASH results.
+- <arquivo_enzimas>: A text file containing the list of enzyme names or annotations, one per line.
+- <arquivo_saida>: The name of the output file where the results will be saved.
+
+## Example
+
+```sh
+python script.py ./results lista.enzimas Resultado.tsv
+```
+
+## Functionality
+
+-  Read Enzyme List
+-  The script reads a text file containing enzyme names, specified by the user.
+-  Extract Species Name
+-  Extracts the species name from the file name using a regular expression pattern.
+
+## Search for Enzymes
+
+Iterates through all subdirectories and files in the specified directory.
+Searches for enzyme names within .gbk files.
+If an enzyme is found, it extracts the corresponding annotation.
+
+## Save Results
+
+Saves the search results to the specified output file.
+
+
+
 ## Contributing
 
 - Contributions to this project are welcome. Please fork the repository and submit a pull request with your enhancements.
