@@ -1208,6 +1208,68 @@ Downloads genome assemblies listed in the filtered dataframe:
 Downloads genome assemblies using the datasets command-line tool
 Saves the downloaded files in the specified output directory
 
+
+## Script 26:
+
+Taxonomic Order Color Assignment
+This repository contains a Python script to read a taxonomic table, assign unique colors to each taxonomic order, and handle missing order values by using the closest available taxonomic rank or labeling them as "Unknown order".
+
+Features
+Assigns a unique color to each taxonomic order.
+Handles missing values in the 'order' column by using the closest available taxonomic rank or assigning "Unknown order".
+Outputs a new table with columns 'Genome ID', 'order', and 'color'.
+Requirements
+Python 3.x
+pandas
+Installation
+Clone the repository:
+
+sh
+Copiar código
+git clone https://github.com/yourusername/taxonomic-order-color-assignment.git
+cd taxonomic-order-color-assignment
+Install the required Python packages:
+
+sh
+Copiar código
+pip install pandas
+Usage
+Prepare your input CSV file with the appropriate taxonomic columns.
+
+Run the script:
+
+sh
+Copiar código
+python3 assign_colors_taxonomy.py path_to_your_input_file.csv
+The script will generate an output file named output_with_colors.csv in the same directory.
+
+Input Format
+The input CSV file should have the following columns (tab-separated):
+
+javascript
+Copiar código
+Genome ID  user_taxa  superkingdom  kingdom  superphylum  phylum  subphylum  superclass  class  subclass  superorder  order  suborder  superfamily  family  subfamily  genus
+Example:
+
+r
+Copiar código
+Genome ID  user_taxa  superkingdom  kingdom  superphylum  phylum  subphylum  superclass  class  subclass  superorder  order  suborder  superfamily  family  subfamily  genus
+GCF_030382115.1_ASM3038211v1_genomic  Nostoc sp. GT001  Bacteria  NA  NA  Cyanobacteriota  NA  NA  Cyanophyceae  NA  NA  Nostocales  NA  NA  Nostocaceae  NA  Nostoc
+GCA_015206945.1_ASM1520694v1_genomic  Nostocales cyanobacterium LEGE 12452  Bacteria  NA  NA  Cyanobacteriota  NA  NA  Cyanophyceae  NA  NA  Nostocales  NA  NA  NA  NA  NA
+Output
+The output CSV file output_with_colors.csv will contain the following columns:
+
+Genome ID
+order
+color
+Example:
+
+bash
+Copiar código
+Genome ID,order,color
+GCF_030382115.1_ASM3038211v1_genomic,Nostocales,#cd5c5c
+GCA_015206945.1_ASM1520694v1_genomic,Nostocales,#cd5c5c
+
 ## Contributing
 
 - Contributions to this project are welcome. Please fork the repository and submit a pull request with your enhancements.
