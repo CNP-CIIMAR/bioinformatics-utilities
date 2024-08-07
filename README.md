@@ -1458,7 +1458,7 @@ Protein Accession |    Genome Accession |   Species     | Lineage
 NP_000507.1       |   NC_000001.11      |  Homo sapiens |    Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi; Mammalia; Eutheria; Euarchontoglires; Primates; Haplorrhini; Catarrhini; Hominidae; Homo
 NP_001123456.1    |   not genome found  |  not genome found  |  not genome found
 
-## Script 30:
+## Script 30: filter_table_genome_quality_generate_plot.py
 
 # Genome Quality Filter and Classifier
 
@@ -1471,7 +1471,7 @@ This Python script filters and classifies genomes based on their completeness an
 ### Command Line
 
 ```bash
-python script.py <input_file> <output_file> <base_filename> <completeness_threshold> <contamination_threshold>
+python filter_table_genome_quality_generate_plot.py <input_file> <output_file> <base_filename> <completeness_threshold> <contamination_threshold>
 ```
 ## Arguments
 
@@ -1516,7 +1516,7 @@ The filtered table is saved to the specified output file.
 ## Example
 
 ```bash
-python script.py genomes.csv filtered_genomes.csv genome_quality 90 5
+python filter_table_genome_quality_generate_plot.py genomes.csv filtered_genomes.csv genome_quality 90 5
 ```
 - Input File (genomes.csv)
 
