@@ -1378,7 +1378,7 @@ The results are saved in the specified genome output file.
 # Each line one accession number of protein
 
 ```bash
-python script.py input.txt genome_output.txt taxonomic_output.txt
+python get_genome_taxonomy_from_protein_id.py input.txt genome_output.txt taxonomic_output.txt
 ```
 ## Output Files
 
