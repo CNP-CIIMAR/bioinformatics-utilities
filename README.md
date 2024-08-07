@@ -1325,7 +1325,8 @@ Saves the search results to the specified output file.
 ## Genome and Taxonomic Information Retrieval Script
 ## Description
 
-- This Python script retrieves genome and taxonomic information for a list of protein accessions. It utilizes the BioPython library to interact with NCBI's databases and subprocess to execute command-line operations for efetch. The script reads a file containing protein accession numbers, fetches the corresponding genome IDs, and then retrieves taxonomic information for each protein. The results are saved in two output files.
+- This Python script retrieves genome and taxonomic information for a list of protein accessions. It utilizes the BioPython library to interact with NCBI's databases and subprocess to execute command-line operations for efetch.
+- The script reads a file containing protein accession numbers, fetches - the corresponding genome IDs, and then retrieves taxonomic information for each protein. The results are saved in two output files.
 
 ## Usage
 # Command Line
@@ -1335,9 +1336,9 @@ python script.py <input_filename> <genome_output_filename> <taxonomic_output_fil
 ```
 ## Arguments
 
-<input_filename>: Path to the input file containing protein accession numbers (one per line).
-<genome_output_filename>: Path to the output file where genome IDs will be saved.
-<taxonomic_output_filename>: Path to the output file where taxonomic information will be saved.
+- <input_filename>: Path to the input file containing protein accession numbers (one per line).
+- <genome_output_filename>: Path to the output file where genome IDs will be saved.
+- <taxonomic_output_filename>: Path to the output file where taxonomic information will be saved.
 
 #Setup
 ##Install Dependencies:
@@ -1345,27 +1346,31 @@ python script.py <input_filename> <genome_output_filename> <taxonomic_output_fil
 ##Ensure you have Python installed.
 
 #Install the required Python libraries using pip:
+
 ```bash
 pip install pandas biopython
 ```
 Set Your Email for Entrez:
 
-Update the Entrez.email variable in the script with your email address. This is required by NCBI to identify the user.
+# Update the Entrez.email variable in the script with your email address. This is required by NCBI to identify the user.
 
 ## Functionality
 # Fetch Genome Information:
 
 The script reads protein accession numbers from the input file.
 For each accession number, it uses efetch to fetch genome IDs (RefSeq or INSDC).
-The results are saved in the specified genome output file.
-Fetch Taxonomic Information:
 
-The script reads the genome output file.
-For each protein accession, it fetches the species and taxonomic lineage using Entrez.
-The results are stored in a pandas DataFrame and saved as a tab-separated values (TSV) file in the specified taxonomic output file.
+The results are saved in the specified genome output file.
+# Fetch Taxonomic Information:
+
+- The script reads the genome output file.
+- For each protein accession, it fetches the species and taxonomic lineage using Entrez.
+- The results are stored in a pandas DataFrame and saved as a tab-separated values (TSV) file in the specified taxonomic output file.
+
 ## Example
-Input File (input.txt)
-Copiar código
+
+- Input File (input.txt)
+
 NP_000507.1
 NP_001123456.1
 
@@ -1374,12 +1379,12 @@ python script.py input.txt genome_output.txt taxonomic_output.txt
 ```
 ## Output Files
 
-genome_output.txt: Contains the protein accession and corresponding genome ID.
+- genome_output.txt: Contains the protein accession and corresponding genome ID.
 
 NP_000507.1  NC_000001.11
 NP_001123456.1  NC_000002.12
 
-taxonomic_output.txt: Contains the protein accession, genome ID, species, and taxonomic lineage.
+# taxonomic_output.txt: Contains the protein accession, genome ID, species, and taxonomic lineage.
 
 
 Protein Accession  Genome Accession  Species  Lineage
