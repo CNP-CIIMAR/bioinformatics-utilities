@@ -1323,16 +1323,17 @@ Saves the search results to the specified output file.
 ## Script 28: get_genome_taxonomy_from_protein_id.py
 
 ## Genome and Taxonomic Information Retrieval Script
+
 ## Description
 
-- This Python script retrieves genome and taxonomic information for a list of protein accessions. It utilizes the BioPython library to interact with NCBI's databases and subprocess to execute command-line operations for efetch.
+- This Python script get_genome_taxonomy_from_protein_id.py retrieves genome and taxonomic information for a list of protein accessions. It utilizes the BioPython library to interact with NCBI's databases and subprocess to execute command-line operations for efetch.
 - The script reads a file containing protein accession numbers, fetches - the corresponding genome IDs, and then retrieves taxonomic information for each protein. The results are saved in two output files.
 
 ## Usage
 # Command Line
 
 ```bash
-python script.py <input_filename> <genome_output_filename> <taxonomic_output_filename>
+python get_genome_taxonomy_from_protein_id.py <input_filename> <genome_output_filename> <taxonomic_output_filename>
 ```
 ## Arguments
 
