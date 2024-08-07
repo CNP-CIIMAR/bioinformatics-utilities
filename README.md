@@ -1393,6 +1393,71 @@ NP_000507.1  NC_000001.11  Homo sapiens  Eukaryota; Metazoa; Chordata; Craniata;
 NP_001123456.1  NC_000002.12  Mus musculus  Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi; Mammalia; Eutheria; Euarchontoglires; Rodentia; Sciurognathi; Muridae; Murinae; Mus
 
 
+## Script 29
+
+# Protein Ornize genome_metadata_protein_list
+
+## Description
+
+The Protein Genome Finder script reads a list of protein accession numbers from an input file, searches for matching records in a provided genome table, and creates an output table with the corresponding genome information. If a protein accession is not found in the genome table, the script notes "not genome found" in the output.
+
+## Usage
+
+### Command Line
+
+```bash
+python script.py <input_file> <table_file> <output_file>
+```
+
+# Arguments
+- <input_file>: Path to the input file containing protein accession numbers (one per line).
+- <table_file>: Path to the tab-separated genome table file that contains genome information with "Protein Accession" as one of the columns.
+- <output_file>: Path to the output file where the resulting table will be saved.
+
+# Setup
+# Install Dependencies:
+
+# Ensure you have Python installed.
+
+#Install the required Python library using pip:
+
+```bash
+pip install pandas
+```
+## Functionality
+
+# Read Protein List:
+
+# The script reads protein accession numbers from the input file.
+Create Output Table:
+
+# For each protein in the list, it searches for a matching record in the genome table.
+
+- If a match is found, the script appends the corresponding genome information to the output data.
+- If no match is found, it appends "not genome found" to the output data.
+- The results are stored in a pandas DataFrame and saved as a tab-separated values (TSV) file in the specified output file.
+## Example
+
+# Input File (input.txt)
+NP_000507.1
+NP_001123456.1
+
+# Genome Table (genome_table.tsv)
+
+Protein Accession |   Genome Accession |    Species        | Lineage
+NP_000507.1       |   NC_000001.11     |   Homo sapiens    | Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi; Mammalia; Eutheria; Euarchontoglires; Primates; Haplorrhini; Catarrhini; Hominidae; Homo
+
+# Command
+``` bash
+python script.py input.txt genome_table.tsv output.txt
+```
+## Output File (output.txt)
+
+Protein Accession |    Genome Accession |   Species     | Lineage
+NP_000507.1       |   NC_000001.11      |  Homo sapiens |    Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi; Mammalia; Eutheria; Euarchontoglires; Primates; Haplorrhini; Catarrhini; Hominidae; Homo
+NP_001123456.1    |   not genome found  |  not genome found  |  not genome found
+
+
 ## Contributing
 
 - Contributions to this project are welcome. Please fork the repository and submit a pull request with your enhancements.
