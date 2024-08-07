@@ -1393,9 +1393,7 @@ NP_000507.1  NC_000001.11  Homo sapiens  Eukaryota; Metazoa; Chordata; Craniata;
 NP_001123456.1  NC_000002.12  Mus musculus  Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi; Mammalia; Eutheria; Euarchontoglires; Rodentia; Sciurognathi; Muridae; Murinae; Mus
 
 
-## Script 29
-
-# Protein Ornize genome_metadata_protein_list
+## Script 29: organize_protein_genome_metadata.py 
 
 ## Description
 
@@ -1406,7 +1404,7 @@ The Protein Genome Finder script reads a list of protein accession numbers from 
 ### Command Line
 
 ```bash
-python script.py <input_file> <table_file> <output_file>
+python organize_protein_genome_metadata.py <input_file> <table_file> <output_file>
 ```
 
 # Arguments
@@ -1429,18 +1427,21 @@ pip install pandas
 # Read Protein List:
 
 # The script reads protein accession numbers from the input file.
-Create Output Table:
+
+## Create Output Table:
 
 # For each protein in the list, it searches for a matching record in the genome table.
 
 - If a match is found, the script appends the corresponding genome information to the output data.
 - If no match is found, it appends "not genome found" to the output data.
 - The results are stored in a pandas DataFrame and saved as a tab-separated values (TSV) file in the specified output file.
+
 ## Example
 
 # Input File (input.txt)
-NP_000507.1
-NP_001123456.1
+
+- NP_000507.1
+- NP_001123456.1
 
 # Genome Table (genome_table.tsv)
 
