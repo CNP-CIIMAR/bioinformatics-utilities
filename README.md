@@ -1618,6 +1618,90 @@ Assembly Accession  |  Organism Common Name  |  Organism Name
 GCA_000001405.15    |  Human                 |  Homo sapiens
 GCA_000001635.9     |  Mouse                 |  Mus musculus
 
+## Script 32: extract_genome_id_main.py
+
+# Genome ID Prefix Extractor
+
+## Description
+
+This Python script reads a list of genome IDs from an input file, extracts the part of each genome ID that precedes the second underscore (`_`), and writes the results to a new output file.
+
+## Usage
+
+### Command Line
+
+```bash
+python extract_genome_id_main.py <input_file> <output_file>
+```
+## Arguments
+
+- <input_file>: Path to the input file containing genome IDs (one per line).
+- <output_file>: Path to the output file where the extracted prefixes will be saved.
+
+## Setup
+Install Python:
+## Ensure you have Python installed on your system.
+
+Save the Script:
+
+- Save the provided script to a file, for example extract_prefixes.py.
+
+## Functionality
+# Read Genome IDs:
+
+- The script reads genome IDs from the specified input file.
+## Extract Prefix:
+
+For each genome ID, the script extracts the prefix up to the second underscore (_).
+Write Prefixes to File:
+
+The script writes the extracted prefixes to the specified output file.
+
+##Example
+bash
+
+python extract_genome_id_main.py genome_ids.txt prefixes_output.txt
+
+## Input File (genome_ids.txt)
+
+GCF_030382115.1_ASM3038211v1_genomic
+GCA_015206945.1_ASM1520694v1_genomic
+GCF_002631755.1_ASM263175v1_genomic
+GCF_002246015.1_ASM224601v1_genomic
+GCF_017114965.1_ASM1711496v1_genomic
+GCF_017115065.1_ASM1711506v1_genomic
+GCA_003326195.1_ASM332619v1_genomic
+GCF_017115095.1_ASM1711509v1_genomic
+GCF_017114945.1_ASM1711494v1_genomic
+GCF_017114995.1_ASM1711499v1_genomic
+GCF_017115165.1_ASM1711516v1_genomic
+GCF_002949795.1_ASM294979v1_genomic
+GCF_017115045.1_ASM1711504v1_genomic
+GCF_013393905.1_ASM1339390v1_genomic
+GCF_001712795.1_ASM171279v1_genomic
+GCF_014023275.1_ASM1402327v1_genomic
+GCF_023734775.1_ASM2373477v1_genomic
+GCF_014698065.1_ASM1469806v1_genomic
+
+## Output File (prefixes_output.txt)
+
+
+GCF_030382115.1
+GCA_015206945.1
+GCF_002631755.1
+GCF_002246015.1
+GCF_017114965.1
+GCF_017115065.1
+GCA_003326195.1
+GCF_017115095.1
+GCF_017114945.1
+GCF_017114995.1
+GCF_017115165.1
+GCF_002949795.1
+GCF_017115045.1
+GCF_013393905.1
+GCF_001712795.
+
 ## Contributing
 
 - Contributions to this project are welcome. Please fork the repository and submit a pull request with your enhancements.
