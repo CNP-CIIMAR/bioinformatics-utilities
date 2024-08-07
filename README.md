@@ -1322,6 +1322,8 @@ Saves the search results to the specified output file.
 
 ## Script 28: get_genome_taxonomy_from_protein_id.py
 
+## Essential the download of program datasets from NCBI using this link: https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/ and change the path of the program in the code get_genome_taxonomy_from_protein_id.py
+
 ## Genome and Taxonomic Information Retrieval Script
 
 ## Description
