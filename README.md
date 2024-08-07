@@ -1538,6 +1538,86 @@ NP_000507.1       |    NC_000001.11    |    Homo sapiens  ...  |          | 95  
 The plot will be saved as genome_quality.png, genome_quality.svg, and genome_quality.jpeg.
 
 
+## Script 31: get_specie_name_lineage_from_genome_id.py
+
+# Genome Information Extractor
+
+## Description
+
+This Python script reads a list of genome IDs from an input file, processes each ID to extract a specific prefix, retrieves detailed information about each genome using external commands, and saves the results in a TSV (Tab-Separated Values) file. The script handles errors gracefully and ensures only relevant lines are included in the final output.
+
+## Usage
+
+### Command Line
+
+```bash
+python get_specie_name_lineage_from_genome_id.py <genome_list_file> <output_file_name>
+```
+## Arguments
+
+<genome_list_file>: Path to the input file containing genome IDs (one per line).
+<output_file_name>: Path to the output TSV file where the detailed genome information will be saved.
+
+## Setup
+
+# Ensure Dependencies Are Met:
+
+This script relies on external commands (datasets and dataformat) being available in your system's PATH. Make sure these commands are installed and accessible.
+Ensure you have Python installed.
+
+## Functionality
+
+Read Genome IDs:
+
+## The script reads genome IDs from the specified input file.
+
+# Extract Prefix:
+
+- For each genome ID, the script extracts the prefix up to the second _.
+
+## Generate Intermediate List:
+
+Creates an intermediate list of genome prefixes.
+
+# Generate TSV:
+
+- Uses the datasets command to fetch detailed information about each genome.
+- Writes the output to a temporary TSV file.
+
+## Finalize Output:
+
+Copies the header from the temporary file to the final output file.
+Filters relevant lines and appends them to the final output file using grep.
+Removes the temporary file.
+
+## Example
+
+# Command
+
+```bash
+python get_specie_name_lineage_from_genome_id.py genome_ids.txt genome_info_output.tsv
+```
+## Input File (genome_ids.txt)
+- GCA_000001405.15_GRCh38
+
+- GCA_000001635.9_GRCm39
+## Intermediate List (intermediate_list_YYYYMMDD_HHMMSS.txt)
+
+- GCA_000001405.15
+- GCA_000001635.9
+
+## Temporary File (temp_output_YYYYMMDD_HHMMSS.tsv)
+
+Assembly Accession    | Organism Common Name   | Organism Name
+GCA_000001405.15      | Human                  | Homo sapiens
+GCA_000001635.9       | Mouse                  | Mus musculus
+
+## Output File (genome_info_output.tsv)
+
+Assembly Accession  |  Organism Common Name  |  Organism Name
+GCA_000001405.15    |  Human                 |  Homo sapiens
+GCA_000001635.9     |  Mouse                 |  Mus musculus
+
 ## Contributing
 
 - Contributions to this project are welcome. Please fork the repository and submit a pull request with your enhancements.
