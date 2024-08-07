@@ -1371,8 +1371,10 @@ The results are saved in the specified genome output file.
 
 - Input File (input.txt)
 
-NP_000507.1
-NP_001123456.1
+- NP_000507.1
+- NP_001123456.1
+
+# Each line one accession number of protein
 
 ```bash
 python script.py input.txt genome_output.txt taxonomic_output.txt
@@ -1381,8 +1383,6 @@ python script.py input.txt genome_output.txt taxonomic_output.txt
 
 - genome_output.txt: Contains the protein accession and corresponding genome ID.
 
-NP_000507.1  NC_000001.11
-NP_001123456.1  NC_000002.12
 
 # taxonomic_output.txt: Contains the protein accession, genome ID, species, and taxonomic lineage.
 
