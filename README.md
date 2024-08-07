@@ -1458,6 +1458,85 @@ Protein Accession |    Genome Accession |   Species     | Lineage
 NP_000507.1       |   NC_000001.11      |  Homo sapiens |    Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi; Mammalia; Eutheria; Euarchontoglires; Primates; Haplorrhini; Catarrhini; Hominidae; Homo
 NP_001123456.1    |   not genome found  |  not genome found  |  not genome found
 
+## Script 30:
+
+# Genome Quality Filter and Classifier
+
+## Description
+
+This Python script filters and classifies genomes based on their completeness and contamination metrics. It reads a genome table from a CSV file, filters the genomes according to specified thresholds, classifies them into quality categories, and plots the results. The plot is saved in multiple formats.
+
+## Usage
+
+### Command Line
+
+```bash
+python script.py <input_file> <output_file> <base_filename> <completeness_threshold> <contamination_threshold>
+```
+## Arguments
+
+- <input_file>: Path to the input CSV file containing the genome table.
+- <output_file>: Path to the output CSV file where the filtered genome table will be saved.
+- <base_filename>: Base name of the file for saving the plots.
+- <completeness_threshold>: Minimum value of completeness.
+- <contamination_threshold>: Maximum value of contamination.
+
+## Setup
+# Install Dependencies:
+## Ensure you have Python installed.
+
+Install the required Python libraries using pip:
+
+```bash
+pip install pandas matplotlib argparse
+```
+## Functionality
+
+## Filter Genomes:
+
+The script reads the genome table from the input CSV file.
+It filters genomes based on the provided completeness and contamination thresholds.
+The filtered table is saved to the specified output file.
+
+## Classify Genomes:
+
+## Genomes are classified into four categories:
+
+- High-quality draft: >90% complete, <5% contamination
+- Medium-quality draft: ≥50% complete, <10% contamination
+- Low-quality drafts: <50% complete, <10% contamination
+
+## Genomes meeting custom thresholds: ≥completeness_threshold% complete, ≤contamination_threshold% contamination
+
+## Plot Genome Quality:
+
+- The script creates a bar plot showing the number of genomes in each quality category.
+- The plot is saved in PNG, SVG, and JPEG formats.
+
+## Example
+
+```bash
+python script.py genomes.csv filtered_genomes.csv genome_quality 90 5
+```
+- Input File (genomes.csv)
+
+
+Protein Accession  |  Genome Accession   | Species       | Lineage    | Completeness    | Contamination
+NP_000507.1        |  NC_000001.11       | Homo sapiens  ...            |  95             | 2
+NP_001123456.1     |  NC_000002.12       | Mus musculus  ...            | 85              | 1
+...
+
+- Output File (filtered_genomes.csv)
+
+
+Protein Accession |   Genome Accession |   Species            |Lineage    |Completeness    | Contamination
+NP_000507.1       |    NC_000001.11    |    Homo sapiens  ...  |          | 95              | 2
+...
+
+## Plot Output
+
+The plot will be saved as genome_quality.png, genome_quality.svg, and genome_quality.jpeg.
+
 
 ## Contributing
 
