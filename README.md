@@ -1564,8 +1564,10 @@ python get_specie_name_lineage_from_genome_id.py <genome_list_file> <output_file
 
 # Ensure Dependencies Are Met:
 
-This script relies on external commands (datasets and dataformat) being available in your system's PATH. Make sure these commands are installed and accessible.
-Ensure you have Python installed.
+This script relies on external commands (datasets and dataformat) being available in your system's PATH. Make sure these commands are installed and accessible. The dataset and dataformat program can be obtained from this NCBI link: https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/ 
+
+
+## Ensure you have Python installed.
 
 ## Functionality
 
