@@ -1696,6 +1696,27 @@ python extract_genome_id_main.py genome_ids.txt prefixes_output.txt
 
 - Contributions to this project are welcome. Please fork the repository and submit a pull request with your enhancements.
 
+
+## Script 33: genome-downloader.py
+
+# Genome Downloader
+
+Este script em Python permite o download de arquivos GBFF (GenBank Flat File) de genomas a partir de uma lista de IDs de acesso. Ele usa a ferramenta `datasets` fornecida pela NCBI para realizar o download.
+
+## Requisitos
+
+- Python 3.x
+- A ferramenta `datasets` da NCBI deve estar instalada no ambiente Python que você está usando. Certifique-se de que o caminho para o executável `datasets` está correto no script.
+
+## Instalação
+
+1. Clone este repositório:
+
+   ```bash
+   git clone https://github.com/seuusuario/genome-downloader.git
+```
+    cd genome-downloader
+   
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
