@@ -1719,6 +1719,53 @@ git clone https://github.com/seuusuario/genome-downloader.git
 ```bash
  cd genome-downloader
 ```
+
+Install the necessary dependencies.
+This script requires that the NCBI datasets tool is available in your Python environment. If you haven't installed it yet, you can do so via conda:
+
+```bash
+conda install -c bioconda ncbi-datasets-cli
+```
+
+- Make sure the path to the datasets executable is correct in the genome_downloader.py script. By default, the path is /home/mattoslmp/anaconda3/envs/biopython/bin/datasets, but you can adjust it as needed.
+
+## Usage
+
+- Prepare a text file containing the genome IDs you want to download. Each line of the file should contain a genome accession ID. Example of a genome_ids.txt file:
+
+
+- GCF_000001405.39
+- GCF_000002265.5
+- GCF_000002865.1
+
+Run the script by passing the file with the IDs and the output directory as parameters:
+
+```bash
+python genome_downloader.py genome_ids.txt output_directory/
+```
+Where:
+
+- genome_ids.txt is the file containing the genome IDs.
+
+output_directory/ is the directory where the GBFF files will be saved.
+
+The script will download each genome listed in the file and save the .zip files in the specified directory. Each .zip will contain the corresponding GBFF file.
+
+## Example of Usage
+Here is a complete example of how to use the script:
+
+```bash
+python genome_downloader.py genome_ids.txt ./genomes/
+```
+This command will download the genomes listed in genome_ids.txt and save the .zip files containing the GBFFs in the ./genomes/ directory.
+
+# Common Errors
+
+Error: "Failed to download ...": This can happen if the genome ID is invalid or if there are internet connectivity issues. Check the ID and try again.
+
+"datasets command not found": Make sure the datasets tool is installed and the path in the script is correct.
+
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
