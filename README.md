@@ -1712,11 +1712,13 @@ Este script em Python permite o download de arquivos GBFF (GenBank Flat File) de
 
 1. Clone este repositório:
 
-   ```bash
-   git clone https://github.com/seuusuario/genome-downloader.git
+
+```bash
+git clone https://github.com/seuusuario/genome-downloader.git
 ```
-    cd genome-downloader
-   
+```bash
+ cd genome-downloader
+```
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
