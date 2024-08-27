@@ -1765,6 +1765,71 @@ Error: "Failed to download ...": This can happen if the genome ID is invalid or 
 
 "datasets command not found": Make sure the datasets tool is installed and the path in the script is correct.
 
+# Script 34: Create get_metadata_from_genome_id.py
+
+This Python script is designed to enhance a genomic assembly dataset by retrieving metadata from the NCBI database. The script reads an input TSV (Tab-Separated Values) file containing genomic assembly IDs (such as GCF_ or GCA_), queries the NCBI API for relevant metadata (e.g., collection date, latitude, longitude, environment), and outputs an updated TSV file with this additional information.
+
+## Requirements
+Python 3.x
+Pandas: A Python library for data manipulation and analysis.
+Requests: A Python library for sending HTTP requests.
+
+You can install the required libraries using pip:
+
+pip install pandas requests
+
+## How the Script Works
+Input File: The script expects a TSV file as input. The file should contain a column named Assembly, which holds the genomic assembly IDs (e.g., GCF_XXXXX or GCA_XXXXX).
+
+Processing: For each genomic assembly ID in the input file:
+
+## The script checks if the ID is in the correct format (starting with GCF_ or GCA_).
+
+It then queries the NCBI Entrez API to retrieve the corresponding UID.
+
+Using the UID, the script fetches metadata such as collection date, latitude, longitude, and environment.
+The retrieved metadata is added as new columns in the output file.
+Output File: The script writes the updated data to a new TSV file, preserving the original information and adding the retrieved metadata.
+
+# Usage
+To run the script, use the following command in the terminal:
+
+```bash
+python get_metadata.py input_file.tsv output_file.tsv
+```
+
+- input_file.tsv: The path to your input TSV file containing genomic assembly IDs.
+- output_file.tsv: The path where the output TSV file with the additional metadata will be saved.
+
+## Example:
+
+python get_metadata.py Tabela_metadata.tsv Tabela_metadata_out.tsv
+
+This will process the Tabela_metadata.tsv file and save the updated data to Tabela_metadata_out.tsv.
+
+- Column Information
+
+- The script adds the following columns to your dataset:
+
+Collection Date: The date when the sample was collected (if available).
+Latitude: The latitude where the sample was collected (if available).
+Longitude: The longitude where the sample was collected (if available).
+Environment: The environment or habitat where the sample was collected (if available).
+Error Handling
+
+- Invalid Genomic IDs: If a genomic ID is not in the correct format or cannot be found in the NCBI database, the script will log the error and continue processing the next entry.
+- Network Issues: If there is an issue with the network or API response, the script will print an error message and move on to the next entry.
+- Problematic Lines: When reading the input file, any problematic lines are skipped to avoid breaking the script.
+- Troubleshooting
+
+Ensure that your genomic IDs in the Assembly column are in the correct format (GCF_ or GCA_).
+If the script fails to retrieve metadata for specific entries, check the error messages in the console for more details.
+If necessary, review the input file for any anomalies or incorrect formats.
+
+## Limitations
+The script assumes that the genomic IDs are valid and formatted correctly. Invalid or incorrectly formatted IDs may result in errors or missing metadata.
+The metadata fields retrieved from NCBI depend on the availability of data in the NCBI database. Some fields may be missing for certain genomic assemblies.
+
 
 ## License
 
