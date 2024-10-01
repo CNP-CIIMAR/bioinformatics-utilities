@@ -1830,7 +1830,7 @@ If necessary, review the input file for any anomalies or incorrect formats.
 The script assumes that the genomic IDs are valid and formatted correctly. Invalid or incorrectly formatted IDs may result in errors or missing metadata.
 The metadata fields retrieved from NCBI depend on the availability of data in the NCBI database. Some fields may be missing for certain genomic assemblies.
 
-## Script 35: update_itol_table.py
+## Script 35: genome_itol_table_update.py
 
 ## Genome IDs Table Updater
 
@@ -1872,7 +1872,7 @@ python update_itol_table.py -i <genome_ids.txt> -t <input_table.tsv> -o <output_
 
 ## Example:
 ```bash
-python atualiza_genome_ids.py -i genome_ids.txt -t input_table.tsv -o updated_table.tsv
+python genome_itol_table_update.py -i genome_ids.txt -t input_table.tsv -o updated_table.tsv
 ```
 
 ## Description
