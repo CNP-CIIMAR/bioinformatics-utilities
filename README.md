@@ -1830,6 +1830,67 @@ If necessary, review the input file for any anomalies or incorrect formats.
 The script assumes that the genomic IDs are valid and formatted correctly. Invalid or incorrectly formatted IDs may result in errors or missing metadata.
 The metadata fields retrieved from NCBI depend on the availability of data in the NCBI database. Some fields may be missing for certain genomic assemblies.
 
+## Script 35: update_itol_table.py
+
+## Genome IDs Table Updater
+
+This script is designed to update a table based on a list of Genome IDs. It adds 'Label' and 'Color' columns to the records that match the provided Genome IDs.
+
+## Features
+Loads a list of Genome IDs from a text file.
+Loads an input table containing a column with phylogenetic tree node IDs.
+Adds 'Label' and 'Color' columns for matching genomes based on the provided IDs.
+Saves the updated table to an output file.
+
+- Requirements
+- Python 3.6 or higher
+- Python libraries:
+- pandas
+- argparse
+- os
+- sys
+
+## Installation
+Clone or download this repository.
+Install the required Python packages:
+```bash
+pip install pandas
+```
+
+## Usage
+To run the script, use the following command:
+
+```bash
+python update_itol_table.py -i <genome_ids.txt> -t <input_table.tsv> -o <output_table.tsv>
+```
+
+
+## Arguments:
+-i, --input_ids: Path to the genome IDs text file (e.g., genome_ids.txt).
+-t, --input_table: Path to the input table file (e.g., table.tsv).
+-o, --output_table: Path to the output table file where the updated table will be saved (e.g., updated_table.tsv).
+
+## Example:
+```bash
+python atualiza_genome_ids.py -i genome_ids.txt -t input_table.tsv -o updated_table.tsv
+```
+
+## Description
+
+The script performs the following tasks:
+
+- Loads the genome IDs from the text file.
+- Loads the input table and checks for the column 'Tree node ID'.
+- Extracts and cleans the genome prefixes from the IDs.
+- Matches the cleaned IDs with the Genome IDs provided in the input file.
+- Adds 'Label' and 'Color' columns to the matched rows and updates the table.
+Saves the updated table to the specified output file.
+- Error Handling
+
+The script checks if the input files exist and handles any errors during the file reading and writing processes.
+
+## License
+This project is licensed under the MIT License.
 
 ## License
 
