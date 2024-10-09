@@ -1955,6 +1955,7 @@ Saves the updated table to the specified output file.
 
 The script checks if the input files exist and handles any errors during the file reading and writing processes.
 
+
 ## Script 37 name:mibig_downloader.py MIBIG Downloader  
 
 description: >
@@ -1992,9 +1993,9 @@ example:
     - Baixa e organiza os arquivos .gbk para os IDs especificados em lista_ids.txt no diretório ./saida/.
 
   - command: python mibig_downloader.py lista_ids.txt ./saida/ --url_base https://nova_url_do_mibig/repository/
-    description: >
-      Baixa e organiza os arquivos .gbk para os IDs especificados em lista_ids.txt no diretório ./saida/
-      usando uma nova URL base para o repositório MIBIG.
+  - description: 
+      - Baixa e organiza os arquivos .gbk para os IDs especificados em lista_ids.txt no diretório ./saida/
+      - usando uma nova URL base para o repositório MIBIG.
 
 ## License
 This project is licensed under the MIT License. Leandro de Mattos Pereira built all the codes.
