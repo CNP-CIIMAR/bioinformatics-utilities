@@ -1804,8 +1804,7 @@ how_it_works:
       The script logs the process ID (PID) of the background command,
       allowing users to track the download process.
 
-## example:
-  # command: 
+# command: 
 ```bash
     python download_genome_ncbi_datasets.py genome_accessions.txt downloaded_genomes.zip
 ```
