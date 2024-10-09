@@ -1765,7 +1765,69 @@ Error: "Failed to download ...": This can happen if the genome ID is invalid or 
 
 "datasets command not found": Make sure the datasets tool is installed and the path in the script is correct.
 
-# Script 34: Create get_metadata_from_genome_id.py
+## Script 34: Genome download .fna of NCBI using ncbi dataset API
+
+title: "Dataset Download Script"
+description: >
+  This script downloads genome datasets using the `datasets` command-line tool.
+  It runs the download process in the background and logs the progress to a log file.
+
+requirements:
+  - "Python 3.x"
+  - "`datasets` command-line tool installed and accessible in your system PATH."
+
+file_structure:
+  - "processo_datasets.log: A log file where the script records the process information."
+  - "nohup_output.txt: A file that captures the output and error messages from the background process."
+
+usage:
+  command: "python script.py <input_file.txt> <output_file.zip>"
+  parameters:
+    input_file: "A text file containing the genome accession numbers you wish to download."
+    output_file: "The name of the zip file where the downloaded genome data will be stored."
+
+how_it_works:
+  - step: "**Logging Configuration**"
+    description: >
+      The script sets up logging to record the process's start time, level of severity,
+      and messages in the `processo_datasets.log` file.
+  - step: "**Executing Command in Background**"
+    description: >
+      The script constructs a command using the `datasets` tool to download genome data.
+      It then runs this command in the background using `subprocess.Popen`,
+      redirecting both standard output and error to `nohup_output.txt`.
+  - step: "**Process Management**"
+    description: >
+      The script logs the process ID (PID) of the background command,
+      allowing users to track the download process.
+
+example:
+  command: |
+    python script.py genome_accessions.txt downloaded_genomes.zip
+  description: >
+    This command will download genome data based on the accession numbers listed in
+    `genome_accessions.txt` and save it to `downloaded_genomes.zip`.
+
+notes:
+  - "Make sure that the `datasets` command-line tool is correctly installed and configured before running the script."
+  - "Check the `processo_datasets.log` and `nohup_output.txt` files for details about the execution and any potential errors."
+
+additional_tips:
+  - "**Personalize o Nome do Script:**"
+    description: >
+      If your Python script has a specific name (e.g., `download_genomes.py`),
+      replace `script.py` with the correct name in the usage examples.
+  - "**Adicione Seções se Necessário:**"
+    description: >
+      Depending on your project's needs, you can add additional sections such as
+      "Installation", "Contribution", "License", etc.
+  - "**Verifique os Caminhos dos Arquivos:**"
+    description: >
+      Ensure that the paths to the log files (`processo_datasets.log` and
+      `nohup_output.txt`) are correct and accessible in the environment where
+      the script will be executed.
+
+# Script 35: Create get_metadata_from_genome_id.py
 
 This Python script is designed to enhance a genomic assembly dataset by retrieving metadata from the NCBI database. The script reads an input TSV (Tab-Separated Values) file containing genomic assembly IDs (such as GCF_ or GCA_), queries the NCBI API for relevant metadata (e.g., collection date, latitude, longitude, environment), and outputs an updated TSV file with this additional information.
 
@@ -1830,7 +1892,7 @@ If necessary, review the input file for any anomalies or incorrect formats.
 The script assumes that the genomic IDs are valid and formatted correctly. Invalid or incorrectly formatted IDs may result in errors or missing metadata.
 The metadata fields retrieved from NCBI depend on the availability of data in the NCBI database. Some fields may be missing for certain genomic assemblies.
 
-## Script 35: genome_itol_table_update.py
+## Script 36: genome_itol_table_update.py
 
 ## Genome IDs Table Updater
 
