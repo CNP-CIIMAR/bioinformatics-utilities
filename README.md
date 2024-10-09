@@ -1765,7 +1765,7 @@ Error: "Failed to download ...": This can happen if the genome ID is invalid or 
 
 "datasets command not found": Make sure the datasets tool is installed and the path in the script is correct.
 
-## Script 34: Genome download .fna of NCBI using ncbi dataset API
+## Script 34:download_genome_ncbi_datasets.py  - "Dataset Download Script"
 
 title: "Dataset Download Script"
 description: >
@@ -1780,11 +1780,14 @@ file_structure:
   - "processo_datasets.log: A log file where the script records the process information."
   - "nohup_output.txt: A file that captures the output and error messages from the background process."
 
-usage:
-  command: "python script.py <input_file.txt> <output_file.zip>"
+## usage:
+# command: 
+```bash
+python download_genome_ncbi_datasets.py <input_file.txt> <output_file.zip>
+```
   parameters:
-    input_file: "A text file containing the genome accession numbers you wish to download."
-    output_file: "The name of the zip file where the downloaded genome data will be stored."
+    - input_file: "A text file containing the genome accession numbers you wish to download."
+    - output_file: "The name of the zip file where the downloaded genome data will be stored."
 
 how_it_works:
   - step: "**Logging Configuration**"
@@ -1801,12 +1804,14 @@ how_it_works:
       The script logs the process ID (PID) of the background command,
       allowing users to track the download process.
 
-example:
-  command: |
-    python script.py genome_accessions.txt downloaded_genomes.zip
-  description: >
-    This command will download genome data based on the accession numbers listed in
-    `genome_accessions.txt` and save it to `downloaded_genomes.zip`.
+## example:
+  # command: 
+```bash
+    python download_genome_ncbi_datasets.py genome_accessions.txt downloaded_genomes.zip
+```
+  # description: 
+- This command will download genome data based on the accession numbers listed in
+- `genome_accessions.txt` and save it to `downloaded_genomes.zip`.
 
 notes:
   - "Make sure that the `datasets` command-line tool is correctly installed and configured before running the script."
