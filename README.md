@@ -1955,14 +1955,56 @@ Saves the updated table to the specified output file.
 
 The script checks if the input files exist and handles any errors during the file reading and writing processes.
 
+## Script 37 name:mibig_downloader.py MIBIG Downloader  
+
+description: >
+  Um script Python para baixar, descompactar e organizar arquivos do repositório MIBIG (Biosynthetic Gene Cluster).
+  O script extrai IDs de um arquivo de texto, baixa os arquivos correspondentes do MIBIG, 
+  descompacta e organiza os arquivos .gbk em um diretório de saída.
+
+version: "1.0.0"
+
+dependencies:
+  - Python >= 3.6
+  - requests
+  - zipfile
+  - argparse
+
+usage: |
+  python mibig_downloader.py <arquivo_entrada> <diretorio_saida> [--url_base <url>] [--log_falhas <arquivo_log>]
+
+parameters:
+  - arquivo_entrada:
+      description: Caminho para o arquivo de entrada (txt) contendo os IDs no formato BGCXXXXX.
+  - diretorio_saida:
+      description: Diretório onde os arquivos .zip serão salvos e descompactados.
+  - url_base:
+      description: URL base do repositório MIBIG. (opcional, padrão: https://mibig.secondarymetabolites.org/repository/)
+  - log_falhas:
+      description: Arquivo para registrar IDs que falharam no download. (opcional, padrão: falhas_download.txt)
+
+example:
+ ```bash
+ python  python mibig_downloader.py lista_ids.txt ./saida/
+ ```
+  - command: python mibig_downloader.py lista_ids.txt ./saida/
+    - description: 
+    - Baixa e organiza os arquivos .gbk para os IDs especificados em lista_ids.txt no diretório ./saida/.
+
+  - command: python mibig_downloader.py lista_ids.txt ./saida/ --url_base https://nova_url_do_mibig/repository/
+    description: >
+      Baixa e organiza os arquivos .gbk para os IDs especificados em lista_ids.txt no diretório ./saida/
+      usando uma nova URL base para o repositório MIBIG.
+
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. Leandro de Mattos Pereira built all the codes.
 
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## More about:
+
 [Junior Researcher, Leandro de Mattos Pereira](https://mattoslmp.github.io)
 
 [CNP team, Dr. Pedro Leão, Researcher Leader](https://leaolab.wixsite.com/leaolab)
