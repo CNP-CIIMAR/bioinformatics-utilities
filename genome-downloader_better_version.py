@@ -5,7 +5,7 @@ import subprocess
 def download_genomes(genome_ids, output_dir):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-
+    ## Não esqueça de alterar a linha abaixo para o caminho do script datasets do ncbi - obtido no ncbi
     datasets_cmd = "/home/mattoslmp/anaconda3/envs/biopython/bin/datasets"
 
     for assembly_id in genome_ids:
