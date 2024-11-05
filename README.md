@@ -1833,10 +1833,10 @@ additional_tips:
 
 # Script 35: Create get_metadata_from_genome_id.py
 
-# Genome Metadata Extraction and Filtering Script
+**Genome Metadata Extraction and Filtering Script**
 
-# This script processes genome assembly IDs to retrieve and enrich metadata using the NCBI Entrez system. 
-# The metadata includes lineage information, biome distribution, geographic location, and coordinates (latitude and longitude) for each genome. The output consists of two files:
+This script processes genome assembly IDs to retrieve and enrich metadata using the NCBI Entrez system. 
+The metadata includes lineage information, biome distribution, geographic location, and coordinates (latitude and longitude) for each genome. The output consists of two files:
 
 1. A primary file with metadata for all input assembly IDs.
 2. A filtered file containing only genomes with both `BiomeDistribution` and geographic coordinates.
