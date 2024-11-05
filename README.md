@@ -900,22 +900,21 @@ Before running this script, ensure you have `python3` installed on your system, 
    chmod +x script_name.py
 # Run the script with the following command:
 ```
-python3 script_name.py path_to_your_fasta_file.fasta
+python3 run_interproscan.py path_to_your_fasta_file.fasta
 ```
-Replace script_name.py with the actual file name of the script and path_to_your_fasta_file.fasta with the full path of the .fasta file you want to analyze.
+Replace run_interproscan.py with the actual file name of the script and path_to_your_fasta_file.fasta with the full path of the .fasta file you want to analyze.
 
-Important Notes
+# Important Notes
 This script assumes you are using a Debian/Ubuntu-based system for package installation via apt.
 Ensure your user has appropriate permissions to execute commands with sudo without manual interaction for password entry.
 Troubleshooting
 If you encounter any issues related to the execution of InterProScan or related tools, check the following:
-
 The specified .fasta file exists and is accessible by the script.
 All required components (Java, Perl, Python, bedtools) have been correctly installed.
 The interproscan.sh script is in the expected directory and is executable.
 For more information on InterProScan setup and options, visit the InterProScan GitHub page.
-## Considerations
 
+## Considerations
 - **Location and Permissions**: This README assumes that the user has basic system permissions and directory navigation knowledge.
 - **Customization**: You may need to adjust the path or specific parameters of InterProScan based on your setup and needs.
 - **External Link**: I included a link to the InterProScan GitHub page for users who want more detailed information about the tool.
