@@ -1322,11 +1322,11 @@ Saves the search results to the specified output file.
 
 ## Script 28: get_genome_taxonomy_from_protein_id.py
 
-## Essential the download of program datasets from NCBI using this link: https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/ and change the path of the program in the code get_genome_taxonomy_from_protein_id.py
+# Essential the download of program datasets from NCBI using this link: https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/ and change the path of the program in the code get_genome_taxonomy_from_protein_id.py
 
-## Genome and Taxonomic Information Retrieval Script
+# Genome and Taxonomic Information Retrieval Script
 
-## Description
+# Description
 
 - This Python script get_genome_taxonomy_from_protein_id.py retrieves genome and taxonomic information for a list of protein accessions. It utilizes the BioPython library to interact with NCBI's databases and subprocess to execute command-line operations for efetch.
 - The script reads a file containing protein accession numbers, fetches - the corresponding genome IDs, and then retrieves taxonomic information for each protein. The results are saved in two output files.
@@ -1403,7 +1403,7 @@ The Protein Genome Finder script reads a list of protein accession numbers from 
 
 ## Usage
 
-### Command Line
+# Command Line
 
 ```bash
 python organize_protein_genome_metadata.py <input_file> <table_file> <output_file>
@@ -1438,7 +1438,7 @@ pip install pandas
 - If no match is found, it appends "not genome found" to the output data.
 - The results are stored in a pandas DataFrame and saved as a tab-separated values (TSV) file in the specified output file.
 
-## Example
+# Example
 
 # Input File (input.txt)
 
@@ -1454,7 +1454,7 @@ NP_000507.1       |   NC_000001.11     |   Homo sapiens    | Eukaryota; Metazoa;
 ``` bash
 python script.py input.txt genome_table.tsv output.txt
 ```
-## Output File (output.txt)
+# Output File (output.txt)
 
 Protein Accession |    Genome Accession |   Species     | Lineage
 NP_000507.1       |   NC_000001.11      |  Homo sapiens |    Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi; Mammalia; Eutheria; Euarchontoglires; Primates; Haplorrhini; Catarrhini; Hominidae; Homo
@@ -1464,13 +1464,13 @@ NP_001123456.1    |   not genome found  |  not genome found  |  not genome found
 
 # Genome Quality Filter and Classifier
 
-## Description
+# Description
 
 This Python script filters and classifies genomes based on their completeness and contamination metrics. It reads a genome table from a CSV file, filters the genomes according to specified thresholds, classifies them into quality categories, and plots the results. The plot is saved in multiple formats.
 
 ## Usage
 
-### Command Line
+# Command Line
 
 ```bash
 python filter_table_genome_quality_generate_plot.py <input_file> <output_file> <base_filename> <completeness_threshold> <contamination_threshold>
@@ -1484,8 +1484,9 @@ python filter_table_genome_quality_generate_plot.py <input_file> <output_file> <
 - <contamination_threshold>: Maximum value of contamination.
 
 ## Setup
+
 # Install Dependencies:
-## Ensure you have Python installed.
+# Ensure you have Python installed.
 
 Install the required Python libraries using pip:
 
@@ -1502,7 +1503,7 @@ The filtered table is saved to the specified output file.
 
 ## Classify Genomes:
 
-## Genomes are classified into four categories:
+# Genomes are classified into four categories:
 
 - High-quality draft: >90% complete, <5% contamination
 - Medium-quality draft: ≥50% complete, <10% contamination
@@ -1510,12 +1511,12 @@ The filtered table is saved to the specified output file.
 
 ## Genomes meeting custom thresholds: ≥completeness_threshold% complete, ≤contamination_threshold% contamination
 
-## Plot Genome Quality:
+# Plot Genome Quality:
 
 - The script creates a bar plot showing the number of genomes in each quality category.
 - The plot is saved in PNG, SVG, and JPEG formats.
 
-## Example
+# Example
 
 ```bash
 python filter_table_genome_quality_generate_plot.py genomes.csv filtered_genomes.csv genome_quality 90 5
@@ -1535,7 +1536,7 @@ Protein Accession |   Genome Accession |   Species            |Lineage    |Compl
 NP_000507.1       |    NC_000001.11    |    Homo sapiens  ...  |          | 95              | 2
 ...
 
-## Plot Output
+# Plot Output
 
 The plot will be saved as genome_quality.png, genome_quality.svg, and genome_quality.jpeg.
 
@@ -1544,13 +1545,13 @@ The plot will be saved as genome_quality.png, genome_quality.svg, and genome_qua
 
 # Genome Information Extractor
 
-## Description
+# Description
 
 This Python script reads a list of genome IDs from an input file, processes each ID to extract a specific prefix, retrieves detailed information about each genome using external commands, and saves the results in a TSV (Tab-Separated Values) file. The script handles errors gracefully and ensures only relevant lines are included in the final output.
 
 ## Usage
 
-### Command Line
+# Command Line
 
 ```bash
 python get_specie_name_lineage_from_genome_id.py <genome_list_file> <output_file_name>
@@ -1569,7 +1570,7 @@ This script relies on external commands (datasets and dataformat) being availabl
 
 ## Ensure you have Python installed.
 
-## Functionality
+# Functionality
 
 Read Genome IDs:
 
@@ -1579,7 +1580,7 @@ Read Genome IDs:
 
 - For each genome ID, the script extracts the prefix up to the second _.
 
-## Generate Intermediate List:
+# Generate Intermediate List:
 
 Creates an intermediate list of genome prefixes.
 
@@ -1588,7 +1589,7 @@ Creates an intermediate list of genome prefixes.
 - Uses the datasets command to fetch detailed information about each genome.
 - Writes the output to a temporary TSV file.
 
-## Finalize Output:
+# Finalize Output:
 
 Copies the header from the temporary file to the final output file.
 Filters relevant lines and appends them to the final output file using grep.
@@ -1601,22 +1602,24 @@ Removes the temporary file.
 ```bash
 python get_specie_name_lineage_from_genome_id.py genome_ids.txt genome_info_output.tsv
 ```
-## Input File (genome_ids.txt)
+# Input File (genome_ids.txt)
+
 - GCA_000001405.15_GRCh38
 
 - GCA_000001635.9_GRCm39
-## Intermediate List (intermediate_list_YYYYMMDD_HHMMSS.txt)
+
+# Intermediate List (intermediate_list_YYYYMMDD_HHMMSS.txt)
 
 - GCA_000001405.15
 - GCA_000001635.9
 
-## Temporary File (temp_output_YYYYMMDD_HHMMSS.tsv)
+# Temporary File (temp_output_YYYYMMDD_HHMMSS.tsv)
 
 Assembly Accession    | Organism Common Name   | Organism Name
 GCA_000001405.15      | Human                  | Homo sapiens
 GCA_000001635.9       | Mouse                  | Mus musculus
 
-## Output File (genome_info_output.tsv)
+# Output File (genome_info_output.tsv)
 
 Assembly Accession  |  Organism Common Name  |  Organism Name
 GCA_000001405.15    |  Human                 |  Homo sapiens
@@ -1626,45 +1629,50 @@ GCA_000001635.9     |  Mouse                 |  Mus musculus
 
 # Genome ID Prefix Extractor
 
-## Description
+# Description
 
 This Python script reads a list of genome IDs from an input file, extracts the part of each genome ID that precedes the second underscore (`_`), and writes the results to a new output file.
 
 ## Usage
 
-### Command Line
+# Command Line
 
 ```bash
 python extract_genome_id_main.py <input_file> <output_file>
 ```
-## Arguments
+# Arguments
 
 - <input_file>: Path to the input file containing genome IDs (one per line).
 - <output_file>: Path to the output file where the extracted prefixes will be saved.
 
 ## Setup
+
 Install Python:
-## Ensure you have Python installed on your system.
+
+# Ensure you have Python installed on your system.
 
 Save the Script:
 
 - Save the provided script to a file, for example extract_prefixes.py.
 
-## Functionality
+# Functionality
+
 # Read Genome IDs:
 
 - The script reads genome IDs from the specified input file.
-## Extract Prefix:
+
+# Extract Prefix:
 
 For each genome ID, the script extracts the prefix up to the second underscore (_).
 Write Prefixes to File:
 
 The script writes the extracted prefixes to the specified output file.
 
-##Example
-bash
+# Example
 
+```bash
 python extract_genome_id_main.py genome_ids.txt prefixes_output.txt
+```
 
 ## Input File (genome_ids.txt)
 
