@@ -1835,39 +1835,11 @@ additional_tips:
 
 # Genome Metadata Extraction and Filtering Script
 
-This script processes genome assembly IDs to retrieve and enrich metadata using the NCBI Entrez system. The metadata includes lineage information, biome distribution, geographic location, and coordinates (latitude and longitude) for each genome. The output consists of two files:
+# This script processes genome assembly IDs to retrieve and enrich metadata using the NCBI Entrez system. 
+# The metadata includes lineage information, biome distribution, geographic location, and coordinates (latitude and longitude) for each genome. The output consists of two files:
+
 1. A primary file with metadata for all input assembly IDs.
-## Sample Output Format
-
-# Both output files will contain columns as shown below:
-
-| Assembly Accession | Organism Name | Organism Common Name | Organism Tax ID | Lineage | Assembly Level | BioProject Accession | BioSample Accession | GC Percent | Total Sequence Length | Sequencing Technology | Release Date | Collection Date | BioSample Description | Location | BiomeDistribution | Latitude | Longitude |
-|--------------------|---------------|----------------------|-----------------|---------|----------------|----------------------|---------------------|------------|-----------------------|------------------------|--------------|----------------|------------------------|----------|-------------------|----------|-----------|
-| GCA_000003745.2    | Vitis vinifera | wine grape           | 29760           | root; cellular organisms; Eukaryota;... | Chromosome | PRJEA18785 | SAMEA2272750 | 34.5 | 485326422 |  | 2009-12-07 | | BioSample entry for genome collection GCA_000003745 | USA: Angelo Coast Range Reserve, CA | Soil | 39.74 | -123.63 |
-| GCA_000004075.3    | Cucumis sativus | cucumber            | 3659            | root; cellular organisms; Eukaryota;... | Chromosome | PRJNA33619 | SAMN02953750 | 32.5 | 224801081 | PacBio RSII; PacBio Sequel; 10X Genomics; Hi-C; Illumina | 2019-11-15 | | Sample from Cucumis sativus | Peru: Oxygen minimum zone | Unknown |  |  |
-| GCA_000004515.5    | Glycine max    | soybean             | 3847            | root; cellular organisms; Eukaryota;... | Chromosome | PRJNA19861 | SAMN00002965 | 34.5 | 978386919 | ABI 3739 | 2021-03-10 | | Glycine max cv. Williams 82 callus from plants grown in dark condition | Canada: Vancouver, Saanich Inlet | Marine | 48.36 | -123.3 |
-| ...                | ...           | ...                  | ...             | ...     | ...            | ...                  | ...                 | ...        | ...                   | ...                    | ...          | ...            | ...                    | ...      | ...               | ...      | ...       |
-
-
-3. A filtered file containing only genomes with both `BiomeDistribution` and geographic coordinates.
-
-## Features
-
-- **Lineage Retrieval**: Uses the NCBI taxonomy database to fetch lineage based on organism taxonomic ID.
-- **Biome Distribution and Location Extraction**: Identifies and categorizes biomes using keywords aligned with GOLD standards (e.g., terrestrial, marine, freshwater).
-- **Latitude and Longitude Parsing**: Extracts geographic coordinates for samples with specified locations.
-- **Output Files**:
-  - Main output with all metadata.
-  - Filtered output containing only rows with populated `BiomeDistribution`, `Latitude`, and `Longitude`.
- ## Summary Output
-# The script will print a summary at the end, showing:
-
-- Total Genome IDs with BiomeDistribution filled.
-- Total Genome IDs with Latitude and Longitude.
-- Total Genome IDs in the filtered file with all required metadata.
-# Notes
-- NCBI Request Limits: The script adds pauses to comply with NCBI request limits. Consider running with an NCBI API key for higher request thresholds.
-- Error Handling: If a genome assembly ID does not return any metadata, it is skipped, and an error message is logged.
+2. A filtered file containing only genomes with both `BiomeDistribution` and geographic coordinates.
 
 ## Prerequisites
 
@@ -1901,24 +1873,40 @@ GCA_000004075.3
 python get_metadata.py <input_file_with_assembly_ids> <output_file>
 ```
 
-<input_file_with_assembly_ids>: Path to your input file containing the list of genome assembly IDs.
-<output_file>: Desired name for the main output file. The script will also generate a filtered file prefixed with filtered_.
-
-# Output Files:
-
-# The main output file (output_file) will contain all metadata for each genome.
-
-- The filtered output file (filtered_output_file) will only include rows with populated values for BiomeDistribution, Latitude, and Longitude.
-
-# Example
-```bash
-python get_metadata.py genomes_list.tsv genomes_metadata.tsv
-```
-
 # This command will produce:
 
 - genomes_metadata.tsv: Main output file with metadata for all assembly IDs.
 - filtered_genomes_metadata.tsv: Filtered output file with only assembly IDs where BiomeDistribution, Latitude, and Longitude are available.
+
+## Features
+
+- **Lineage Retrieval**: Uses the NCBI taxonomy database to fetch lineage based on organism taxonomic ID.
+- **Biome Distribution and Location Extraction**: Identifies and categorizes biomes using keywords aligned with GOLD standards (e.g., terrestrial, marine, freshwater).
+- **Latitude and Longitude Parsing**: Extracts geographic coordinates for samples with specified locations.
+- **Output Files**:
+  - Main output with all metadata.
+  - Filtered output containing only rows with populated `BiomeDistribution`, `Latitude`, and `Longitude`.
+
+# The script will print a summary at the end, showing:
+
+- Total Genome IDs with BiomeDistribution filled.
+- Total Genome IDs with Latitude and Longitude.
+- Total Genome IDs in the filtered file with all required metadata.
+
+## Main output with all metadata.
+
+# Both output files will contain columns as shown below:
+
+| Assembly Accession | Organism Name | Organism Common Name | Organism Tax ID | Lineage | Assembly Level | BioProject Accession | BioSample Accession | GC Percent | Total Sequence Length | Sequencing Technology | Release Date | Collection Date | BioSample Description | Location | BiomeDistribution | Latitude | Longitude |
+|--------------------|---------------|----------------------|-----------------|---------|----------------|----------------------|---------------------|------------|-----------------------|------------------------|--------------|----------------|------------------------|----------|-------------------|----------|-----------|
+| GCA_000003745.2    | Vitis vinifera | wine grape           | 29760           | root; cellular organisms; Eukaryota;... | Chromosome | PRJEA18785 | SAMEA2272750 | 34.5 | 485326422 |  | 2009-12-07 | | BioSample entry for genome collection GCA_000003745 | USA: Angelo Coast Range Reserve, CA | Soil | 39.74 | -123.63 |
+| GCA_000004075.3    | Cucumis sativus | cucumber            | 3659            | root; cellular organisms; Eukaryota;... | Chromosome | PRJNA33619 | SAMN02953750 | 32.5 | 224801081 | PacBio RSII; PacBio Sequel; 10X Genomics; Hi-C; Illumina | 2019-11-15 | | Sample from Cucumis sativus | Peru: Oxygen minimum zone | Unknown |  |  |
+| GCA_000004515.5    | Glycine max    | soybean             | 3847            | root; cellular organisms; Eukaryota;... | Chromosome | PRJNA19861 | SAMN00002965 | 34.5 | 978386919 | ABI 3739 | 2021-03-10 | | Glycine max cv. Williams 82 callus from plants grown in dark condition | Canada: Vancouver, Saanich Inlet | Marine | 48.36 | -123.3 |
+| ...                | ...           | ...                  | ...             | ...     | ...            | ...                  | ...                 | ...        | ...                   | ...                    | ...          | ...            | ...                    | ...      | ...               | ...      | ...       |
+
+# Notes
+- NCBI Request Limits: The script adds pauses to comply with NCBI request limits. Consider running with an NCBI API key for higher request thresholds.
+- Error Handling: If a genome assembly ID does not return any metadata, it is skipped, and an error message is logged.
 
 ## Script 36: genome_itol_table_update.py
 
