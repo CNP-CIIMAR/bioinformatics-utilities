@@ -876,7 +876,6 @@ conda install -c anaconda pandas
 The script will generate multiple TSV files, each corresponding to a different taxonomic level. For the species level, it will generate two files: one with and one without protein accession numbers. The files are named according to the taxonomic level and whether they include protein accession numbers.
 
 ## Script 22: run_interproscan.py
-# InterProScan Automation Script
 
 This Python script automates the process of running InterProScan for sequence analysis, specific results filtering with `grep`, data extraction with `cut`, and sequence retrieval with `bedtools`.
 
@@ -984,7 +983,7 @@ To use this script, you need to provide four command-line arguments: the path to
 
 ## Script 24:  proteinHMM.py 
 
-# This Python script automates the process of running `hmmsearch` against a collection of FASTA files using multiple HMM models. It is designed to streamline the identification of protein domains within large genomic datasets.
+This Python script automates the process of running `hmmsearch` against a collection of FASTA files using multiple HMM models. It is designed to streamline the identification of protein domains within large genomic datasets.
 
 ## Prerequisites
 
@@ -1034,9 +1033,8 @@ python hmm_search_pipeline.py <models_dir> <fastas_dir> <output_dir>
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Script 25:
+## Script 25: split_names_fasta.py
 
-## Protein FASTA Splitter
 This script processes a protein table and a multi-FASTA file to group and save protein sequences with similar descriptions into separate FASTA files.
 
 ## Features
@@ -1098,8 +1096,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Script 26: # genome_filter_download_scaffold_complete_gbff_by_metadata_table.py 
 
-## Genome Filter and Downloader
-
 This repository contains a Python script to filter a genomic dataset and download specific genome assemblies based on the filtered results. The script reads a tab-delimited input file, filters the rows according to specified conditions, saves the filtered data to an output file, and then downloads genome assemblies for the filtered results.
 
 ## Requirements
@@ -1147,8 +1143,7 @@ Saves the downloaded files in the specified output directory
 
 ## Script 26: assign_colors_taxonomy_taxonomic_rank.py
 
-Taxonomic Order Color Assignment
-This repository contains a Python script to read a taxonomic table - results of taxonomic rank python code, assign unique colors to each taxonomic order, and handle missing order values by using the closest available taxonomic rank or labeling them as "Unknown order".
+Taxonomic Order Color Assignment.  This repository contains a Python script to read a taxonomic table - results of taxonomic rank python code, assign unique colors to each taxonomic order, and handle missing order values by using the closest available taxonomic rank or labeling them as "Unknown order".
 
 ## Features
 Assigns a unique color to each taxonomic order.
@@ -1269,7 +1264,7 @@ Saves the search results to the specified output file.
 ## Script 28: get_genome_taxonomy_from_protein_id.py
 
 Essential the download of program datasets from NCBI using this link: https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/ and change the path of the program in the code get_genome_taxonomy_from_protein_id.py
-Genome and Taxonomic Information Retrieval Script
+Genome and Taxonomic Information Retrieval Script.
 
 # Description
 
@@ -1340,13 +1335,9 @@ NP_001123456.1  NC_000002.12  Mus musculus  Eukaryota; Metazoa; Chordata; Crania
 
 ## Script 29: organize_protein_genome_metadata.py 
 
-## Description
-
 The Protein Genome Finder script reads a list of protein accession numbers from an input file, searches for matching records in a provided genome table, and creates an output table with the corresponding genome information. If a protein accession is not found in the genome table, the script notes "not genome found" in the output.
 
 ## Usage
-
-# Command Line
 
 ```bash
 python organize_protein_genome_metadata.py <input_file> <table_file> <output_file>
@@ -1482,12 +1473,7 @@ python filter_table_genome_quality_generate_plot.py genomes.csv filtered_genomes
 
 The plot will be saved as genome_quality.png, genome_quality.svg, and genome_quality.jpeg.
 
-
 ## Script 31: get_specie_name_lineage_from_genome_id.py
-
-# Genome Information Extractor
-
-# Description
 
 This Python script reads a list of genome IDs from an input file, processes each ID to extract a specific prefix, retrieves detailed information about each genome using external commands, and saves the results in a TSV (Tab-Separated Values) file. The script handles errors gracefully and ensures only relevant lines are included in the final output.
 
@@ -1652,15 +1638,14 @@ python extract_genome_id_main.py genome_ids.txt prefixes_output.txt
 
 ## Script 33: genome-downloader.py
 
-# Genome Downloader
+This Python script allows you to download GBFF (GenBank Flat File) files of genomes from a list of accession IDs. It uses the `datasets` tool provided by NCBI to perform the download.
 
-Este script em Python permite o download de arquivos GBFF (GenBank Flat File) de genomas a partir de uma lista de IDs de acesso. Ele usa a ferramenta `datasets` fornecida pela NCBI para realizar o download.
-
-## Requisitos
+## Requirements
 - Python 3.x
-- A ferramenta `datasets` da NCBI deve estar instalada no ambiente Python que você está usando. Certifique-se de que o caminho para o executável `datasets` está correto no script.
+- The NCBI `datasets` tool must be installed in the Python environment you are using. Make sure the path to the `datasets` executable is correct in the script.
 
-## Instalação
+## Installation
+
 1. Clone este repositório:
 
 ```bash
@@ -1702,7 +1687,6 @@ The script will download each genome listed in the file and save the .zip files 
 
 ## Example of Usage
 Here is a complete example of how to use the script:
-
 ```bash
 python genome_downloader.py genome_ids.txt ./genomes/
 ```
@@ -1781,8 +1765,6 @@ additional_tips:
       the script will be executed.
 
 # Script 35: Create get_metadata_from_genome_id.py
-
-**Genome Metadata Extraction and Filtering Script**
 
 This script processes genome assembly IDs to retrieve and enrich metadata using the NCBI Entrez system. 
 The metadata includes lineage information, biome distribution, geographic location, and coordinates (latitude and longitude) for each genome. The output consists of two files:
