@@ -789,8 +789,7 @@ Include here the license under which the code is made available, for example, MI
 
 ## Script 21: get_genome_id_and_taxonomic_rank_from_protein.id.py
 
-# Protein Accession to Genome ID and Taxonomic Ranking
-
+Protein Accession to Genome ID and Taxonomic Ranking.
 This script is designed to retrieve genome IDs and taxonomic rankings for a list of protein accessions. It utilizes NCBI's E-utilities for fetching the relevant data and processes it to generate two output files: one containing the genome IDs and the other containing taxonomic information.
 
 ## Prerequisites
