@@ -441,7 +441,7 @@ python check_subdirectories.py /path/to/directory /path/to/coluna1_genomas_downl
  ```
 # Script 13: Homologous Sequences Extractor: HomologousSequencesExtractor.py
 
-# This script serves as a tool to run a series of bioinformatics commands, which include performing alignments with MAFFT, constructing HMM models with HMMER, and searching sequences using HMMER. Additionally, the script also performs analyses on the extracted sequences using InterProScan via its API.
+This script serves as a tool to run a series of bioinformatics commands, which include performing alignments with MAFFT, constructing HMM models with HMMER, and searching sequences using HMMER. Additionally, the script also performs analyses on the extracted sequences using InterProScan via its API.
 
 # Prerequisites
 Python 3.x
