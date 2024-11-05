@@ -153,6 +153,7 @@ Make sure you have Python 3.x installed on your system.
 Install the Biopython library by executing the following command:
 
 pip install biopython
+
 ## Usage
 
 Create a text file containing the desired protein accessions, with each accession on a separate line. For example, you can name the file protein_accessions.txt and include the accessions as follows:
@@ -441,6 +442,7 @@ Make sure you have the following software installed in your environment before r
 python filter_dup_gca_gcf_keep_gcf.py <table_path> <output_path>
  ```
 ## Comments
+
 - Make sure the table is in the proper format, with columns acoustic correctly by tab (\t).
 - Make sure you have the necessary permissions to write the output file to the specified path.
 - Be sure to replace the `<path_to_table>` and `<path_to_output>` sections with the following information
@@ -497,7 +499,7 @@ Notes
 When using the run_interproscan_api function, be aware that the InterProScan API might have limitations regarding file size or the number of requests. Additional adaptations might be necessary based on the user's requirements.
 
 # Script 14: UniProtKB ID Mapper: protein_mapping_refseq_uniprotkb.py
-## This script maps RefSeq Protein IDs to UniProtKB IDs using the UniProt REST API. It fetches various attributes for each protein, such as entry type, description, lineage, and other relevant data.
+# This script maps RefSeq Protein IDs to UniProtKB IDs using the UniProt REST API. It fetches various attributes for each protein, such as entry type, description, lineage, and other relevant data.
 
 Dependencies
 requests
