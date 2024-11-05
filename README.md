@@ -224,7 +224,6 @@ If you have any questions or need further assistance, please don't hesitate to r
 
 ## Script 8: Get Genomes data from BV-BRC database
 
-
 ## Pré-requisitos
 - Python 3.10
 
@@ -841,14 +840,11 @@ For any questions or suggestions, please open an issue on the GitHub repository 
 
 
 ## Script 21.1: taxo_table_processor.py
-
-### Taxonomic Table Processor
-
-**This Python script processes a given CSV file containing taxonomic data, dividing the Lineage column into multiple taxonomic levels, and then aggregates the data at each level. It supports generating output files both with and without protein accession numbers.**
+# Taxonomic Table Processor
+This Python script processes a given CSV file containing taxonomic data, dividing the Lineage column into multiple taxonomic levels, and then aggregates the data at each level. It supports generating output files both with and without protein accession numbers.**
 
 ## Prerequisites
 Before running this script, you need to have Python installed on your system along with the following Python libraries:
-
 - pandas
 - argparse
 - These dependencies can be easily installed using Conda, a popular package and environment management system.
@@ -1229,12 +1225,11 @@ GCA_015206945.1_ASM1520694v1_genomic,Nostocales,#cd5c5c
 
 ## Script 27: Enzyme Search Tool: enzymesearchtool.py
 
+This tool enzymesearchtool.py is designed to search for specific enzyme names within .gbk files located in a directory and its subdirectories. It extracts relevant information and annotations, and saves the results to an output file.
+
 ```sh
 enzymesearchtool.py
 ```
-
-## This tool enzymesearchtool.py is designed to search for specific enzyme names within .gbk files located in a directory and its subdirectories. It extracts relevant information and annotations, and saves the results to an output file.
-
 ## Requirements
 Python 3.6+
 No additional libraries are required beyond the Python standard library.
@@ -1276,8 +1271,8 @@ Saves the search results to the specified output file.
 
 ## Script 28: get_genome_taxonomy_from_protein_id.py
 
-# Essential the download of program datasets from NCBI using this link: https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/ and change the path of the program in the code get_genome_taxonomy_from_protein_id.py
-# Genome and Taxonomic Information Retrieval Script
+Essential the download of program datasets from NCBI using this link: https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/ and change the path of the program in the code get_genome_taxonomy_from_protein_id.py
+Genome and Taxonomic Information Retrieval Script
 
 # Description
 
