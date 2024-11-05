@@ -955,9 +955,10 @@ To use this script, you need to provide four command-line arguments: the path to
 python check_genomes.py <path_to_genome_list_file> <directory_to_check> <output_report_file> <new_directory_for_matched_files>
 ```
 ## Example: 
-```
-python check_genomes.py /path/to/genomes.txt /data/genomes /results/match_report.txt /data/matched_genomes
 
+```bash
+python check_genomes.py /path/to/genomes.txt /data/genomes /results/match_report.txt /data/matched_genomes
+```
 # Genome File Matcher
 
 ## Overview
