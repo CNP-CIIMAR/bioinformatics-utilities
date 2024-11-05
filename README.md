@@ -475,7 +475,7 @@ When using the run_interproscan_api function, be aware that the InterProScan API
 
 # Script 14: UniProtKB ID Mapper: protein_mapping_refseq_uniprotkb.py
 
-# This script maps RefSeq Protein IDs to UniProtKB IDs using the UniProt REST API. It fetches various attributes for each protein, such as entry type, description, lineage, and other relevant data.
+This script maps RefSeq Protein IDs to UniProtKB IDs using the UniProt REST API. It fetches various attributes for each protein, such as entry type, description, lineage, and other relevant data.
 
 Dependencies
 requests
@@ -740,7 +740,6 @@ python move_genome_files_from_list.py /path/to/source_directory /path/to/exclude
  ```
 
 ## Script 20: Get Species from Genome ID
-
 # Genome Information Fetcher
 This Python script automates the task of collecting genome information from a list of access IDs and generating a TSV (Tab-Separated Values) file with that data. It utilizes the NCBI's command-line tools `datasets` and `dataformat` to fetch the information.
 
@@ -933,10 +932,7 @@ Contributions to this project are welcome. Please fork the repository and submit
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Script 23: check_genomes.py
-
-# Genome File Matcher
-
+## Script 23: check_genomes.py  Genome File Matcher
 ## Overview
 This Python script checks for the presence of genome file IDs from a list in a specified directory and moves matched files to a new directory. It generates a detailed report including which files were matched, unmatched, and exclusive to the directory. This tool is useful for managing large genomic datasets, allowing researchers to organize their files more effectively.
 
@@ -992,11 +988,9 @@ To use this script, you need to provide four command-line arguments: the path to
 
 ## It will also print summary statistics including the total number of matches and the number of files exclusively found in the specified directory.
 
-## Script 24:
+## Script 24:  proteinHMM.py 
 
-# proteinHMM.py Search Pipeline
-
-This Python script automates the process of running `hmmsearch` against a collection of FASTA files using multiple HMM models. It is designed to streamline the identification of protein domains within large genomic datasets.
+# This Python script automates the process of running `hmmsearch` against a collection of FASTA files using multiple HMM models. It is designed to streamline the identification of protein domains within large genomic datasets.
 
 ## Prerequisites
 
