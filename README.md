@@ -1833,29 +1833,53 @@ additional_tips:
 
 # Script 35: Create get_metadata_from_genome_id.py
 
-This Python script is designed to enhance a genomic assembly dataset by retrieving metadata from the NCBI database. The script reads an input TSV (Tab-Separated Values) file containing genomic assembly IDs (such as GCF_ or GCA_), queries the NCBI API for relevant metadata (e.g., collection date, latitude, longitude, environment), and outputs an updated TSV file with this additional information.
+# Genome Metadata Extraction and Filtering Script
 
-## Requirements
-Python 3.x
-Pandas: A Python library for data manipulation and analysis.
-Requests: A Python library for sending HTTP requests.
+This script processes genome assembly IDs to retrieve and enrich metadata using the NCBI Entrez system. The metadata includes lineage information, biome distribution, geographic location, and coordinates (latitude and longitude) for each genome. The output consists of two files:
+1. A primary file with metadata for all input assembly IDs.
+## Sample Output Format
 
-You can install the required libraries using pip:
+# Both output files will contain columns as shown below:
 
-pip install pandas requests
+| Assembly Accession | Organism Name | Organism Common Name | Organism Tax ID | Lineage | Assembly Level | BioProject Accession | BioSample Accession | GC Percent | Total Sequence Length | Sequencing Technology | Release Date | Collection Date | BioSample Description | Location | BiomeDistribution | Latitude | Longitude |
+|--------------------|---------------|----------------------|-----------------|---------|----------------|----------------------|---------------------|------------|-----------------------|------------------------|--------------|----------------|------------------------|----------|-------------------|----------|-----------|
+| GCA_000003745.2    | Vitis vinifera | wine grape           | 29760           | root; cellular organisms; Eukaryota;... | Chromosome | PRJEA18785 | SAMEA2272750 | 34.5 | 485326422 |  | 2009-12-07 | | BioSample entry for genome collection GCA_000003745 | USA: Angelo Coast Range Reserve, CA | Soil | 39.74 | -123.63 |
+| GCA_000004075.3    | Cucumis sativus | cucumber            | 3659            | root; cellular organisms; Eukaryota;... | Chromosome | PRJNA33619 | SAMN02953750 | 32.5 | 224801081 | PacBio RSII; PacBio Sequel; 10X Genomics; Hi-C; Illumina | 2019-11-15 | | Sample from Cucumis sativus | Peru: Oxygen minimum zone | Unknown |  |  |
+| GCA_000004515.5    | Glycine max    | soybean             | 3847            | root; cellular organisms; Eukaryota;... | Chromosome | PRJNA19861 | SAMN00002965 | 34.5 | 978386919 | ABI 3739 | 2021-03-10 | | Glycine max cv. Williams 82 callus from plants grown in dark condition | Canada: Vancouver, Saanich Inlet | Marine | 48.36 | -123.3 |
+| ...                | ...           | ...                  | ...             | ...     | ...            | ...                  | ...                 | ...        | ...                   | ...                    | ...          | ...            | ...                    | ...      | ...               | ...      | ...       |
 
-## How the Script Works
-Input File: The script expects a TSV file as input. The file should contain a column named Assembly, which holds the genomic assembly IDs (e.g., GCF_XXXXX or GCA_XXXXX).
 
-Processing: For each genomic assembly ID in the input file:
+3. A filtered file containing only genomes with both `BiomeDistribution` and geographic coordinates.
 
-## The script checks if the ID is in the correct format (starting with GCF_ or GCA_).
+## Features
 
-It then queries the NCBI Entrez API to retrieve the corresponding UID.
+- **Lineage Retrieval**: Uses the NCBI taxonomy database to fetch lineage based on organism taxonomic ID.
+- **Biome Distribution and Location Extraction**: Identifies and categorizes biomes using keywords aligned with GOLD standards (e.g., terrestrial, marine, freshwater).
+- **Latitude and Longitude Parsing**: Extracts geographic coordinates for samples with specified locations.
+- **Output Files**:
+  - Main output with all metadata.
+  - Filtered output containing only rows with populated `BiomeDistribution`, `Latitude`, and `Longitude`.
+ ## Summary Output
+# The script will print a summary at the end, showing:
 
-Using the UID, the script fetches metadata such as collection date, latitude, longitude, and environment.
-The retrieved metadata is added as new columns in the output file.
-Output File: The script writes the updated data to a new TSV file, preserving the original information and adding the retrieved metadata.
+- Total Genome IDs with BiomeDistribution filled.
+- Total Genome IDs with Latitude and Longitude.
+- Total Genome IDs in the filtered file with all required metadata.
+# Notes
+- NCBI Request Limits: The script adds pauses to comply with NCBI request limits. Consider running with an NCBI API key for higher request thresholds.
+- Error Handling: If a genome assembly ID does not return any metadata, it is skipped, and an error message is logged.
+
+## Prerequisites
+
+- **Python Libraries**:
+  - `ete3` for taxonomy data.
+  - `Biopython` (`Bio`) for NCBI Entrez interactions.
+  - `xml.etree.ElementTree` for XML parsing.
+
+# To install the necessary libraries, run:
+```bash
+pip install ete3 biopython
+```
 
 # Usage
 To run the script, use the following command in the terminal:
@@ -1864,37 +1888,37 @@ To run the script, use the following command in the terminal:
 python get_metadata.py input_file.tsv output_file.tsv
 ```
 
-- input_file.tsv: The path to your input TSV file containing genomic assembly IDs.
-- output_file.tsv: The path where the output TSV file with the additional metadata will be saved.
+# Usage
+- Input File: The input file should be a tab-separated file containing genome assembly IDs with a header. Example format:
 
-## Example:
+Assembly
+GCA_000003745.2
+GCA_000004075.3
 
-python get_metadata.py Tabela_metadata.tsv Tabela_metadata_out.tsv
+# Running the Script: Run the script as follows:
 
-This will process the Tabela_metadata.tsv file and save the updated data to Tabela_metadata_out.tsv.
+```bash
+python get_metadata.py <input_file_with_assembly_ids> <output_file>
+```
 
-- Column Information
+<input_file_with_assembly_ids>: Path to your input file containing the list of genome assembly IDs.
+<output_file>: Desired name for the main output file. The script will also generate a filtered file prefixed with filtered_.
 
-- The script adds the following columns to your dataset:
+# Output Files:
 
-Collection Date: The date when the sample was collected (if available).
-Latitude: The latitude where the sample was collected (if available).
-Longitude: The longitude where the sample was collected (if available).
-Environment: The environment or habitat where the sample was collected (if available).
-Error Handling
+# The main output file (output_file) will contain all metadata for each genome.
 
-- Invalid Genomic IDs: If a genomic ID is not in the correct format or cannot be found in the NCBI database, the script will log the error and continue processing the next entry.
-- Network Issues: If there is an issue with the network or API response, the script will print an error message and move on to the next entry.
-- Problematic Lines: When reading the input file, any problematic lines are skipped to avoid breaking the script.
-- Troubleshooting
+- The filtered output file (filtered_output_file) will only include rows with populated values for BiomeDistribution, Latitude, and Longitude.
 
-Ensure that your genomic IDs in the Assembly column are in the correct format (GCF_ or GCA_).
-If the script fails to retrieve metadata for specific entries, check the error messages in the console for more details.
-If necessary, review the input file for any anomalies or incorrect formats.
+# Example
+```bash
+python get_metadata.py genomes_list.tsv genomes_metadata.tsv
+```
 
-## Limitations
-The script assumes that the genomic IDs are valid and formatted correctly. Invalid or incorrectly formatted IDs may result in errors or missing metadata.
-The metadata fields retrieved from NCBI depend on the availability of data in the NCBI database. Some fields may be missing for certain genomic assemblies.
+# This command will produce:
+
+- genomes_metadata.tsv: Main output file with metadata for all assembly IDs.
+- filtered_genomes_metadata.tsv: Filtered output file with only assembly IDs where BiomeDistribution, Latitude, and Longitude are available.
 
 ## Script 36: genome_itol_table_update.py
 
