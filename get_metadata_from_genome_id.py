@@ -1,3 +1,5 @@
+#Autor: Leandro de Mattos Pereira
+# CNP Team - Leam Lab 
 import subprocess
 import sys
 from ete3 import NCBITaxa
