@@ -34,8 +34,6 @@ get_genome_id_and_taxonomic_rank_from_protein.id.py
 This Python script compares the contents of two text files and identifies the different lines between them.
 
 ## Usage:
-
-
 Make sure you have Python installed on your system. The script was developed using Python 3.
 
 1. Open a terminal or command prompt.
@@ -51,7 +49,6 @@ Make sure you have Python installed on your system. The script was developed usi
 3. The script will compare the files and display the different lines found. If there are no differences, the message "The files have the same content."
 
 ## Example:
-
 Suppose you have two text files: `file1.txt` and `file2.txt`. Their content is as follows:
 
 **file1.txt**
@@ -67,20 +64,18 @@ PYQ20818.1
 This script converts InterProScan results into an iTOL (Interactive Tree Of Life) compatible format.
 
 ## Requirements:
-
 - Python 3.x
 - Pandas (instalável via `pip install pandas`)
 
 ## Usage:
-
 Run the script by providing the path to the input file containing the InterProScan results and the path to the output file that will be generated in iTOL compatible format.
 
 Example of use:
-
 ```python interpro_to_itol.py arquivo_entrada.txt arquivo_saida.txt```
 
-Input file format
+- Input file format
 The input file must be a text file containing InterProScan results, where each line represents a domain annotation on a protein. Columns must be separated by tabs and in the following order:
+
 Protein.accession\tSequence.length\tshape\tStart.location\tStop.location
 
 *Protein.accession: Identificador da proteína.*
@@ -100,16 +95,13 @@ Sequence.length: Comprimento da sequência da proteína.
 If you need any help or have questions, feel free to open an issue in the GitHub repository.
 
 # Script 5: FASTA Sequence Filter
-
 This is a Python script that filters a FASTA file containing DNA or protein sequences based on a list of sequence IDs.
 
 ## Requirements:
-
 - Python 3.x
 - Biopython library
 
 ## Installation:
-
 1. Clone the repository:
 
  ```git clone https://github.com/mattoslmp/CNP-Ciimar.git ```
@@ -128,7 +120,6 @@ Make sure you have the Biopython library installed (pip install biopython) befor
 
 
 **Example**:
-
 To filter the sequences in input.fasta based on the IDs in ids.txt and generate the filtered sequences in output.fasta, excluding the matching IDs, run the following command:
   ```python script.py input.fasta output.fasta ids.txt --exclude``` 
 
@@ -145,15 +136,11 @@ If you need any help or have questions, feel free to open an issue in the GitHub
 - Biopython library
 
 ## Installation
-
 Make sure you have Python 3.x installed on your system.
-
 Install the Biopython library by executing the following command:
-
 pip install biopython
 
 ## Usage
-
 Create a text file containing the desired protein accessions, with each accession on a separate line. For example, you can name the file protein_accessions.txt and include the accessions as follows:
 
 NP_000001.1
@@ -172,13 +159,10 @@ The script will save the results in a tab-separated values (.tsv) file for easy 
 
 
 ## Script 7:
-
 - Run Barnap
-
 This script is designed to automate the usage of the Barnap program, which predicts the location of ribosomal RNA (rRNA) genes in genomes. The script takes a directory containing multiple DNA sequence files in FASTA format and executes Barnap on each file, saving the results in a designated output directory.
 
 ## Installation:
-
 Before running the script, make sure to install the Barnap program. Here are the installation instructions for different platforms:
 
 ## Conda
@@ -188,7 +172,6 @@ If you have Conda or Miniconda installed, you can use the following command to i
 conda install -c bioconda -c conda-forge barrnap
  ```
 ## Homebrew
-
 For macOS users, install Homebrew, and then run the following command to install Barnap:
 
  ```shell
@@ -216,7 +199,6 @@ cd barrnap/bin
 export PATH="$HOME/barrnap/bin:$PATH"
  ```
 ## Usage:
-
 **To use the script, follow these steps:**
 
 - Ensure that the Barnap program is properly installed on your system (as described above).
@@ -233,13 +215,10 @@ python run_barnap.py <directory>
 - Replace <directory> with the path to the directory containing the DNA sequence files in FASTA format that you want to analyze.
 
 **Output**
-
 The script will create a directory named "16SrRNAmultigenomes" (if it doesn't already exist) in the same directory as the input files. The results of the Barnap analysis for each input file will be saved in this directory with the filename formatted as <input_filename>_processado.rrna.fa.
 
 ## Credits:
-
 The Barnap program was developed by Torsten Seemann. For more information about Barnap, please refer to the official repository.
-
 If you have any questions or need further assistance, please don't hesitate to reach out.
 
 
@@ -247,7 +226,6 @@ If you have any questions or need further assistance, please don't hesitate to r
 
 
 ## Pré-requisitos
-
 - Python 3.10
 
 ## Instalação
@@ -276,7 +254,7 @@ proteinsearchhmm.py MMER Table Converter:
 
 ** This Python script performs hmmsearch searches on .faa files using provided HMM models and then converting HMMER output tables into a more user-friendly format .tsv for easy viewing and analysis.
 
-- Requirements
+# Requirements
 - Python 3.6 or higher
 - pandas library
 - Installation
@@ -294,7 +272,6 @@ python proteinhmm.py <models_dir> <fastas_dir> <output_dir>
 <output_dir> is the directory where results will be saved.
 
 # Example
-
 Suppose you have your models in /home/user/models/, your .faa files in /home/user/fastas/, and you wish to save the results in /home/user/results/. You would run:
  ```shell
 python proteinsearchhmm.py /home/user/models/ /home/user/fastas/ /home/user/results/
@@ -387,7 +364,6 @@ python recov_fasta_protein_hmmer.py <TSV_FILE> <FASTA_FILE> <OUTPUT_FILE>
 python extract_fasta.py identifiers.tsv sequences.fasta output.fasta
 ```
 
-
 ## Key Functions
 1. **Reading the TSV File**: Extracts IDs from the first column of the TSV file.
 2. **Searching in the FASTA File**: Searches for corresponding sequences in the FASTA file using the extracted IDs.
@@ -410,13 +386,9 @@ Make sure you have the following software installed in your environment before r
 - `ete3` package (you can install it using `pip install ete3`)
 
 ## How to Use
-
 1. Download the `get_taxonomic_rank_specie.py` file to your local directory.
-
 2. Open a terminal or command prompt and navigate to the directory where you downloaded the `get_taxonomic_rank_specie.py` file.
-
 3. Ensure you have a prepared species list file. The file should have one species per line.
-
 4. Run the following command to start the script and download the taxonomic ranks:
 
 ```bash
@@ -433,7 +405,6 @@ Make sure you have the following software installed in your environment before r
 - Python 3.x
 
 ## How to Use
-
 1. Make sure you have Python 3.x installed on your system.
 2. Download this repository or copy the contents of the `script.py` file.
 3. Open a terminal or command prompt.
@@ -444,7 +415,6 @@ Make sure you have the following software installed in your environment before r
 python filter_dup_gca_gcf_keep_gcf.py <table_path> <output_path>
  ```
 ## Comments
-
 - Make sure the table is in the proper format, with columns acoustic correctly by tab (\t).
 - Make sure you have the necessary permissions to write the output file to the specified path.
 - Be sure to replace the `<path_to_table>` and `<path_to_output>` sections with the following information
@@ -459,7 +429,7 @@ This Python script verifies the presence of subdirectories based on a provided l
 Python 3.x
 Usage
 
-Installation
+# Installation
 Clone the repository to your local computer:
 ```bash
 git clone https://github.com/CNP-CIIMAR/bioinformatics-utilities
@@ -470,13 +440,16 @@ git clone https://github.com/CNP-CIIMAR/bioinformatics-utilities
 python check_subdirectories.py /path/to/directory /path/to/coluna1_genomas_download_19_set2023
  ```
 # Script 13: Homologous Sequences Extractor: HomologousSequencesExtractor.py
-This script serves as a tool to run a series of bioinformatics commands, which include performing alignments with MAFFT, constructing HMM models with HMMER, and searching sequences using HMMER. Additionally, the script also performs analyses on the extracted sequences using InterProScan via its API.
-Prerequisites
+
+# This script serves as a tool to run a series of bioinformatics commands, which include performing alignments with MAFFT, constructing HMM models with HMMER, and searching sequences using HMMER. Additionally, the script also performs analyses on the extracted sequences using InterProScan via its API.
+
+# Prerequisites
 Python 3.x
 requests library (for the InterProScan API)
 MAFFT
 HMMER
-InterProScan (optional, if local execution is desired)
+
+# InterProScan (optional, if local execution is desired)
 
 ## How to Use
 To use this script, you need to provide several arguments:
@@ -501,6 +474,7 @@ Notes
 When using the run_interproscan_api function, be aware that the InterProScan API might have limitations regarding file size or the number of requests. Additional adaptations might be necessary based on the user's requirements.
 
 # Script 14: UniProtKB ID Mapper: protein_mapping_refseq_uniprotkb.py
+
 # This script maps RefSeq Protein IDs to UniProtKB IDs using the UniProt REST API. It fetches various attributes for each protein, such as entry type, description, lineage, and other relevant data.
 
 Dependencies
@@ -542,7 +516,8 @@ pip install requests pandas
 python protein_mapping_refseq_uniprotkb.py protein_list.txt output.tsv
  ```
 ## Data Columns
-## The script fetches and outputs the following columns for each RefSeq Protein ID from UniprotkB:
+
+# The script fetches and outputs the following columns for each RefSeq Protein ID from UniprotkB:
 
 1. **From_ID**: The original RefSeq Protein ID.
 2. **To_ID**: The corresponding UniProtKB ID.
@@ -588,18 +563,14 @@ pip install pandas
 This is a Python script that generates heatmaps based on data collected from overview files generated by run_dbcan program (https://github.com/linnabrown/run_dbcan) storage in several directory.
 
 ## Requirements
-
 - Python 3.x
 - Pandas
 - Seaborn
 - Matplotlib
 
 ## How to Use
-
 1. Clone this repository or download the `heatmap_generator.py` script to your system.
-
 2. Execute the script by providing the directory containing the overview files as an argument. For example:
-
 ```bash
 python dbscan_analysis_graph_heatmapv2.py /path/to/your/directories/withoverviewfiles
  ```
@@ -671,9 +642,9 @@ Replace script_name.py with the actual name of the script and /path/to/directory
 The script generates horizontal stacked bar plots with distinct colors for each category and saves them in the .png and .svg format. It primarily focuses on showcasing the distribution and counts of different subfamilies across various species, ensuring the visualizations are clear, concise, and interpretable.
 
 ## Script 17: concatenate_results_dbcan.py concatenate multiple dbsub.out files generated by run_dbscan 4 (https://github.com/linnabrown/run_dbcan)
-
 ## Overview
 This Python script is built to concatenate multiple dbsub.out files, which are generated by run_dbcan4, a tool utilized to annotate sequences with CAZy enzymes. Each dbsub.out file contains annotations specific to a species. The script aggregates the data from all files into a single TSV (Tab Separated Values) file and additionally appends a column to denote the species name.
+
 ## Prerequisites
 -  Python 3
 Pandas library
@@ -771,17 +742,14 @@ python move_genome_files_from_list.py /path/to/source_directory /path/to/exclude
 ## Script 20: Get Species from Genome ID
 
 # Genome Information Fetcher
-
 This Python script automates the task of collecting genome information from a list of access IDs and generating a TSV (Tab-Separated Values) file with that data. It utilizes the NCBI's command-line tools `datasets` and `dataformat` to fetch the information.
 
 ## Requirements
-
 - Python 3.x
 - Access to shell/terminal
 - NCBI's command-line tools `datasets` and `dataformat` installed and configured in your environment
 
 ## How to Use
-
 To use this script, you will need a file containing a list of genome access IDs, one per line. Then, run the script in the following manner:
 
     ```
@@ -789,7 +757,6 @@ To use this script, you will need a file containing a list of genome access IDs,
     ```
 
 ## Example of Input File (genome_list) :
-
 - GCF_000001405.39
 - GCF_000002985.6
 - GCF_000001635
@@ -829,9 +796,7 @@ Include here the license under which the code is made available, for example, MI
 This script is designed to retrieve genome IDs and taxonomic rankings for a list of protein accessions. It utilizes NCBI's E-utilities for fetching the relevant data and processes it to generate two output files: one containing the genome IDs and the other containing taxonomic information.
 
 ## Prerequisites
-
-Before running this script, ensure you have the following installed and set up:
-
+- Before running this script, ensure you have the following installed and set up:
 - Python 3.x
 - Biopython
 - Pandas library
@@ -840,15 +805,12 @@ Before running this script, ensure you have the following installed and set up:
 Additionally, you will need an internet connection to access NCBI's databases.
 
 ## Installation
-
 No installation is needed. Just ensure all prerequisites are met.
 
 ## Usage
-
 python script.py <input_filename> <genome_output_filename> <taxonomic_output_filename>
 
 To use this script, you need to provide it with an input file containing a list of protein accession numbers, one per line. Then, specify the names for the two output files: one for the genome IDs and the other for the taxonomic information.
-
 
 - `<input_filename>`: The file containing a list of protein accession numbers.
 - `<genome_output_filename>`: The file where the retrieved genome IDs will be saved.
@@ -888,15 +850,14 @@ For any questions or suggestions, please open an issue on the GitHub repository 
 ## Prerequisites
 Before running this script, you need to have Python installed on your system along with the following Python libraries:
 
-pandas
-argparse
-These dependencies can be easily installed using Conda, a popular package and environment management system.
+- pandas
+- argparse
+- These dependencies can be easily installed using Conda, a popular package and environment management system.
 
 ## Installation
 First, ensure you have Conda installed on your system. If you do not have Conda installed, follow the instructions on the official Conda installation guide.
 
 Once Conda is installed, you can create a new environment and install the required libraries using the following commands:
-
 
 # Create a new Conda environment
 ```
@@ -912,17 +873,13 @@ conda install -c anaconda pandas
 ```
 # No need to install argparse as it is part of the Python standard library
 
-
 ## Usage
-
 **To use the script, you must provide a path to a CSV file as an argument which is generated by Script 21: get_genome_id_and_taxonomic_rank_from_protein.id.py. The CSV file should have a column named Lineage containing taxonomic data separated by semicolons (;).**
-
 ```
 python taxo_table_processor.py <path_to_your_csv_file>
 ```
 
 ## Output
-
 The script will generate multiple TSV files, each corresponding to a different taxonomic level. For the species level, it will generate two files: one with and one without protein accession numbers. The files are named according to the taxonomic level and whether they include protein accession numbers.
 
 ## Script 22: run_interproscan.py
@@ -931,7 +888,6 @@ The script will generate multiple TSV files, each corresponding to a different t
 This Python script automates the process of running InterProScan for sequence analysis, specific results filtering with `grep`, data extraction with `cut`, and sequence retrieval with `bedtools`.
 
 ## Features
-
 - Creates a virtual environment for dependency isolation.
 - Installs necessary dependencies, including Java JDK, Perl, and bedtools.
 - Checks for the presence of the `interproscan.sh` script and downloads/unpacks it if not present.
@@ -939,18 +895,15 @@ This Python script automates the process of running InterProScan for sequence an
 - Filters and processes results to extract specific sequences.
 
 ## Prerequisites
-
 Before running this script, ensure you have `python3` installed on your system, as well as access to `sudo` for installing necessary packages.
 
 ## Setup and Execution
-
 1. Clone this repository or download the script to your local system.
 2. Open a terminal and navigate to the directory where the script is located.
 3. Make the script executable (if necessary) with:
    ```bash
    chmod +x script_name.py
 # Run the script with the following command:
-
 ```
 python3 script_name.py path_to_your_fasta_file.fasta
 ```
@@ -966,9 +919,7 @@ The specified .fasta file exists and is accessible by the script.
 All required components (Java, Perl, Python, bedtools) have been correctly installed.
 The interproscan.sh script is in the expected directory and is executable.
 For more information on InterProScan setup and options, visit the InterProScan GitHub page.
-
-
-### Considerations
+## Considerations
 
 - **Location and Permissions**: This README assumes that the user has basic system permissions and directory navigation knowledge.
 - **Customization**: You may need to adjust the path or specific parameters of InterProScan based on your setup and needs.
@@ -997,13 +948,10 @@ This Python script checks for the presence of genome file IDs from a list in a s
 - Provides summary statistics of the matching operation.
 
 ## Installation
-
 - No installation is necessary, but you need Python installed on your machine. The script runs with Python version 3.6 or higher. It requires `pandas` and `tabulate` libraries to be installed. You can install these dependencies via pip if you do not have them:
-
 ```bash
 pip install pandas tabulate
 ```
-
 ## Usage
 To use this script, you need to provide four command-line arguments: the path to the genome list file, the directory to check for these genomes, the output file for the report, and the directory where matched files will be moved.
 - Command-Line Syntax:
@@ -1027,7 +975,6 @@ This Python script checks for the presence of genome file IDs from a list in a s
 - Provides summary statistics of the matching operation.
 
 ## Installation
-
 No installation is necessary, but you need Python installed on your machine. The script runs with Python version 3.6 or higher. It requires `pandas` and `tabulate` libraries to be installed. You can install these dependencies via pip if you do not have them:
 
 ```bash
@@ -1094,11 +1041,9 @@ python hmm_search_pipeline.py <models_dir> <fastas_dir> <output_dir>
 - Specie: Extracted species information from the query description.
 
 ## Contributing
-
 - Contributions to this project are welcome. Please fork the repository and submit a pull request with your enhancements.
 
 ## License
-
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Script 25:
@@ -1157,7 +1102,6 @@ Ensure that the column Protein names in the table does not contain any missing v
 The output files will have sanitized names to remove any non-alphanumeric characters from the protein names.
 
 ## Contributing
-
 - Contributions to this project are welcome. Please fork the repository and submit a pull request with your enhancements.
 
 ## License
@@ -1165,6 +1109,7 @@ The output files will have sanitized names to remove any non-alphanumeric charac
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Script 26: # genome_filter_download_scaffold_complete_gbff_by_metadata_table.py 
+
 ## Genome Filter and Downloader
 
 This repository contains a Python script to filter a genomic dataset and download specific genome assemblies based on the filtered results. The script reads a tab-delimited input file, filters the rows according to specified conditions, saves the filtered data to an output file, and then downloads genome assemblies for the filtered results.
@@ -1212,7 +1157,6 @@ Downloads genome assemblies listed in the filtered dataframe:
 Downloads genome assemblies using the datasets command-line tool
 Saves the downloaded files in the specified output directory
 
-
 ## Script 26: assign_colors_taxonomy_taxonomic_rank.py
 
 Taxonomic Order Color Assignment
@@ -1223,16 +1167,14 @@ Assigns a unique color to each taxonomic order.
 Handles missing values in the 'order' column by using the closest available taxonomic rank or assigning "Unknown order".
 Outputs a new table with columns 'Genome ID', 'order', and 'color'.
 ## Requirements:
+- Python 3.x
+- pandas
 
-Python 3.x
-pandas
-Installation
-Clone the repository:
-
+# Installation
+# Clone the repository:
 ```sh
 git clone https://github.com/yourusername/taxonomic-order-color-assignment.git
 ```
-
 ```sh
 cd taxonomic-order-color-assignment
 ```
@@ -1251,17 +1193,19 @@ python3 assign_colors_taxonomy_taxonomic_rank.py path_to_your_input_file.csv
 ```
 ## The script will generate an output file named output_with_colors.csv in the same directory.
 
-Input Format
-The input CSV file should have the following columns (tab-separated):
+# Input Format
 
-javascript
-Copiar código
-Genome ID  user_taxa  superkingdom  kingdom  superphylum  phylum  subphylum  superclass  class  subclass  superorder  order  suborder  superfamily  family  subfamily  genus
-Example:r
-Copiar código
-Genome ID  user_taxa  superkingdom  kingdom  superphylum  phylum  subphylum  superclass  class  subclass  superorder  order  suborder  superfamily  family  subfamily  genus
-GCF_030382115.1_ASM3038211v1_genomic  Nostoc sp. GT001  Bacteria  NA  NA  Cyanobacteriota  NA  NA  Cyanophyceae  NA  NA  Nostocales  NA  NA  Nostocaceae  NA  Nostoc
-GCA_015206945.1_ASM1520694v1_genomic  Nostocales cyanobacterium LEGE 12452  Bacteria  NA  NA  Cyanobacteriota  NA  NA  Cyanophyceae  NA  NA  Nostocales  NA  NA  NA  NA  NA
+- The input CSV file should have the following columns (tab-separated):
+
+| Genome ID                            | user_taxa                              | superkingdom | kingdom | superphylum | phylum          | subphylum | superclass | class         | subclass | superorder | order       | suborder | superfamily | family       | subfamily | genus |
+|--------------------------------------|----------------------------------------|--------------|---------|-------------|-----------------|-----------|------------|---------------|----------|------------|-------------|----------|-------------|--------------|-----------|-------|
+
+## Example
+
+| Genome ID                            | user_taxa                              | superkingdom | kingdom | superphylum | phylum          | subphylum | superclass | class         | subclass | superorder | order       | suborder | superfamily | family       | subfamily | genus |
+|--------------------------------------|----------------------------------------|--------------|---------|-------------|-----------------|-----------|------------|---------------|----------|------------|-------------|----------|-------------|--------------|-----------|-------|
+| GCF_030382115.1_ASM3038211v1_genomic | Nostoc sp. GT001                       | Bacteria     | NA      | NA          | Cyanobacteriota | NA        | NA         | Cyanophyceae  | NA       | NA         | Nostocales  | NA       | NA          | Nostocaceae  | NA        | Nostoc |
+| GCA_015206945.1_ASM1520694v1_genomic | Nostocales cyanobacterium LEGE 12452   | Bacteria     | NA      | NA          | Cyanobacteriota | NA        | NA         | Cyanophyceae  | NA       | NA         | Nostocales  | NA       | NA          | NA           | NA        | NA    |
 
 ## Output
 The output CSV file output_with_colors.csv will contain the following columns:
@@ -1271,11 +1215,22 @@ order
 color
 Example:
 
-bash
-Copiar código
+## Output
+
+The output CSV file `output_with_colors.csv` will contain the following columns:
+
+| Genome ID                            | order       | color   |
+|--------------------------------------|-------------|---------|
+| GCF_030382115.1_ASM3038211v1_genomic | Nostocales  | #cd5c5c |
+| GCA_015206945.1_ASM1520694v1_genomic | Nostocales  | #cd5c5c |
+
+### Example
+
+```csv
 Genome ID,order,color
 GCF_030382115.1_ASM3038211v1_genomic,Nostocales,#cd5c5c
 GCA_015206945.1_ASM1520694v1_genomic,Nostocales,#cd5c5c
+
 
 ## Script 27: Enzyme Search Tool: enzymesearchtool.py
 
@@ -1283,7 +1238,7 @@ GCA_015206945.1_ASM1520694v1_genomic,Nostocales,#cd5c5c
 enzymesearchtool.py
 ```
 
-## This tool is designed to search for specific enzyme names within .gbk files located in a directory and its subdirectories. It extracts relevant information and annotations, and saves the results to an output file.
+## This tool enzymesearchtool.py is designed to search for specific enzyme names within .gbk files located in a directory and its subdirectories. It extracts relevant information and annotations, and saves the results to an output file.
 
 ## Requirements
 Python 3.6+
@@ -1327,7 +1282,6 @@ Saves the search results to the specified output file.
 ## Script 28: get_genome_taxonomy_from_protein_id.py
 
 # Essential the download of program datasets from NCBI using this link: https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/ and change the path of the program in the code get_genome_taxonomy_from_protein_id.py
-
 # Genome and Taxonomic Information Retrieval Script
 
 # Description
@@ -1347,13 +1301,12 @@ python get_genome_taxonomy_from_protein_id.py <input_filename> <genome_output_fi
 - <genome_output_filename>: Path to the output file where genome IDs will be saved.
 - <taxonomic_output_filename>: Path to the output file where taxonomic information will be saved.
 
-#Setup
-##Install Dependencies:
+# Setup
+## Install Dependencies:
 
-##Ensure you have Python installed.
+## Ensure you have Python installed.
 
-#Install the required Python libraries using pip:
-
+# Install the required Python libraries using pip:
 ```bash
 pip install pandas biopython
 ```
@@ -1368,8 +1321,8 @@ The script reads protein accession numbers from the input file.
 For each accession number, it uses efetch to fetch genome IDs (RefSeq or INSDC).
 
 The results are saved in the specified genome output file.
-# Fetch Taxonomic Information:
 
+# Fetch Taxonomic Information:
 - The script reads the genome output file.
 - For each protein accession, it fetches the species and taxonomic lineage using Entrez.
 - The results are stored in a pandas DataFrame and saved as a tab-separated values (TSV) file in the specified taxonomic output file.
@@ -1392,7 +1345,6 @@ python get_genome_taxonomy_from_protein_id.py input.txt genome_output.txt taxono
 
 
 # taxonomic_output.txt: Contains the protein accession, genome ID, species, and taxonomic lineage.
-
 
 Protein Accession  Genome Accession  Species  Lineage
 NP_000507.1  NC_000001.11  Homo sapiens  Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi; Mammalia; Eutheria; Euarchontoglires; Primates; Haplorrhini; Catarrhini; Hominidae; Homo
@@ -1429,12 +1381,9 @@ python organize_protein_genome_metadata.py <input_file> <table_file> <output_fil
 pip install pandas
 ```
 ## Functionality
-
 # Read Protein List:
-
 # The script reads protein accession numbers from the input file.
-
-## Create Output Table:
+# Create Output Table:
 
 # For each protein in the list, it searches for a matching record in the genome table.
 
@@ -1449,10 +1398,11 @@ pip install pandas
 - NP_000507.1
 - NP_001123456.1
 
-# Genome Table (genome_table.tsv)
+# Genome Table (`genome_table.tsv`)
 
-Protein Accession |   Genome Accession |    Species        | Lineage
-NP_000507.1       |   NC_000001.11     |   Homo sapiens    | Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi; Mammalia; Eutheria; Euarchontoglires; Primates; Haplorrhini; Catarrhini; Hominidae; Homo
+| Protein Accession | Genome Accession | Species       | Lineage                                                                                                                                                             |
+|-------------------|------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| NP_000507.1       | NC_000001.11     | Homo sapiens  | Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi; Mammalia; Eutheria; Euarchontoglires; Primates; Haplorrhini; Catarrhini; Hominidae; Homo          |
 
 # Command
 ``` bash
@@ -1460,9 +1410,11 @@ python script.py input.txt genome_table.tsv output.txt
 ```
 # Output File (output.txt)
 
-Protein Accession |    Genome Accession |   Species     | Lineage
-NP_000507.1       |   NC_000001.11      |  Homo sapiens |    Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi; Mammalia; Eutheria; Euarchontoglires; Primates; Haplorrhini; Catarrhini; Hominidae; Homo
-NP_001123456.1    |   not genome found  |  not genome found  |  not genome found
+| Protein Accession | Genome Accession   | Species         | Lineage                                                                                                                                                             |
+|-------------------|--------------------|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| NP_000507.1       | NC_000001.11       | Homo sapiens    | Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi; Mammalia; Eutheria; Euarchontoglires; Primates; Haplorrhini; Catarrhini; Hominidae; Homo          |
+| NP_001123456.1    | not genome found   | not genome found | not genome found                                                                                                                                                   |
+
 
 ## Script 30: filter_table_genome_quality_generate_plot.py
 
@@ -1488,7 +1440,6 @@ python filter_table_genome_quality_generate_plot.py <input_file> <output_file> <
 - <contamination_threshold>: Maximum value of contamination.
 
 ## Setup
-
 # Install Dependencies:
 # Ensure you have Python installed.
 
@@ -1525,20 +1476,20 @@ The filtered table is saved to the specified output file.
 ```bash
 python filter_table_genome_quality_generate_plot.py genomes.csv filtered_genomes.csv genome_quality 90 5
 ```
-- Input File (genomes.csv)
+- Input File (`genomes.csv`)
 
+| Protein Accession | Genome Accession | Species       | Lineage      | Completeness | Contamination |
+|-------------------|------------------|---------------|--------------|--------------|---------------|
+| NP_000507.1       | NC_000001.11     | Homo sapiens  | ...          | 95           | 2             |
+| NP_001123456.1    | NC_000002.12     | Mus musculus  | ...          | 85           | 1             |
+| ...               | ...              | ...           | ...          | ...          | ...           |
 
-Protein Accession  |  Genome Accession   | Species       | Lineage    | Completeness    | Contamination
-NP_000507.1        |  NC_000001.11       | Homo sapiens  ...            |  95             | 2
-NP_001123456.1     |  NC_000002.12       | Mus musculus  ...            | 85              | 1
-...
+- Output File (`filtered_genomes.csv`)
 
-- Output File (filtered_genomes.csv)
-
-
-Protein Accession |   Genome Accession |   Species            |Lineage    |Completeness    | Contamination
-NP_000507.1       |    NC_000001.11    |    Homo sapiens  ...  |          | 95              | 2
-...
+| Protein Accession | Genome Accession | Species       | Lineage      | Completeness | Contamination |
+|-------------------|------------------|---------------|--------------|--------------|---------------|
+| NP_000507.1       | NC_000001.11     | Homo sapiens  | ...          | 95           | 2             |
+| ...               | ...              | ...           | ...          | ...          | ...           |
 
 # Plot Output
 
@@ -1617,17 +1568,20 @@ python get_specie_name_lineage_from_genome_id.py genome_ids.txt genome_info_outp
 - GCA_000001405.15
 - GCA_000001635.9
 
-# Temporary File (temp_output_YYYYMMDD_HHMMSS.tsv)
+# Temporary File (`temp_output_YYYYMMDD_HHMMSS.tsv`)
 
-Assembly Accession    | Organism Common Name   | Organism Name
-GCA_000001405.15      | Human                  | Homo sapiens
-GCA_000001635.9       | Mouse                  | Mus musculus
+| Assembly Accession | Organism Common Name | Organism Name |
+|--------------------|----------------------|---------------|
+| GCA_000001405.15   | Human                | Homo sapiens  |
+| GCA_000001635.9    | Mouse                | Mus musculus  |
 
-# Output File (genome_info_output.tsv)
+# Output File (`genome_info_output.tsv`)
 
-Assembly Accession  |  Organism Common Name  |  Organism Name
-GCA_000001405.15    |  Human                 |  Homo sapiens
-GCA_000001635.9     |  Mouse                 |  Mus musculus
+| Assembly Accession | Organism Common Name | Organism Name |
+|--------------------|----------------------|---------------|
+| GCA_000001405.15   | Human                | Homo sapiens  |
+| GCA_000001635.9    | Mouse                | Mus musculus  |
+
 
 ## Script 32: extract_genome_id_main.py
 
@@ -1716,14 +1670,11 @@ python extract_genome_id_main.py genome_ids.txt prefixes_output.txt
 Este script em Python permite o download de arquivos GBFF (GenBank Flat File) de genomas a partir de uma lista de IDs de acesso. Ele usa a ferramenta `datasets` fornecida pela NCBI para realizar o download.
 
 ## Requisitos
-
 - Python 3.x
 - A ferramenta `datasets` da NCBI deve estar instalada no ambiente Python que você está usando. Certifique-se de que o caminho para o executável `datasets` está correto no script.
 
 ## Instalação
-
 1. Clone este repositório:
-
 
 ```bash
 git clone https://github.com/seuusuario/genome-downloader.git
@@ -1744,7 +1695,6 @@ conda install -c bioconda ncbi-datasets-cli
 ## Usage
 
 - Prepare a text file containing the genome IDs you want to download. Each line of the file should contain a genome accession ID. Example of a genome_ids.txt file:
-
 
 - GCF_000001405.39
 - GCF_000002265.5
@@ -1794,6 +1744,7 @@ file_structure:
 
 ## usage:
 # command: 
+
 ```bash
 python download_genome_ncbi_datasets.py <input_file.txt> <output_file.zip>
 ```
@@ -1815,7 +1766,6 @@ how_it_works:
     description: >
       The script logs the process ID (PID) of the background command,
       allowing users to track the download process.
-
 # command: 
 ```bash
     python download_genome_ncbi_datasets.py genome_accessions.txt downloaded_genomes.zip
@@ -1864,7 +1814,6 @@ The metadata includes lineage information, biome distribution, geographic locati
 ```bash
 pip install ete3 biopython
 ```
-
 # Usage
 To run the script, use the following command in the terminal:
 
@@ -1884,7 +1833,6 @@ GCA_000004075.3
 ```bash
 python get_metadata.py <input_file_with_assembly_ids> <output_file>
 ```
-
 # This command will produce:
 
 - genomes_metadata.tsv: Main output file with metadata for all assembly IDs.
@@ -2022,7 +1970,8 @@ example:
       - usando uma nova URL base para o repositório MIBIG.
 
 ## License
-This project is licensed under the MIT License. Leandro de Mattos Pereira built all the codes.
+
+All codes in this project is licensed under the MIT License. Leandro de Mattos Pereira built all the codes. contact: mattoslmp@gmail.com
 
 ## License
 
