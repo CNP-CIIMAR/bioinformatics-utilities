@@ -1976,6 +1976,12 @@ python organize_big_slice.py --bigslice_dir /mnt/disk-sdc/Fasta/Table_organizati
 /mnt/disk-sdc/Fasta/Table_organization/bigslice$ ls
 dataset_1  datasets.tsv  taxonomy
  ```
+ ```plaintext
+(base) mattoslmp@cnp:/mnt/disk-sdc/Fasta/Table_organization/bigslice$ more datasets.tsv
+#Dataset name   Path to dataset folder  Path to taxonomy file               Description of the dataset
+dataset_1       dataset_1               taxonomy/taxonomy_dataset_1.tsv     Dataset agrupado por Order: 1
+ ```
+
  ```bash
 dataset_1: dir with all subdir with antismash results:
 genome_GCA_001593155.1  genome_GCA_023748825.1  genome_GCA_027602005.1  genome_GCA_910591825.1  genome_GCA_910592015.1
