@@ -2019,10 +2019,12 @@ The script logs all actions, including errors and warnings, in a specified log f
 
 # Example output 
 
-#Dataset name   Path to dataset folder   Path to taxonomy file  Description of the dataset
-dataset_1       /path/to/bigslice/dataset_1    taxonomy/taxonomy_dataset_1.tsv  Dataset grouped by Order: X
-dataset_2       /path/to/bigslice/dataset_2    taxonomy/taxonomy_dataset_2.tsv  Dataset grouped by Order: Y
-...
+| # Dataset name | Path to dataset folder           | Path to taxonomy file               | Description of the dataset        |
+|----------------|----------------------------------|-------------------------------------|-----------------------------------|
+| dataset_1      | /path/to/bigslice/dataset_1      | taxonomy/taxonomy_dataset_1.tsv     | Dataset grouped by Order: X       |
+| dataset_2      | /path/to/bigslice/dataset_2      | taxonomy/taxonomy_dataset_2.tsv     | Dataset grouped by Order: Y       |
+| ...            | ...                              | ...                                 | ...                               |
+
 
 ## Notes
 
