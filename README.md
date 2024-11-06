@@ -1976,6 +1976,21 @@ python organize_big_slice.py --bigslice_dir /mnt/disk-sdc/Fasta/Table_organizati
 /mnt/disk-sdc/Fasta/Table_organization/bigslice$ ls
 dataset_1  datasets.tsv  taxonomy
  ```
+ ```bash
+dataset_1: dir with all subdir with antismash results:
+genome_GCA_001593155.1  genome_GCA_023748825.1  genome_GCA_027602005.1  genome_GCA_910591825.1  genome_GCA_910592015.1
+ ```
+ ```bash
+taxonomy$ ls
+taxonomy_dataset_1.tsv
+ ```
+
+```plaintext
+(base) mattoslmp@cnp:/mnt/disk-sdc/Fasta/Table_organization/bigslice/taxonomy$ more taxonomy_dataset_1.tsv
+Genome folder name      Kingdom/Domain         Class               Order             Family              Genus            Species   Organism/Strain
+genome_GCA_910592015.1/ Fungi incertae sedis   Glomeromycotina     Unknown           Diversisporales     Diversisporaceae Diversispora  Unknown
+genome_GCA_027600645.1/ Fungi incertae sedis   Chytridiomycota     incertae sedis    Cladochytriales     Nowakowskiellaceae Nowakowskiella Unknown
+```
 
 Arguments
 --bigslice_dir: Specifies the path to the BiG-SLiCE directory where datasets will be created.
