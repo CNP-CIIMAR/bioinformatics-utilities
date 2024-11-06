@@ -1998,15 +1998,16 @@ genome_GCA_910592015.1/ Fungi incertae sedis   Glomeromycotina     Unknown      
 genome_GCA_027600645.1/ Fungi incertae sedis   Chytridiomycota     incertae sedis    Cladochytriales     Nowakowskiellaceae Nowakowskiella Unknown
 ```
 
-Arguments
---bigslice_dir: Specifies the path to the BiG-SLiCE directory where datasets will be created.
---antismash_dir: Specifies the path to the antiSMASH results directory.
---taxonomy_table: Path to the taxonomy table in CSV format.
---assembly_column: Column name in the taxonomy table containing Assembly Accession (default: "Assembly").
---lineage_column: Column name in the taxonomy table containing Lineage (default: "Lineage").
---order_index: Index (0-based) in the Lineage list where the taxonomic level "Order" is located.
---use_symlinks: Optional flag that, if specified, uses symbolic links instead of copying files.
---log_file: Path to the log file (default: "organize_big_slice.log").
+### Arguments
+
+- `--bigslice_dir`: Specifies the path to the BiG-SLiCE directory where datasets will be created.
+- `--antismash_dir`: Specifies the path to the antiSMASH results directory.
+- `--taxonomy_table`: Path to the taxonomy table in CSV format.
+- `--assembly_column`: Column name in the taxonomy table containing Assembly Accession (default: "Assembly").
+- `--lineage_column`: Column name in the taxonomy table containing Lineage (default: "Lineage").
+- `--order_index`: Index (0-based) in the Lineage list where the taxonomic level "Order" is located.
+- `--use_symlinks`: Optional flag that, if specified, uses symbolic links instead of copying files.
+- `--log_file`: Path to the log file (default: "organize_big_slice.log").
 
 
 # Functions
