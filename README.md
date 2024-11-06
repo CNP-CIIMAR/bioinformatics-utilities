@@ -1970,6 +1970,12 @@ python3 organize_big_slice.py --bigslice_dir <BiG-SLiCE directory> --antismash_d
  ```bash
 python organize_big_slice.py --bigslice_dir /mnt/disk-sdc/Fasta/Table_organization/bigslice  --antismash_dir /mnt/disk-sdc/Fasta/Table_organization/Results_eukaryotes_not_plants/fungi/output_antismash --taxonomy_table /mnt/disk-sdc/Fasta/Table_organization/fungi_data.csv --assembly_column "Assembly Accession" --lineage_column "Lineage" --order_index 17
  ```
+# After was created in the dir bigslice the files:
+ 
+ ```bash
+/mnt/disk-sdc/Fasta/Table_organization/bigslice$ ls
+dataset_1  datasets.tsv  taxonomy
+ ```
 
 Arguments
 --bigslice_dir: Specifies the path to the BiG-SLiCE directory where datasets will be created.
