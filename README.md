@@ -2053,6 +2053,13 @@ The script logs all actions, including errors and warnings, in a specified log f
 | dataset_2      | /path/to/bigslice/dataset_2      | taxonomy/taxonomy_dataset_2.tsv     | Dataset grouped by Order: Y       |
 | ...            | ...                              | ...                                 | ...                               |
 
+## After all the data is prepared, just run:
+
+ ```bash
+bigslice -i /mnt/disk-sdc/Fasta/Table_organization/bigslice --threshold 0.3 -t 16 bigslice_output
+ ```
+
+# OBS: Considering that the bigslice installation step was performed previously.
 
 ## Notes
 
