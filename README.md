@@ -1938,6 +1938,101 @@ example:
       - Baixa e organiza os arquivos .gbk para os IDs especificados em lista_ids.txt no diretório ./saida/
       - usando uma nova URL base para o repositório MIBIG.
 
+## Script 36:organize_big_slice.py
+
+# organize_big_slice.py
+
+## Overview
+The `organize_big_slice.py` script is designed to organize antiSMASH result directories into datasets for BiG-SLiCE based on a specified taxonomic level, "Order." This allows researchers to streamline data organization for subsequent analysis in BiG-SLiCE, using either symbolic links or file copies. The script is customizable, enabling users to define specific taxonomy columns and indexes to suit various dataset formats.
+
+## Requirements
+To use this script, the following are required:
+- Python 3
+- Modules:
+  - `os`
+  - `pandas`
+  - `shutil`
+  - `argparse`
+  - `collections.defaultdict`
+  - `re`
+  - `logging`
+
+## Usage
+To run this script, use the following syntax:
+
+## Usage
+To run this script, use the following syntax:
+```bash
+python3 organize_big_slice.py --bigslice_dir <BiG-SLiCE directory> --antismash_dir <antiSMASH directory> --taxonomy_table <taxonomy CSV path> --assembly_column <column name for Assembly Accession> --lineage_column <column name for Lineage> --order_index <Order index in lineage> [--use_symlinks] [--log_file <log file path>]
+
+# Example:
+
+ ```bash
+python organize_big_slice.py --bigslice_dir /mnt/disk-sdc/Fasta/Table_organization/bigslice  --antismash_dir /mnt/disk-sdc/Fasta/Table_organization/Results_eukaryotes_not_plants/fungi/output_antismash --taxonomy_table /mnt/disk-sdc/Fasta/Table_organization/fungi_data.csv --assembly_column "Assembly Accession" --lineage_column "Lineage" --order_index 17
+ ```
+
+Arguments
+--bigslice_dir: Specifies the path to the BiG-SLiCE directory where datasets will be created.
+--antismash_dir: Specifies the path to the antiSMASH results directory.
+--taxonomy_table: Path to the taxonomy table in CSV format.
+--assembly_column: Column name in the taxonomy table containing Assembly Accession (default: "Assembly").
+--lineage_column: Column name in the taxonomy table containing Lineage (default: "Lineage").
+--order_index: Index (0-based) in the Lineage list where the taxonomic level "Order" is located.
+--use_symlinks: Optional flag that, if specified, uses symbolic links instead of copying files.
+--log_file: Path to the log file (default: "organize_big_slice.log").
+
+
+# Functions
+- parse_arguments()
+- Parses and validates command-line arguments, ensuring all required inputs are provided.
+
+setup_logging(log_file)
+Sets up a logging system that outputs both to a log file and to the console, enabling monitoring of the process and tracking errors or warnings.
+
+extract_assembly_accession(dir_name)
+Extracts the Assembly Accession from a directory name using a regular expression. Examples include:
+
+'Result_GCA_000007865.1.fasta_genomic.fna' → 'GCA_000007865.1'
+'Result_GCA_910592015.1_Diversispora_eburnea_AZ414A_genomic.fna' → 'GCA_910592015.1'
+get_order(lineage, order_index)
+Extracts the taxonomic "Order" level from a lineage string based on a specified index. If the index is out of range or missing, it defaults to 'Unknown'.
+
+# main()
+Orchestrates the entire process, which includes:
+
+# Parsing command-line arguments.
+Setting up logging.
+Loading and validating the taxonomy table.
+Creating mappings between Assembly Accession and Order.
+Organizing datasets by Order, either by copying or creating symbolic links for .gbk files.
+Logging progress and errors to both the console and log file.
+Writing organized dataset information to a datasets.tsv file.
+Output
+The script generates the following files and directories in the specified BiG-SLiCE directory:
+
+# Organized Datasets: Datasets are organized by "Order" in subdirectories named dataset_X for each taxonomic group.
+
+datasets.tsv: A summary file listing each dataset and its associated paths for easy reference in BiG-SLiCE.
+Taxonomy Files: Taxonomy files for each dataset (e.g., taxonomy_dataset_X.tsv) that detail the taxonomic classification of each genome in the dataset.
+Log File
+The script logs all actions, including errors and warnings, in a specified log file and also displays them in the console. By default, it writes to organize_big_slice.log, but this can be customized with the --log_file argument.
+
+# Example output 
+
+#Dataset name   Path to dataset folder   Path to taxonomy file  Description of the dataset
+dataset_1       /path/to/bigslice/dataset_1    taxonomy/taxonomy_dataset_1.tsv  Dataset grouped by Order: X
+dataset_2       /path/to/bigslice/dataset_2    taxonomy/taxonomy_dataset_2.tsv  Dataset grouped by Order: Y
+...
+
+## Notes
+
+Ensure the taxonomy CSV file includes the columns specified by --assembly_column and --lineage_column.
+The order_index parameter should be adjusted according to the lineage structure in your data to correctly reference the "Order" level.
+If symbolic links are used, the --use_symlinks flag should be included in the command line.
+Troubleshooting
+Missing Columns: If required columns are not found in the taxonomy table, the script will log an error and halt.
+Invalid Path: The script verifies that the antiSMASH and taxonomy paths exist before proceeding. Any invalid paths will result in an error message.
+
 ## License
 
 All codes in this project is licensed under the MIT License. Leandro de Mattos Pereira built all the codes in this repository. 
