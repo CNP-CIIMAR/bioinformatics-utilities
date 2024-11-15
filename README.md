@@ -2262,4 +2262,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 [Junior Researcher, Leandro de Mattos Pereira](https://mattoslmp.github.io)
 
-[CNP team, Dr. Pedro Leão, Researcher Leader](https://leaolab.wixsite.com/leaolab)
+[CNP team, Pedro Leão, Researcher Leader](https://leaolab.wixsite.com/leaolab)
