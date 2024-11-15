@@ -2070,6 +2070,181 @@ Troubleshooting
 Missing Columns: If required columns are not found in the taxonomy table, the script will log an error and halt.
 Invalid Path: The script verifies that the antiSMASH and taxonomy paths exist before proceeding. Any invalid paths will result in an error message.
 
+## Script 37: download_ncbi_datasets.py 
+
+# NCBI Datasets Downloader
+
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Python](https://img.shields.io/badge/python-3.6%2B-blue.svg)
+
+## 📚 **Descrição**
+
+O **NCBI Datasets Downloader** é um script Python projetado para facilitar o download automatizado de genomas, proteínas e CDS (Sequências Codificantes) do [NCBI](https://www.ncbi.nlm.nih.gov/) utilizando a ferramenta de linha de comando [`datasets`](https://www.ncbi.nlm.nih.gov/datasets/). O script permite que os usuários especifiquem quais tipos de dados desejam baixar, gerencie a descompactação dos arquivos baixados, renomeie os arquivos conforme necessário e organize os resultados em diretórios estruturados.
+
+## 🌟 **Características**
+
+- **Download Automatizado**: Baixe genomas, proteínas e CDS de múltiplos assemblies do NCBI de forma eficiente.
+- **Inclusão Condicional**: Inclua tipos de dados (`genome`, `protein`, `cds`) apenas quando especificado pelo usuário.
+- **Renomeação Inteligente**: Renomeia arquivos baixados para facilitar a identificação e organização.
+- **Registro de Logs**: Mantém registros detalhados das operações realizadas, facilitando a resolução de problemas.
+- **Relatório Final**: Gera um relatório resumindo os downloads bem-sucedidos e as falhas.
+- **Fácil Integração**: Pode ser facilmente integrado em pipelines de análise genômica automatizados.
+
+## 🛠️ **Requisitos**
+
+- **Sistema Operacional**: Unix/Linux ou Windows com suporte ao comando `datasets`.
+- **Python**: Versão 3.6 ou superior.
+- **Ferramenta `datasets` do NCBI**: Deve estar instalada e acessível no sistema.
+
+## ⚙️ **Instalação**
+
+1. **Clone este repositório:**
+
+   ```bash
+   git clone https://github.com/seu-usuario/ncbi-datasets-downloader.git
+   cd ncbi-datasets-downloader
+
+## NCBI_Datasets_Downloader:
+  Installation:
+    Create_Virtual_Environment:
+      Optional: true
+      Steps:
+        - command: python3 -m venv venv
+        - command: source venv/bin/activate  # For Unix/Linux
+        - command: venv\Scripts\activate     # For Windows
+   ##  Install_Required_Dependencies:
+      Details: "The script uses only standard Python libraries, so no additional installations are necessary."
+    ## Install_NCBI_Datasets_Tool:
+      # Instructions_Link: "https://www.ncbi.nlm.nih.gov/datasets/docs/v2"
+      # Example_Installation:
+        - Tool: Homebrew
+        - Commands:
+          - brew install ncbi-datasets
+      # Verify_Installation:
+        - Command: datasets --version
+
+  # Usage:
+    # Run_Script: "download_ncbi_datasetsv2.py"
+    # Syntax:
+      - command: python3 download_ncbi_datasetsv2.py <genome_ids_file> <output_dir> [--include <types>] [--assembly-level <levels>]
+    # Parameters:
+      - genome_ids_file: "Path to the text file containing genome IDs (one per line)."
+      - output_dir: "Directory where the files will be downloaded, unzipped, and organized."
+    # Options:
+      - include:
+        - Types_Of_Data:
+          - genome: "Downloads genomic sequences (.fna)."
+          - protein: "Downloads protein sequences (.faa)."
+          - cds: "Downloads coding sequences (.fna)."
+        # Note: "By default, only genome is included. Specify other types only if necessary."
+        # Examples:
+          - Include_Only_Genome: "--include genome"
+          - Include_Genome_And_Protein: "--include genome protein"
+          - Include_All_Types: "--include genome protein cds"
+      # assembly-level:
+        # Description: "Limits downloads to specific assembly levels."
+        # Options:
+          - chromosome
+          - complete
+          - contig
+          - scaffold
+        # Format: "Separate multiple options with commas."
+        # Example: "--assembly-level chromosome,complete"
+        # Note: "Applicable only if genome is included."
+    # Usage_Examples:
+      - Download_Only_Genomes: "python3 download_ncbi_datasetsv2.py genome_ids.txt res"
+      - Download_Genomes_And_Proteins: "python3 download_ncbi_datasetsv2.py genome_ids.txt res --include genome protein"
+      - Download_Only_Proteins: "python3 download_ncbi_datasetsv2.py genome_ids.txt res --include protein"
+      - Download_Genomes_With_Specific_Assembly_Levels: "python3 download_ncbi_datasetsv2.py genome_ids.txt res --include genome --assembly-level chromosome,complete"
+      - Download_Genomes_Proteins_And_CDS: "python3 download_ncbi_datasetsv2.py genome_ids.txt res --include genome protein cds"
+
+  # Directory_Structure_And_Files:
+    # After_Execution: "The directory structure will look like this:"
+    # Example_Structure:
+      res/:
+        genomes_obtained/:
+          - "GCA_000236985.2_genomic.fna"
+          - "GCA_000236985.2.faa"
+          - "GCA_000236985.2_cds.fna"
+        - "download_log.txt"
+        - "download_report.txt"
+        - "GCA_000236985.2.zip"
+    # Details:
+      genomes_obtained/: "Contains the renamed and organized .fna, .faa, and .cds.fna files."
+      download_log.txt: "Detailed log of operations performed by the script."
+      download_report.txt: "Summary of successful downloads and failures."
+      genome_id.zip: "ZIP files downloaded from NCBI (can be removed after extraction, as needed)."
+
+ # Genome_IDs_File_Format:
+    Details: "Each line should contain a complete Assembly ID, possibly with suffixes like .fna, .faa, or .cds.fna."
+    Example:
+      - "GCA_000523875.1_ASM52387v1_genomic.fna"
+      - "GCA_000001405.39_ASM140v39_genomic.faa"
+      - "GCA_000022825.1_ASM22825v1_genomic.cds.fna"
+
+  # Logs_And_Reports:
+    # Operation_Log:
+      File: "download_log.txt"
+      Details: "Contains detailed records of operations performed, including downloads, unzips, file movements, and any errors encountered."
+      Example_Log_Entry:
+        - "2024-11-15 16:16:40,440 - INFO - Directory 'genomes_obtained' created or already exists: res/genomes_obtained"
+        - "2024-11-15 16:16:40,440 - INFO - Data types included for download: genome"
+        - "2024-11-15 16:16:40,440 - INFO - Starting download for: GCA_000236985.2 with option '--include genome'"
+        - "2024-11-15 16:16:40,440 - INFO - Successfully downloaded: res/GCA_000236985.2.zip"
+        - "2024-11-15 16:16:40,461 - INFO - Unzipped: res/GCA_000236985.2.zip"
+        - "2024-11-15 16:16:40,461 - INFO - Files present in 'res/ncbi_dataset/data/GCA_000236985.2': ['GCA_000236985.2_ASM23698v2_genomic.fna']"
+        - "2024-11-15 16:16:40,461 - INFO - Moving res/ncbi_dataset/data/GCA_000236985.2/GCA_000236985.2_ASM23698v2_genomic.fna to res/genomes_obtained/GCA_000236985.2_genomic.fna"
+    # Final_Report:
+      # File: "download_report.txt"
+      # Details: "Provides a summary of the downloads performed, highlighting which were successful and which failed."
+      # Example_Report:
+        Total_Items_Requested: 3
+        Successfully_Downloaded: 2
+        Failed_Downloads: 1
+        Successful_Items:
+          - "GCA_000523875.1"
+          - "GCA_000001405.39"
+        Failed_Items:
+          - "GCA_000022825.1_ASM22825v1_genomic.cds.fna"
+
+  # Troubleshooting:
+    Problem: "File Not Found After Extraction"
+    Error_Message: "File '<genome_id>_genomic.fna' not found after extraction in: <path>"
+    Possible_Solutions:
+      - Check_Contents_Of_ZIP:
+          Command: "unzip -l <zip_file>"
+      - Verify_File_Naming:
+          Details: "Ensure that the search patterns in the script match the actual names of the files inside the ZIP."
+      - Check_Directory_Permissions:
+          Commands:
+            - "ls -ld <directory>"
+            - "ls -l /usr/local/bin/datasets"
+      - Re-run_Script:
+          Details: "If the download or extraction failed, try re-running the script for that specific assembly_id."
+    # Other_Common_Errors:
+      Error: "Download Failure"
+      Solutions:
+        - "Check the internet connection."
+        - "Confirm that the assembly_id is correct and available on NCBI."
+        - "Ensure that the datasets tool is up to date."
+
+  # Security_Considerations:
+    File_Permissions: "Ensure that the directories and files used by the script have appropriate permissions to prevent unauthorized access."
+    Input_Validation: "The script performs basic checks on assembly_ids, but ensure the IDs file is correctly formatted to avoid unexpected behaviors."
+
+  # Contributions:
+    Details: "Contributions are welcome! Feel free to open issues or submit pull requests to improve this project."
+    Steps:
+      - Fork_Repository: "Fork this repository."
+      - Create_Branch: 
+          Command: "git checkout -b feature/new-feature"
+      - Commit_Changes:
+          Command: "git commit -m 'Add new feature'"
+      - Push_To_Branch:
+          Command: "git push origin feature/new-feature"
+      - Open_Pull_Request: "Submit a pull request on GitHub."
+   
+
 ## License
 
 All codes in this project is licensed under the MIT License. Leandro de Mattos Pereira built all the codes in this repository. 
