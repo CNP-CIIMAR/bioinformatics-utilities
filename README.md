@@ -2103,7 +2103,7 @@ O **NCBI Datasets Downloader** é um script Python projetado para facilitar o do
    ```bash
    git clone https://github.com/seu-usuario/ncbi-datasets-downloader.git
    cd ncbi-datasets-downloader
-  ```
+   
 ## NCBI_Datasets_Downloader:
   Installation:
     Create_Virtual_Environment:
