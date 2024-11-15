@@ -2103,7 +2103,7 @@ O **NCBI Datasets Downloader** é um script Python projetado para facilitar o do
    ```bash
    git clone https://github.com/seu-usuario/ncbi-datasets-downloader.git
    cd ncbi-datasets-downloader
-
+  ```
 ## NCBI_Datasets_Downloader:
   Installation:
     Create_Virtual_Environment:
@@ -2124,9 +2124,13 @@ O **NCBI Datasets Downloader** é um script Python projetado para facilitar o do
         - Command: datasets --version
 
   # Usage:
-    # Run_Script: "download_ncbi_datasetsv2.py"
+```bash
+    "download_ncbi_datasetsv2.py"
+ ```
     # Syntax:
+    ```bash
       - command: python3 download_ncbi_datasetsv2.py <genome_ids_file> <output_dir> [--include <types>] [--assembly-level <levels>]
+      ```
     # Parameters:
       - genome_ids_file: "Path to the text file containing genome IDs (one per line)."
       - output_dir: "Directory where the files will be downloaded, unzipped, and organized."
