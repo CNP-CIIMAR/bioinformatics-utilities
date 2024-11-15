@@ -2256,7 +2256,6 @@ All codes in this project is licensed under the MIT License. Leandro de Mattos P
 contact: mattoslmp@gmail.com
 
 ## License
-
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## More about:
