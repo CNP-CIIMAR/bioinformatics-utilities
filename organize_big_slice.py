@@ -3,6 +3,9 @@
 
 # Author: Leandro de Mattos Pereira -november 2024
 
+#!/usr/bin/env python3
+# organize_big_slice.py
+
 import os
 import sys
 import pandas as pd
@@ -30,8 +33,6 @@ def parse_arguments():
                         help='Nome da coluna na tabela de taxonomia que contém a Lineage (default: "Lineage").')
     parser.add_argument('--log_file', type=str, default='organize_big_slice.log',
                         help='Caminho para o arquivo de log (default: "organize_big_slice.log").')
-    parser.add_argument('--dry_run', action='store_true',
-                        help='Realiza uma execução de teste sem fazer alterações.')
     return parser.parse_args()
 
 def setup_logging(log_file):
@@ -142,8 +143,7 @@ def initialize_datasets_tsv(bigslice_dir):
         sys.exit(1)
     return datasets_tsv_path
 
-def process_antismash_directories(antismash_dir, bigslice_dir, dry_run, 
-                                 order_to_dataset, accession_to_order, df_tax, assembly_column, lineage_column):
+def process_antismash_directories(antismash_dir, bigslice_dir, order_to_dataset, accession_to_order, df_tax, assembly_column, lineage_column):
     """
     Processa os diretórios de resultados do antiSMASH e organiza-os em datasets do BiG-SLiCE.
     
@@ -151,8 +151,7 @@ def process_antismash_directories(antismash_dir, bigslice_dir, dry_run,
     """
     taxonomy_data = defaultdict(list)
     taxonomy_folder = os.path.join(bigslice_dir, "taxonomy")
-    if not dry_run:
-        os.makedirs(taxonomy_folder, exist_ok=True)
+    os.makedirs(taxonomy_folder, exist_ok=True)
     
     all_result_dirs = [d for d in os.listdir(antismash_dir) if os.path.isdir(os.path.join(antismash_dir, d))]
     logging.info(f"Total de diretórios de resultado antiSMASH encontrados: {len(all_result_dirs)}")
@@ -174,8 +173,7 @@ def process_antismash_directories(antismash_dir, bigslice_dir, dry_run,
         genome_folder_name = f"genome_{accession}"
         genome_dir_path = os.path.join(dataset_dir_path, genome_folder_name)
         
-        if not dry_run:
-            os.makedirs(genome_dir_path, exist_ok=True)
+        os.makedirs(genome_dir_path, exist_ok=True)
         
         gbk_files_copied = False
         for file in os.listdir(result_dir_path):
@@ -183,8 +181,7 @@ def process_antismash_directories(antismash_dir, bigslice_dir, dry_run,
                 src_file = os.path.join(result_dir_path, file)
                 dst_file = os.path.join(genome_dir_path, file)
                 try:
-                    if not dry_run:
-                        shutil.copy2(src_file, dst_file)
+                    shutil.copy2(src_file, dst_file)
                     logging.info(f"Arquivo copiado: {src_file} -> {dst_file}")
                     gbk_files_copied = True
                 except Exception as e:
@@ -214,7 +211,7 @@ def process_antismash_directories(antismash_dir, bigslice_dir, dry_run,
     
     return taxonomy_data
 
-def generate_taxonomy_files(taxonomy_data, taxonomy_folder, bigslice_dir, dry_run):
+def generate_taxonomy_files(taxonomy_data, taxonomy_folder, bigslice_dir):
     """
     Gera arquivos TSV de taxonomia para cada dataset e atualiza o arquivo datasets.tsv.
     """
@@ -222,13 +219,12 @@ def generate_taxonomy_files(taxonomy_data, taxonomy_folder, bigslice_dir, dry_ru
     for dataset, entries in taxonomy_data.items():
         taxonomy_file_path = os.path.join(taxonomy_folder, f"taxonomy_{dataset}.tsv")
         df_taxonomy = pd.DataFrame(entries)
-        if not dry_run:
-            try:
-                df_taxonomy.to_csv(taxonomy_file_path, sep='\t', index=False)
-                logging.info(f"Arquivo de taxonomia criado: {taxonomy_file_path}")
-            except Exception as e:
-                logging.error(f"Erro ao criar o arquivo de taxonomia '{taxonomy_file_path}': {e}")
-                continue
+        try:
+            df_taxonomy.to_csv(taxonomy_file_path, sep='\t', index=False)
+            logging.info(f"Arquivo de taxonomia criado: {taxonomy_file_path}")
+        except Exception as e:
+            logging.error(f"Erro ao criar o arquivo de taxonomia '{taxonomy_file_path}': {e}")
+            continue
         
         # Atualizar datasets.tsv
         try:
@@ -247,7 +243,6 @@ def main():
     taxonomy_table_path = args.taxonomy_table
     assembly_column = args.assembly_column
     lineage_column = args.lineage_column
-    dry_run = args.dry_run
     
     logging.info("Iniciando o processo de organização dos datasets para BiG-SLiCE.")
     logging.info(f"Diretório BiG-SLiCE: {bigslice_dir}")
@@ -255,7 +250,6 @@ def main():
     logging.info(f"Tabela de Taxonomia: {taxonomy_table_path}")
     logging.info(f"Coluna de Assembly: {assembly_column}")
     logging.info(f"Coluna de Lineage: {lineage_column}")
-    logging.info(f"Modo Dry Run: {'Ativado' if dry_run else 'Desativado'}")
     
     # Validar diretórios e arquivos de entrada
     if not os.path.isdir(antismash_dir):
@@ -264,8 +258,7 @@ def main():
     if not os.path.isfile(taxonomy_table_path):
         logging.error(f"A tabela de taxonomia '{taxonomy_table_path}' não existe.")
         sys.exit(1)
-    if not dry_run:
-        os.makedirs(bigslice_dir, exist_ok=True)
+    os.makedirs(bigslice_dir, exist_ok=True)
     
     # Carregar e processar dados de taxonomia
     df_tax = load_taxonomy(taxonomy_table_path, assembly_column, lineage_column)
@@ -280,7 +273,6 @@ def main():
     taxonomy_data = process_antismash_directories(
         antismash_dir=antismash_dir,
         bigslice_dir=bigslice_dir,
-        dry_run=dry_run,
         order_to_dataset=order_to_dataset,
         accession_to_order=accession_to_order,
         df_tax=df_tax,
@@ -289,13 +281,11 @@ def main():
     )
     
     # Gerar arquivos de taxonomia e atualizar datasets.tsv
-    if not dry_run:
-        generate_taxonomy_files(
-            taxonomy_data=taxonomy_data,
-            taxonomy_folder=os.path.join(bigslice_dir, "taxonomy"),
-            bigslice_dir=bigslice_dir,
-            dry_run=dry_run
-        )
+    generate_taxonomy_files(
+        taxonomy_data=taxonomy_data,
+        taxonomy_folder=os.path.join(bigslice_dir, "taxonomy"),
+        bigslice_dir=bigslice_dir
+    )
     
     logging.info("Organização de datasets concluída com sucesso!")
     logging.info(f"Arquivo 'datasets.tsv' criado em: {datasets_tsv_path}")
