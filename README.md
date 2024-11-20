@@ -2435,7 +2435,7 @@ python merge_summary_metadata.py \
 | -Quantidade de correspondências com informações completas ('Assembly', 'CAL_domain', 'AMP-binding'): 200
 | -Quantidade de correspondências com informações incompletas: 50 
 
-| # Lista de Assembly IDs com 'CAL_domain' igual a 0:
+| # Relatório de Correspondências para Bacteria
 |------------------------------------------
 | - GCA_021323495.1
 | - GCA_012345678.9
