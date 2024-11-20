@@ -2329,21 +2329,21 @@ python analise_CAL_domain_report_copy_gbk.py \
 - summary.tsv Copied to a filtrados_subdir_CAL directory located alongside the input directory.
 - Files are prefixed with their respective Genome IDs for easy identification.
 
-# Print output (Example)
+# Print log output (Example)
+
 # Há espaço suficiente no disco para copiar os arquivos.
+
 - Processamento concluído.
 - Total de subdiretórios acessados: 25
 - Total de subdiretórios com 'CAL_domain': 5
 - Tamanho total de todos os arquivos .gbk encontrados: 0.27 Mb / 0.00 Gb
 - Resumo salvo em: fungi/summary.csv
 - Log detalhado salvo em: log_file
-- Arquivos gbk filtrados copiados para o diretório: filtrados_subdir_CAL
+
+**Arquivos gbk filtrados copiados para o diretório: filtrados_subdir_CAL** 
 
 # Located within the input directory.
-
-| # Columns:
-| - Assembly: Genome ID. CAL_domain: Count of CAL_domain occurrences. - AMP-binding: Count of AMP-binding occurrences (if --search-amp-binding is used).  - Total_size_MB: Total size of sequences in Megabases.  - Total_size_GB: Total size of sequences in Gigabases.
-| - Filtered .gbk Files:
+summary.tsv:
 
 | # Columns:
 |------------------------------------------
