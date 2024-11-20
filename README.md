@@ -2247,8 +2247,108 @@ O **NCBI Datasets Downloader** é um script Python projetado para facilitar o do
       - Push_To_Branch:
           Command: "git push origin feature/new-feature"
       - Open_Pull_Request: "Submit a pull request on GitHub."
-   
-## Script 39: merge_summary_metadata.py  Para executar esse codigo primeiro é necessario executar o codigo anterior: analise_CAL_domain_quanitity_copy.py
+
+## Script 38: analise_CAL_domain_report_copy_gbk.py # Genome CAL Domain Analysis Script
+
+## Description
+
+This Python script automates the analysis of GenBank (`.gbk`) files within multiple subdirectories. It identifies specific protein domains (`CAL_domain` and optionally `AMP-binding`) within genomic features, calculates the total size of sequences, and organizes the results into a summary report. Additionally, it filters and copies relevant `.gbk` files to a designated directory for further analysis.
+
+## Key Features
+
+- **Domain Detection**: Identifies and counts occurrences of specified domains (`CAL_domain` and `AMP-binding`) within genomic features.
+- **Genome ID Extraction**: Extracts genome IDs from subdirectory names following a specific naming convention.
+- **Size Calculation**: Computes the total size of genomic sequences in Megabases (Mb) and Gigabases (Gb).
+- **Filtered File Copying**: Copies `.gbk` files containing identified domains to a filtered directory with prefixed Genome IDs.
+- **Comprehensive Logging**: Generates detailed logs of the processing steps and outcomes.
+- **Summary Report**: Compiles a `summary.csv` file with aggregated data for easy reference.
+
+## Requirements
+
+- **Python**: Version 3.6 or higher.
+- **Python Libraries**:
+  - `Biopython`
+  - `argparse`
+  - `pathlib`
+  - `csv`
+  - `shutil`
+  - `os`
+
+## Installation
+
+1. **Clone the Repository**:
+
+    ```bash
+    git clone https://github.com/your-username/your-repository.git
+    cd your-repository
+    ```
+
+2. **Create a Virtual Environment (Optional but Recommended)**:
+
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate  # For Unix/Linux
+    venv\Scripts\activate     # For Windows
+    ```
+
+3. **Install Dependencies**:
+
+    ```bash
+    pip install biopython
+    ```
+
+## Usage
+
+Run the script via the command line, providing the input directory containing `.gbk` files and specifying the log file location. Optional parameters allow for additional domain searches.
+
+### Syntax
+
+```bash
+python analise_CAL_domain_report_copy_gbk.py <input_dir> <log_file> [--search-amp-binding]
+```
+# Arguments
+
+<input_dir>: Required. Path to the input directory containing subdirectories with .gbk files.
+<log_file>: Required. Path to the log file where processing details will be saved.
+--search-amp-binding: Optional. If specified, the script will also search for the AMP-binding domain.
+
+#Example Command
+# Generated Outputs
+```bash
+python analise_CAL_domain_report_copy_gbk.py \
+    /path/to/input_directory \
+    /path/to/log_file.log \
+    --search-amp-binding
+```
+
+# Log File (<log_file>.log):
+
+Contains detailed information about the processing of each subdirectory and .gbk file.
+Logs include domain counts, file sizes, and any errors encountered during processing.
+Summary Report (summary.csv):
+
+# Located within the input directory.
+| # Columns:
+| Assembly: Genome ID. CAL_domain: Count of CAL_domain occurrences. | AMP-binding: Count of AMP-binding occurrences (if --search-amp-binding is used).  | Total_size_MB: Total size of sequences in Megabases.  | Total_size_GB: Total size of sequences in Gigabases.
+| Filtered .gbk Files:
+
+Copied to a filtrados_subdir_CAL directory located alongside the input directory.
+Files are prefixed with their respective Genome IDs for easy identification.
+
+# Relatório de Correspondências para Bacteria
+-----------------------------------------
+| Total de linhas com 'Lineage' contendo 'Bacteria': 250
+| Quantidade de correspondências com informações completas ('Assembly', 'CAL_domain', 'AMP-binding'): 200
+| Quantidade de correspondências com informações incompletas: 50
+
+| # Lista de Assembly IDs com 'CAL_domain' igual a 0:
+| GCA_021323495.1
+| GCA_012345678.9
+| GCA_987654321.0
+
+
+
+## Script 39: merge_summary_metadata.py  Para executar esse codigo primeiro é necessario executar o codigo anterior: analise_CAL_domain_report_copy_gbk.py
 
 # Merge Summary and Metadata Script
 
