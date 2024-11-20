@@ -2342,8 +2342,8 @@ Files are prefixed with their respective Genome IDs for easy identification.
 | - Quantidade de correspondências com informações completas ('Assembly', 'CAL_domain', 'AMP-binding'): 200
 | - Quantidade de correspondências com informações incompletas: 50
 
-|------------------------------------------
 | # Lista de Assembly IDs com 'CAL_domain' igual a 0:
+|------------------------------------------
 | - GCA_021323495.1
 | - GCA_012345678.9
 | - GCA_987654321.0
@@ -2432,8 +2432,8 @@ python merge_summary_metadata.py \
 | # Relatório de Correspondências para Bacteria
 |------------------------------------------
 | - Total de linhas com 'Lineage' contendo 'Bacteria': 250
-| -Quantidade de correspondências com informações completas ('Assembly', 'CAL_domain', 'AMP-binding'): 200
-| -Quantidade de correspondências com informações incompletas: 50 
+| - Quantidade de correspondências com informações completas ('Assembly', 'CAL_domain', 'AMP-binding'): 200
+| - Quantidade de correspondências com informações incompletas: 50 
 
 | # Relatório de Correspondências para Bacteria
 |------------------------------------------
