@@ -2437,9 +2437,9 @@ python merge_summary_metadata.py \
 
 | # Lista de Assembly IDs com 'CAL_domain' igual a 0:
 |------------------------------------------
-| GCA_021323495.1
-| GCA_012345678.9
-| GCA_987654321.0
+| - GCA_021323495.1
+| - GCA_012345678.9
+| - GCA_987654321.0
 
 
 ## License
