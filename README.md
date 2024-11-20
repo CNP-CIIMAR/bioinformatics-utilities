@@ -2342,17 +2342,18 @@ python analise_CAL_domain_report_copy_gbk.py \
 # Located within the input directory.
 
 | # Columns:
-| - Assembly: Genome ID. CAL_domain: Count of CAL_domain occurrences. | AMP-binding: Count of AMP-binding occurrences (if --search-amp-binding is used).  | Total_size_MB: Total size of sequences in Megabases.  | Total_size_GB: Total size of sequences in Gigabases.
+| - Assembly: Genome ID. CAL_domain: Count of CAL_domain occurrences. - AMP-binding: Count of AMP-binding occurrences (if --search-amp-binding is used).  - Total_size_MB: Total size of sequences in Megabases.  - Total_size_GB: Total size of sequences in Gigabases.
 | - Filtered .gbk Files:
 
 | # Columns:
+|------------------------------------------
 | # Relatório de Correspondências para Bacteria
 | - Assembly,CAL_domain,AMP-binding,Total_size_MB,Total_size_GB
 | - GCA_910592015.1,0,0,0.00 Mb,0.00 Gb
 | - GCA_027600645.1,0,0,0.00 Mb,0.00 Gb
 | - GCA_021556665.1,0,0,0.00 Mb,0.00 Gb
 | - GCA_910592205.1,0,0,0.00 Mb,0.00 Gb
-| -GCA_910591965.1,0,0,0.00 Mb,0.00 Gb
+| - GCA_910591965.1,0,0,0.00 Mb,0.00 Gb
 
 ## Script 39: merge_summary_metadata.py  Para executar esse codigo primeiro é necessario executar o codigo anterior: analise_CAL_domain_report_copy_gbk.py
 
