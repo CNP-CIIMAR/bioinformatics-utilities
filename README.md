@@ -2335,17 +2335,18 @@ Summary Report (summary.csv):
 Copied to a filtrados_subdir_CAL directory located alongside the input directory.
 Files are prefixed with their respective Genome IDs for easy identification.
 
-# Relatório de Correspondências para Bacteria
+
+| # Relatório de Correspondências para Bacteria
 |------------------------------------------
-| Total de linhas com 'Lineage' contendo 'Bacteria': 250
-| Quantidade de correspondências com informações completas ('Assembly', 'CAL_domain', 'AMP-binding'): 200
-| Quantidade de correspondências com informações incompletas: 50
+| - Total de linhas com 'Lineage' contendo 'Bacteria': 250
+| - Quantidade de correspondências com informações completas ('Assembly', 'CAL_domain', 'AMP-binding'): 200
+| - Quantidade de correspondências com informações incompletas: 50
 
 |------------------------------------------
 | # Lista de Assembly IDs com 'CAL_domain' igual a 0:
-| GCA_021323495.1
-| GCA_012345678.9
-| GCA_987654321.0
+| - GCA_021323495.1
+| - GCA_012345678.9
+| - GCA_987654321.0
 
 
 
