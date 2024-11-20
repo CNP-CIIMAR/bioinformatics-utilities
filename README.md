@@ -2329,7 +2329,7 @@ python analise_CAL_domain_report_copy_gbk.py \
 - summary.tsv Copied to a filtrados_subdir_CAL directory located alongside the input directory.
 - Files are prefixed with their respective Genome IDs for easy identification.
 
-# Print log output (Example)
+# Print log output (Example).
 
 # Há espaço suficiente no disco para copiar os arquivos.
 
