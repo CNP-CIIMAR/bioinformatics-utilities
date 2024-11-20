@@ -2323,32 +2323,36 @@ python analise_CAL_domain_report_copy_gbk.py \
 
 # Log File (<log_file>.log):
 
-Contains detailed information about the processing of each subdirectory and .gbk file.
-Logs include domain counts, file sizes, and any errors encountered during processing.
-Summary Report (summary.csv):
+- Contains detailed information about the processing of each subdirectory and .gbk file.
+- Logs include domain counts, file sizes, and any errors encountered during processing.
+- Summary Report (summary.csv):
+- summary.tsv Copied to a filtrados_subdir_CAL directory located alongside the input directory.
+- Files are prefixed with their respective Genome IDs for easy identification.
+
+# Print output (Example)
+# Há espaço suficiente no disco para copiar os arquivos.
+- Processamento concluído.
+- Total de subdiretórios acessados: 25
+- Total de subdiretórios com 'CAL_domain': 5
+- Tamanho total de todos os arquivos .gbk encontrados: 0.27 Mb / 0.00 Gb
+- Resumo salvo em: fungi/summary.csv
+- Log detalhado salvo em: log_file
+- Arquivos gbk filtrados copiados para o diretório: filtrados_subdir_CAL
 
 # Located within the input directory.
+
 | # Columns:
-| Assembly: Genome ID. CAL_domain: Count of CAL_domain occurrences. | AMP-binding: Count of AMP-binding occurrences (if --search-amp-binding is used).  | Total_size_MB: Total size of sequences in Megabases.  | Total_size_GB: Total size of sequences in Gigabases.
-| Filtered .gbk Files:
+| - Assembly: Genome ID. CAL_domain: Count of CAL_domain occurrences. | AMP-binding: Count of AMP-binding occurrences (if --search-amp-binding is used).  | Total_size_MB: Total size of sequences in Megabases.  | Total_size_GB: Total size of sequences in Gigabases.
+| - Filtered .gbk Files:
 
-Copied to a filtrados_subdir_CAL directory located alongside the input directory.
-Files are prefixed with their respective Genome IDs for easy identification.
-
-
+| # Columns:
 | # Relatório de Correspondências para Bacteria
-|------------------------------------------
-| - Total de linhas com 'Lineage' contendo 'Bacteria': 250
-| - Quantidade de correspondências com informações completas ('Assembly', 'CAL_domain', 'AMP-binding'): 200
-| - Quantidade de correspondências com informações incompletas: 50
-
-| # Lista de Assembly IDs com 'CAL_domain' igual a 0:
-|------------------------------------------
-| - GCA_021323495.1
-| - GCA_012345678.9
-| - GCA_987654321.0
-
-
+| - Assembly,CAL_domain,AMP-binding,Total_size_MB,Total_size_GB
+| - GCA_910592015.1,0,0,0.00 Mb,0.00 Gb
+| - GCA_027600645.1,0,0,0.00 Mb,0.00 Gb
+| - GCA_021556665.1,0,0,0.00 Mb,0.00 Gb
+| - GCA_910592205.1,0,0,0.00 Mb,0.00 Gb
+| -GCA_910591965.1,0,0,0.00 Mb,0.00 Gb
 
 ## Script 39: merge_summary_metadata.py  Para executar esse codigo primeiro é necessario executar o codigo anterior: analise_CAL_domain_report_copy_gbk.py
 
