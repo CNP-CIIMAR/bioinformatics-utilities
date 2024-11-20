@@ -2248,6 +2248,87 @@ O **NCBI Datasets Downloader** é um script Python projetado para facilitar o do
           Command: "git push origin feature/new-feature"
       - Open_Pull_Request: "Submit a pull request on GitHub."
    
+## Script 39: merge_summary_metadata.py  Para executar esse codigo primeiro é necessario executar o codigo anterior: analise_CAL_domain_quanitity_copy.py
+
+# Merge Summary and Metadata Script
+
+## Description
+
+This Python script automates the process of merging two data files — `summary.csv` and `Supplementary_table2.tsv` — based on the common column `Assembly`. Additionally, it generates a detailed report on the matches found, specifically focusing on entries classified under the taxonomic category "Bacteria". The report includes counts of complete and incomplete matches, as well as a list of genome IDs (`Assembly`) that have a `CAL_domain` value of 0.
+
+## Key Features
+
+- **Data Merging**: Combines information from `summary.csv` with metadata from `Supplementary_table2.tsv`, retaining all rows from the metadata file.
+- **Taxonomic Filtering**: Filters and analyzes data specific to entries classified as "Bacteria".
+- **Detailed Reporting**:
+  - Total number of "Bacteria" entries.
+  - Number of complete matches (`Assembly`, `CAL_domain`, and optionally `AMP-binding`).
+  - Number of incomplete matches.
+  - List of `Assembly` IDs with `CAL_domain` equal to 0.
+
+## Requirements
+
+- **Python**: Version 3.6 or higher.
+- **Python Libraries**:
+  - `pandas`
+  - `argparse`
+  - `os`
+
+## Installation
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/your-username/your-repository.git
+   cd your-repository
+ ```
+merge_summary_metadata.py
+ ```
+## Usage
+
+Run the script via the command line, providing paths to the input and output files, along with optional parameters as needed.
+
+ ```bash
+python merge_summary_metadata.py --summary <path_to_summary.csv> --metadata <path_to_Supplementary_table2.tsv> --output <path_to_merged_summary.csv> [--search-amp-binding] [--report <path_to_report.txt>]
+c
+
+# Arguments
+--summary: Required. Full path to the summary.csv file.
+--metadata: Required. Full path to the Supplementary_table2.tsv file.
+--output: Required. Path where the merged merged_summary.csv will be saved.
+--search-amp-binding: Optional. If specified, includes the AMP-binding column in the final report.
+--report: Optional. Path where the correspondence report will be saved.
+
+OBS: metadata table can be obtained with the script download_ncbi_datasetsv2.py from this same repository.
+
+## Example: 
+ ```bash
+python merge_summary_metadata.py \
+    --summary /path/to/summary.csv \
+    --metadata /path/to/Supplementary_table2.tsv \
+    --output /path/to/merged_summary.csv \
+    --search-amp-binding \
+    --report /path/to/report_bacteria.txt
+ ```bash
+
+
+# Generated Outputs
+ Merged File (merged_summary.csv):
+
+- Contains all rows from the metadata file Supplementary_table2.tsv with data from summary.csv appended where available.
+- Metadata columns are positioned after the Assembly column, followed by summary columns (CAL_domain, AMP-binding, Total_size_MB, Total_size_GB).
+- If --search-amp-binding is not specified, the AMP-binding column will be excluded.
+
+# Report (report_bacteria.txt) (if specified):
+# Summary Counts:
+
+- Total number of entries with Lineage containing "Bacteria".
+- Number of complete correspondences (Assembly, CAL_domain, and AMP-binding if specified).
+- Number of incomplete correspondences.
+- List of Assembly IDs with CAL_domain equal to 0:
+- Provides a detailed list of genomes with CAL_domain set to 0, facilitating the identification of specific cases that require further attention.
+
+
 
 ## License
 
