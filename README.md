@@ -2290,7 +2290,7 @@ Run the script via the command line, providing paths to the input and output fil
 
  ```bash
 python merge_summary_metadata.py --summary <path_to_summary.csv> --metadata <path_to_Supplementary_table2.tsv> --output <path_to_merged_summary.csv> [--search-amp-binding] [--report <path_to_report.txt>]
-c
+```
 
 # Arguments
 --summary: Required. Full path to the summary.csv file.
@@ -2309,9 +2309,7 @@ python merge_summary_metadata.py \
     --output /path/to/merged_summary.csv \
     --search-amp-binding \
     --report /path/to/report_bacteria.txt
- ```bash
-
-
+ ```
 # Generated Outputs
  Merged File (merged_summary.csv):
 
