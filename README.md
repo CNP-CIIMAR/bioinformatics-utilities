@@ -2056,7 +2056,7 @@ The script logs all actions, including errors and warnings, in a specified log f
 ## After all the data is prepared, just run:
 
  ```bash
-bigslice -i /mnt/disk-sdc/Fasta/Table_organization/bigslice --threshold 0.3 -t 16 bigslice_output
+bigslice -i /mnt/disk-sdc/Fasta/Table_organization/bigslice --threshold 300 -t 16 bigslice_output
  ```
 
 # OBS: Considering that the bigslice installation step was performed previously.
